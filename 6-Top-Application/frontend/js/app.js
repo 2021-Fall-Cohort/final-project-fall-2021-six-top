@@ -20,6 +20,29 @@ function startNewTicket() {
     cardLabel1.innerText = "Entrees";
     entreeCard.appendChild(cardLabel1);
 
+    entreeCard.addEventListener("click", () => {
+
+        fetch("http://localhost:8080/Floor/Entrees")
+        .then((res) => res.json())
+        .then((entreeJson) => {
+
+            clearChildren(mainFloorPage);
+            entreeJson.forEach(entree => {
+
+                const entreeCard = document.createElement("div")
+                entreeCard.className = "cards";
+                mainFloorPage.appendChild(entreeCard);
+
+                const cardLabel1 = document.createElement("h1")
+                cardLabel1.className = "cardLabels";
+                cardLabel1.innerText = entree.name; 
+                entreeCard.appendChild(cardLabel1);
+                
+            });
+
+        })
+    })
+
     /// Sides Card
     const sidesCard = document.createElement("div");
     sidesCard.className = "cards";
@@ -63,3 +86,9 @@ function startNewTicket() {
 
     console.log("started a new ticket...");
 }
+
+function clearChildren(element) {
+    while (element.firstChild) {
+      element.removeChild(element.lastChild);
+    }
+  }

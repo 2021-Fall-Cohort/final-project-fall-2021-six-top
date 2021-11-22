@@ -14,8 +14,9 @@ public class Populator implements CommandLineRunner {
     private EntreeRepository entreeRepo;
     private NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo;
     private SideRepository sideRepo;
+    private TicketRepository ticketRepo;
 
-    public Populator(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo) {
+    public Populator(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, TicketRepository ticketRepo ) {
         this.alcoholicDrinkRepo = alcoholicDrinkRepo;
         this.appetizerRepo = appetizerRepo;
         this.dessertRepo = dessertRepo;
@@ -23,6 +24,7 @@ public class Populator implements CommandLineRunner {
         this.entreeRepo = entreeRepo;
         this.nonAlcoholicDrinkRepo = nonAlcoholicDrinkRepo;
         this.sideRepo = sideRepo;
+        this.ticketRepo = ticketRepo;
     }
 
     @Override
@@ -61,6 +63,7 @@ public class Populator implements CommandLineRunner {
         entreeRepo.save(cheeseBurger);
 
         Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.50f, "Steak, onions, and bell peppers grilled and tooped with cheese. served on a hoagie roll", true);
+        entreeRepo.save(phillyCheeseSteak);
 
         /////////////////////////////
         ////    Sides Section   ////
@@ -95,6 +98,11 @@ public class Populator implements CommandLineRunner {
 
         Employee moNerong = new Employee("Mo", "Nerong", "Manager");
         employeeRepo.save(moNerong);
+
+
+        Ticket testTicket = new Ticket(phillyCheeseSteak);  ///
+        ticketRepo.save(testTicket);
+
 
     }
 }
