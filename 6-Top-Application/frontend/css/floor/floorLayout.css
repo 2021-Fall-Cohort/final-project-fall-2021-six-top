@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(197, 205, 211);
+}
+
+.mainFloorPage {
+    width: 100%;
+    justify-content: center;
+}
+
+.ticketButtonDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.newTicketButton {
+    width: 15rem;
+    height: 4rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+}
+
+.openTicketButton {
+    width: 15rem;
+    height: 4rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+}
+
+.openTicketsDiv {
+    display: flex;
+    width: 100%;
+    height:fit-content;
+    justify-content: center;
+}
+
+.courseDiv {
+    display: flex;
+    justify-content: center;
+    width: 90rem;
+    height: fit-content;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    margin-top: 4rem;
+    width: 10rem;
+    height: 15rem;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(0, 0, 0);
+    margin-right: 5px;
+    margin-left: 5px;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkslategray;
+}
+
+.orderDiv {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.orderWindow {
+    display: flex;
+    background-color: rgb(197, 211, 206);
+    height: 30rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    justify-content: center;
+    align-items: center;
+    
+}

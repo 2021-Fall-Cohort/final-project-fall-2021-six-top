@@ -1,0 +1,17 @@
+###
+GET http://localhost:8080/Floor/AlcoholicDrinks
+
+###
+GET http://localhost:8080/Floor/Appetizers
+
+###
+GET http://localhost:8080/Floor/Desserts
+
+###
+GET http://localhost:8080/Floor/Entrees
+
+###
+GET http://localhost:8080/Floor/NonAlcoholicDrinks
+
+###
+GET http://localhost:8080/Floor/Sides
