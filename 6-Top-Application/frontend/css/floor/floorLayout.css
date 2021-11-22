@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(197, 205, 211);
+}
+
+.mainFloorPage {
+    width: 100%;
+    justify-content: center;
+}
+
+.ticketButtonDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.newTicketButton {
+    width: 15rem;
+    height: 4rem;
+    border-radius: 30px;
+    border-width: 4px;
+
+    font-size: x-large;
+}
+
+.openTicketsDiv {
+    display: flex;
+    width: 100%;
+    height:fit-content;
+}
+
+.courseDiv {
+    display: flex;
+    justify-content: space-around;
+    width: 90rem;
+    height: fit-content;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cards {
+    display: flex;
+    margin-top: 4rem;
+    width: 18rem;
+    height: 20rem;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(0, 0, 0);
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkslategray;
+}

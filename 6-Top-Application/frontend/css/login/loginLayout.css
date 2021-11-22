@@ -1,0 +1,27 @@
+body {
+    background-color: slategray;
+}
+
+.mainLoginPage {
+    display: flex;
+    justify-content: center;
+  
+}
+
+.tempDiv {
+    display: flex;
+    position: fixed;
+    margin-top: 10rem;
+    justify-content: space-around;
+    width: 30rem;
+}
+
+.tempDiv a {
+    text-decoration: none;
+    font-size: xx-large;
+    color: lightgrey;   
+}
+
+a:hover {
+    text-shadow: 2px 2px darkslategrey;
+}
