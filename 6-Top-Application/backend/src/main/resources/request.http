@@ -15,3 +15,6 @@ GET http://localhost:8080/Floor/NonAlcoholicDrinks
 
 ###
 GET http://localhost:8080/Floor/Sides
+
+###
+GET http://localhost:8080/Floor/Tickets
