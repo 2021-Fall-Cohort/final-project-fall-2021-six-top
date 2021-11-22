@@ -18,8 +18,9 @@ public class FloorController {
     private EntreeRepository entreeRepo;
     private NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo;
     private SideRepository sideRepo;
+    private TicketRepository ticketRepo;
 
-    public FloorController(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo) {
+    public FloorController(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, TicketRepository ticketRepo) {
         this.alcoholicDrinkRepo = alcoholicDrinkRepo;
         this.appetizerRepo = appetizerRepo;
         this.dessertRepo = dessertRepo;
@@ -27,9 +28,8 @@ public class FloorController {
         this.entreeRepo = entreeRepo;
         this.nonAlcoholicDrinkRepo = nonAlcoholicDrinkRepo;
         this.sideRepo = sideRepo;
+        this.ticketRepo = ticketRepo;
     }
-
-
 
     @GetMapping("/AlcoholicDrinks")
     public Iterable<AlcoholicDrink> retrieveAllAlcoholicDrinks() { return alcoholicDrinkRepo.findAll(); }
@@ -50,5 +50,10 @@ public class FloorController {
 
     @GetMapping("/Sides")
     public Iterable<Side> retrieveAllSides() { return sideRepo.findAll(); }
+
+    /////   Ticket Controls     /////
+
+@GetMapping("/Tickets")
+    public Iterable<Ticket> retrieveAllTickets() { return ticketRepo.findAll(); }
 
 }

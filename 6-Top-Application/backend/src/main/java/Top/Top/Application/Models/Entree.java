@@ -5,37 +5,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Entree {
+public class Entree extends Item{
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String name;
-    private Float price;
     private String description;
     private Boolean available;
 
     public Entree(String name, Float price, String description, Boolean available) {
-        this.name = name;
-        this.price = price;
+        super(name, price);
+
         this.description = description;
         this.available = available;
     }
 
     public Entree() {
+
     }
 
     public Long getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Float getPrice() {
-        return price;
     }
 
     public String getDescription() {
