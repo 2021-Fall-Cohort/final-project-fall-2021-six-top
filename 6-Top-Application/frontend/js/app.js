@@ -1,8 +1,16 @@
+import {openOrderWindow} from "./orderWindow.js"
+
 const mainFloorPage = document.querySelector(".mainFloorPage")
 
 const newTicketButton = document.querySelector(".newTicketButton")
 newTicketButton.addEventListener("click", () => {
     startNewTicket()
+    openOrderWindow()
+})
+
+const existingTicketButton = document.querySelector(".openTickets")
+existingTicketButton.addEventListener("click", ()=> {
+    // openTickets();
 })
 
 function startNewTicket() {
