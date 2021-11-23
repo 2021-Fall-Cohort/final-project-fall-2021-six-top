@@ -18,7 +18,6 @@ public class Side extends Item{
         this.description = description;
         this.available = available;
     }
-
     public Side() {
     }
 

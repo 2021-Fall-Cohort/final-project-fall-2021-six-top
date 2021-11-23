@@ -8,13 +8,54 @@ newTicketButton.addEventListener("click", () => {
     openOrderWindow()
 })
 
-const existingTicketButton = document.querySelector(".openTickets")
-existingTicketButton.addEventListener("click", ()=> {
-    // openTickets();
+const existingTicketButton = document.querySelector(".openTicketButton")
+existingTicketButton.addEventListener("click", () => {
+    
+    fetch("http://localhost:8080/Tickets/OpenTickets")
+    .then((res) => res.json())
+    .then((openTicketJson) => {
+
+        console.log(openTicketJson);
+        // clearChildren(mainFloorPage);
+        openTicketJson.forEach(CurrentOpenTicket => {
+
+            const orderCard = document.createElement("div")
+            orderCard.className = "cards";
+            
+            orderCard.addEventListener("click", () => {            //// functionality for expanding a single ticket
+              
+            })                                                
+
+            mainFloorPage.appendChild(orderCard);
+            const cardLabel1 = document.createElement("h1")
+            cardLabel1.className = "cardLabels";
+            cardLabel1.innerText = CurrentOpenTicket.id; 
+            orderCard.appendChild(cardLabel1);
+            
+        });
+    })
 })
 
 function startNewTicket() {
     
+    const newTicketJson = {
+
+    /// empty, pojo has ID only..        
+
+    }
+    fetch(`http://localhost:8080/Tickets/newTicket`,{
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTicketJson)
+    })
+    .then((res) => res.json())
+    .then((newTicketJson) => {
+        console.log("ID: " + newTicketJson.id);
+    })
+
+
     
     const courseDiv = document.createElement("div")
     courseDiv.className = "courseDiv";
