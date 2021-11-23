@@ -1,5 +1,5 @@
 body {
-    background-color: slategray;
+    background-color: #ee7840
 }
 
 .mainLoginPage {
@@ -19,9 +19,44 @@ body {
 .tempDiv a {
     text-decoration: none;
     font-size: xx-large;
-    color: lightgrey;   
+    color: #f0dac0;   
 }
 
 a:hover {
     text-shadow: 2px 2px darkslategrey;
+}
+
+.employeeLoginDiv {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #f6a970;
+    border-radius: 10px;
+}
+
+.serverLink {
+    background-color: #f6a970;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.kitchenLink {
+    background-color: #f6a970;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.managerLink {
+    background-color: #f6a970;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
 }
