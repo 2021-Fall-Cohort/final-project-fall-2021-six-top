@@ -1,4 +1,5 @@
-import {openOrderWindow} from "./orderWindow.js"
+import { openOrderWindow } from "./orderWindow.js"
+import { openTabsWindow } from "./openTickets.js"
 
 const mainFloorPage = document.querySelector(".mainFloorPage")
 
@@ -8,9 +9,10 @@ newTicketButton.addEventListener("click", () => {
     openOrderWindow()
 })
 
-const existingTicketButton = document.querySelector(".openTickets")
+const existingTicketButton = document.querySelector(".openTicketButton")
 existingTicketButton.addEventListener("click", ()=> {
-    // openTickets();
+    openTabsWindow();
+    console.log("Ya did it")
 })
 
 function startNewTicket() {
@@ -70,4 +72,6 @@ function startNewTicket() {
 
 
     console.log("started a new ticket...");
+
+    
 }
