@@ -1,7 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: rgb(197, 205, 211);
+    background-color: #ee7840
 }
 
 .mainFloorPage {
@@ -15,20 +15,25 @@ body {
     justify-content: center;
 }
 
+
 .newTicketButton {
+    background-color: #f6a970;
     width: 15rem;
     height: 4rem;
     border-radius: 30px;
     /* border-width: 4px; */
     font-size: x-large;
+    border-color: #5c5f30;
 }
 
 .openTicketButton {
+    background-color: #f6a970;
     width: 15rem;
     height: 4rem;
     border-radius: 30px;
     /* border-width: 4px; */
     font-size: x-large;
+    border-color: #5c5f30;;
 }
 
 .openTicketsDiv {
@@ -52,18 +57,18 @@ body {
 .cards {
     display: flex;
     margin-top: 4rem;
-    width: 10rem;
-    height: 15rem;
+    width: 8rem;
+    height: 10rem;
     border-style: solid;
     border-radius: 20px;
-    border-color: rgb(0, 0, 0);
+    border-color: #5c5f30;;
     margin-right: 5px;
     margin-left: 5px;
-
     justify-content: center;
     align-items: center;
-
-    background-color: darkslategray;
+    background-color: #f0dac0;
+    border-color: #5c5f30;
+    font-size: x-small;
 }
 
 .orderDiv {
@@ -74,7 +79,7 @@ body {
 
 .orderWindow {
     display: flex;
-    background-color: rgb(197, 211, 206);
+    background-color: #f0dac0;
     height: 30rem;
     width: 100%;
     margin-top: 10px;
@@ -84,5 +89,97 @@ body {
     border-style: solid;
     justify-content: center;
     align-items: center;
+    border-color: #5c5f30;
     
+}
+
+.openTabs {
+    display: flex;
+    background-color: #f0dac0;
+    height: 30rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-color: #5c5f30;
+    justify-content: center;
+    align-items: center;
+}
+
+.employeeLoginForm {
+    background-color: #f6a970;
+    padding-top: 20px;
+}
+
+.pinInput {
+    height: 30px;
+}
+
+.foodListItem {
+    list-style-type: none;
+}
+
+.drinkListItem {
+    list-style-type: none;
+}
+
+.sendToKitchenButton {
+    background-color: #ee7840;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.kitchenButtonHolder {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #f0dac0;
+    justify-content: center;  display: flex;
+    justify-content: flex-end;
+}
+
+.foodItemList {
+background-color: #5C5F30;
+ color: #f0dac0;
+}
+
+.splitTabButtonHolder {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #f0dac0;
+    justify-content: center;  display: flex;
+    justify-content: flex-end;
+}
+
+.splitTabButton {
+    background-color: #ee7840;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
