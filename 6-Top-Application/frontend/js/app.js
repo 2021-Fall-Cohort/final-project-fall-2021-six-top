@@ -6,6 +6,8 @@ newTicketButton.addEventListener("click", () => {
 })
 
 function startNewTicket() {
+    
+    
     const courseDiv = document.createElement("div")
     courseDiv.className = "courseDiv";
     mainFloorPage.appendChild(courseDiv);
@@ -31,6 +33,11 @@ function startNewTicket() {
 
                 const entreeCard = document.createElement("div")
                 entreeCard.className = "cards";
+                
+                entreeCard.addEventListener("click", () => {            //// functionality for adding entree to ticket here
+                    fetch
+                })                                                
+
                 mainFloorPage.appendChild(entreeCard);
 
                 const cardLabel1 = document.createElement("h1")
@@ -91,4 +98,4 @@ function clearChildren(element) {
     while (element.firstChild) {
       element.removeChild(element.lastChild);
     }
-  }
+}
