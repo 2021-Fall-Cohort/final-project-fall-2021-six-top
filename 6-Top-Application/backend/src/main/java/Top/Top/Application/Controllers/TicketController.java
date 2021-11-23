@@ -27,7 +27,7 @@ public class TicketController {
     }
 
     @PostMapping("/newTicket")                                  ///// Questionable //////
-    public Optional<Ticket> startNewTicket() {
+    public Optional<Ticket> startNewTicket(@RequestBody Ticket ticket) {
         Ticket newTicket = new Ticket();
         ticketRepo.save(newTicket);
         Long tempId = newTicket.getId();

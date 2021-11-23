@@ -15,8 +15,6 @@ function openOrderWindow() {
     orderWindowCard.innerText = "Needs fleshed out in here";
     
 
-
-
 }
 
 export {openOrderWindow}
