@@ -10,12 +10,54 @@ newTicketButton.addEventListener("click", () => {
 })
 
 const existingTicketButton = document.querySelector(".openTicketButton")
-existingTicketButton.addEventListener("click", ()=> {
-    openTabsWindow();
-    console.log("Ya did it")
+existingTicketButton.addEventListener("click", () => {
+    
+    fetch("http://localhost:8080/Tickets/OpenTickets")
+    .then((res) => res.json())
+    .then((openTicketJson) => {
+
+        console.log(openTicketJson);
+        // clearChildren(mainFloorPage);
+        openTicketJson.forEach(CurrentOpenTicket => {
+
+            const orderCard = document.createElement("div")
+            orderCard.className = "cards";
+            
+            orderCard.addEventListener("click", () => {            //// functionality for expanding a single ticket
+              
+            })                                                
+
+            mainFloorPage.appendChild(orderCard);
+            const cardLabel1 = document.createElement("h1")
+            cardLabel1.className = "cardLabels";
+            cardLabel1.innerText = CurrentOpenTicket.id; 
+            orderCard.appendChild(cardLabel1);
+            
+        });
+    })
 })
 
 function startNewTicket() {
+    
+    const newTicketJson = {
+
+    /// empty, pojo has ID only..        
+
+    }
+    fetch(`http://localhost:8080/Tickets/newTicket`,{
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTicketJson)
+    })
+    .then((res) => res.json())
+    .then((newTicketJson) => {
+        console.log("ID: " + newTicketJson.id);
+    })
+
+
+    
     const courseDiv = document.createElement("div")
     courseDiv.className = "courseDiv";
     mainFloorPage.appendChild(courseDiv);
@@ -29,6 +71,34 @@ function startNewTicket() {
     cardLabel1.className = "cardLabels";
     cardLabel1.innerText = "Entrees";
     entreeCard.appendChild(cardLabel1);
+
+    entreeCard.addEventListener("click", () => {
+
+        fetch("http://localhost:8080/Floor/Entrees")
+        .then((res) => res.json())
+        .then((entreeJson) => {
+
+            clearChildren(mainFloorPage);
+            entreeJson.forEach(entree => {
+
+                const entreeCard = document.createElement("div")
+                entreeCard.className = "cards";
+                
+                entreeCard.addEventListener("click", () => {            //// functionality for adding entree to ticket here
+                    fetch
+                })                                                
+
+                mainFloorPage.appendChild(entreeCard);
+
+                const cardLabel1 = document.createElement("h1")
+                cardLabel1.className = "cardLabels";
+                cardLabel1.innerText = entree.name; 
+                entreeCard.appendChild(cardLabel1);
+                
+            });
+
+        })
+    })
 
     /// Sides Card
     const sidesCard = document.createElement("div");
@@ -72,6 +142,10 @@ function startNewTicket() {
 
 
     console.log("started a new ticket...");
+}
 
-    
+function clearChildren(element) {
+    while (element.firstChild) {
+      element.removeChild(element.lastChild);
+    }
 }

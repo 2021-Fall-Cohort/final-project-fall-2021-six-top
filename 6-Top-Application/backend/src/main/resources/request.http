@@ -15,3 +15,14 @@ GET http://localhost:8080/Floor/NonAlcoholicDrinks
 
 ###
 GET http://localhost:8080/Floor/Sides
+
+###
+GET http://localhost:8080/Tickets/OpenTickets
+
+###
+POST http://localhost:8080/Tickets/newTicket
+Content-Type: application/json
+
+{
+    
+}
