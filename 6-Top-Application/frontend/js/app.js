@@ -1,4 +1,5 @@
-import {openOrderWindow} from "./orderWindow.js"
+import { openOrderWindow } from "./orderWindow.js"
+import { openTabsWindow } from "./openTickets.js"
 
 const mainFloorPage = document.querySelector(".mainFloorPage")
 
