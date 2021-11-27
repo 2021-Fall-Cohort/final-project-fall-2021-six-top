@@ -2,46 +2,13 @@ import {openOrderWindow} from "./orderWindow.js"
 
 const mainFloorPage = document.querySelector(".mainFloorPage")
 
-const newTicketButton = document.querySelector(".newTicketButton")
-newTicketButton.addEventListener("click", () => {
-    startNewTicket()
-    openOrderWindow()
-})
-
-const existingTicketButton = document.querySelector(".openTicketButton")
-existingTicketButton.addEventListener("click", () => {
-    
-    fetch("http://localhost:8080/Tickets/OpenTickets")
-    .then((res) => res.json())
-    .then((openTicketJson) => {
-
-        console.log(openTicketJson);
-        // clearChildren(mainFloorPage);
-        openTicketJson.forEach(CurrentOpenTicket => {
-
-            const orderCard = document.createElement("div")
-            orderCard.className = "cards";
-            
-            orderCard.addEventListener("click", () => {            //// functionality for expanding a single ticket
-              
-            })                                                
-
-            mainFloorPage.appendChild(orderCard);
-            const cardLabel1 = document.createElement("h1")
-            cardLabel1.className = "cardLabels";
-            cardLabel1.innerText = CurrentOpenTicket.id; 
-            orderCard.appendChild(cardLabel1);
-            
-        });
-    })
-})
+callNewTicketButton();
+callOpenTicketButton();
 
 function startNewTicket() {
     
-    const newTicketJson = {
-
-    /// empty, pojo has ID only..        
-
+    const newTicketJson = {    
+        // has ID only.
     }
     fetch(`http://localhost:8080/Tickets/newTicket`,{
         method: 'POST', 
@@ -53,9 +20,10 @@ function startNewTicket() {
     .then((res) => res.json())
     .then((newTicketJson) => {
         console.log("ID: " + newTicketJson.id);
+
     })
 
-
+    
     
     const courseDiv = document.createElement("div")
     courseDiv.className = "courseDiv";
@@ -84,7 +52,10 @@ function startNewTicket() {
                 entreeCard.className = "cards";
                 
                 entreeCard.addEventListener("click", () => {            //// functionality for adding entree to ticket here
-                    fetch
+
+                    console.log(entree.id);
+                    fetch(`http://localhost:8080/Tickets/${newVar}/addItem/${entree.id}`)       /// stuck here
+                    
                 })                                                
 
                 mainFloorPage.appendChild(entreeCard);
@@ -143,8 +114,61 @@ function startNewTicket() {
     console.log("started a new ticket...");
 }
 
+function callOpenTicketButton() {
+    const openTicketButton = document.querySelector(".openTicketButton")
+    openTicketButton.addEventListener("click", () => {
+    
+    fetch("http://localhost:8080/Tickets/OpenTickets")
+    .then((res) => res.json())
+    .then((openTicketJson) => {
+
+        console.log(openTicketJson);
+        // clearChildren(mainFloorPage);
+        openTicketJson.forEach(CurrentOpenTicket => {
+
+            const orderCard = document.createElement("div")
+            orderCard.className = "cards";
+            
+            orderCard.addEventListener("click", () => {                         //// functionality for expanding a single ticket
+
+                var totalPrice = 0;
+
+                CurrentOpenTicket.ticketItems.forEach(item => {
+                    const itemLabel = document.createElement("h3");
+                    itemLabel.innerText = item.name + " " + item.price;
+                    totalPrice += item.price;
+                    orderCard.appendChild(itemLabel);
+                    // console.log("total price: " + totalPrice.toFixed(2))
+
+                })
+
+                const totalPriceLable = document.createElement("h2")
+                totalPriceLable.innerText = "Total: " + totalPrice.toFixed(2);
+                orderCard.appendChild(totalPriceLable);                             //appending totals 
+
+            })                                                
+
+            mainFloorPage.appendChild(orderCard);
+            const cardLabel1 = document.createElement("h1")
+            cardLabel1.className = "cardLabels";
+            cardLabel1.innerText = CurrentOpenTicket.id; 
+            orderCard.appendChild(cardLabel1);
+            
+        });
+    })
+})}
+
 function clearChildren(element) {
     while (element.firstChild) {
       element.removeChild(element.lastChild);
     }
+}
+
+function callNewTicketButton() {
+
+    const newTicketButton = document.querySelector(".newTicketButton")
+    newTicketButton.addEventListener("click", () => {
+    startNewTicket()
+    openOrderWindow()
+})
 }

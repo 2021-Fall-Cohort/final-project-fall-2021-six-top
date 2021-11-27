@@ -12,6 +12,10 @@ public class Ticket {
     @GeneratedValue
     private Long id;
 
+    private int year;
+    private int month;
+    private int day;
+
     @ElementCollection
     private Collection<Item> ticketItems;
 
@@ -30,5 +34,20 @@ public class Ticket {
         ticketItems.add(item);
     }
 
+    public Collection<Item> getTicketItems() {
+        return ticketItems;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
 
 }

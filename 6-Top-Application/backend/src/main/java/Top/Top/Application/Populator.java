@@ -100,7 +100,7 @@ public class Populator implements CommandLineRunner {
         employeeRepo.save(moNerong);
 
 
-        Ticket testTicket = new Ticket(phillyCheeseSteak);  ///
+        Ticket testTicket = new Ticket(phillyCheeseSteak, mashedPotatoes, modelo);  ///
         ticketRepo.save(testTicket);
 
 
