@@ -3,11 +3,23 @@ import { openTabsWindow } from "./openTickets.js"
 
 const mainFloorPage = document.querySelector(".mainFloorPage")
 
-callNewTicketButton();
-callOpenTicketButton();
+const newTicketButton = document.querySelector(".newTicketButton")
+mainFloorPage.appendChild(newTicketButton);
+newTicketButton.addEventListener("click", () => {
+    console.log("log: started new ticket");
+    startNewTicket();
+    openOrderWindow();
+})
+
+const openTicketButton = document.querySelector(".openTicketButton")
+openTicketButton.addEventListener("click", () => {
+    callOpenTicketButton();
+})
+
+
 
 function startNewTicket() {
-    
+    console.log("log: started new ticket");
     const newTicketJson = {    
         // has ID only.
     }
@@ -113,18 +125,15 @@ function startNewTicket() {
 
 
     console.log("started a new ticket...");
-}
+};
 
 function callOpenTicketButton() {
-    const openTicketButton = document.querySelector(".openTicketButton")
-    openTicketButton.addEventListener("click", () => {
+    console.log("log: called open tickets button function");
     
     fetch("http://localhost:8080/Tickets/OpenTickets")
     .then((res) => res.json())
     .then((openTicketJson) => {
 
-        console.log(openTicketJson);
-        // clearChildren(mainFloorPage);
         openTicketJson.forEach(CurrentOpenTicket => {
 
             const orderCard = document.createElement("div")
@@ -133,19 +142,28 @@ function callOpenTicketButton() {
             orderCard.addEventListener("click", () => {                         //// functionality for expanding a single ticket
 
                 var totalPrice = 0;
+                 
 
                 CurrentOpenTicket.ticketItems.forEach(item => {
                     const itemLabel = document.createElement("h3");
                     itemLabel.innerText = item.name + " " + item.price;
                     totalPrice += item.price;
                     orderCard.appendChild(itemLabel);
-                    // console.log("total price: " + totalPrice.toFixed(2))
+                    console.log("log: total price: " + totalPrice.toFixed(2))
 
                 })
 
-                const totalPriceLable = document.createElement("h2")
+                const priceLable = document.createElement("h2")
+                priceLable.innerText = "Price: " + totalPrice.toFixed(2);
+                orderCard.appendChild(priceLable);                             // appending totals 
+
+                const taxLable = document.createElement("h2");                 // total tax 
+                taxLable.innerText = "Tax: ";
+                orderCard.appendChild(taxLable);
+
+                const totalPriceLable = document.createElement("h2")           // total price + tax
                 totalPriceLable.innerText = "Total: " + totalPrice.toFixed(2);
-                orderCard.appendChild(totalPriceLable);                             //appending totals 
+                orderCard.appendChild(totalPriceLable);
 
             })                                                
 
@@ -157,19 +175,10 @@ function callOpenTicketButton() {
             
         });
     })
-})}
+}
 
 function clearChildren(element) {
     while (element.firstChild) {
       element.removeChild(element.lastChild);
     }
-}
-
-function callNewTicketButton() {
-
-    const newTicketButton = document.querySelector(".newTicketButton")
-    newTicketButton.addEventListener("click", () => {
-    startNewTicket()
-    openOrderWindow()
-})
-}
+};

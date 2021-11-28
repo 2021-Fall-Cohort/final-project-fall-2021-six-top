@@ -29,3 +29,28 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/Management/retrieveAllEmployees
+
+###
+POST http://localhost:8080/Management/addNewEmployee
+Content-Type: application/json
+
+{
+    "firstName": "Jerry",
+    "lastName": "Wilder",
+    "jobTitle": "Manager"
+}
+
+### 
+GET http://localhost:8080/Management/retrieveCompanyProfile/1
+
+
+/// broken ///
+###
+PATCH http://localhost:8080/Management/changeTaxRate/1 
+Content-Type: application/json
+
+{
+    "companyName": "Brew’d Awakening",
+    "companyAddress": "1609 Bad Route rd, Beach front city, fl 37099",
+    "taxRate": "0.08"
+}

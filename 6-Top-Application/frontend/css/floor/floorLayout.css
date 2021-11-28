@@ -56,9 +56,10 @@ body {
 
 .cards {
     display: flex;
+    flex-direction: column; 
     margin-top: 4rem;
     width: 8rem;
-    height: 10rem;
+    height: fit-content;
     border-style: solid;
     border-radius: 20px;
     border-color: #5c5f30;;
@@ -153,7 +154,7 @@ body {
 }
 
 .foodItemList {
-background-color: #5C5F30;
+ background-color: #5C5F30;
  color: #f0dac0;
 }
 

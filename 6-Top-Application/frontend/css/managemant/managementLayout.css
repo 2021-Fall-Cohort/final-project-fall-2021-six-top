@@ -1,3 +1,70 @@
+.mainManagementPage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    font-size: xx-large;
+}
+
 body {
     background-color: cornflowerblue;
+}
+
+.employeeInfoDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    width: 18rem;
+    height:fit-content;
+    background-color: aliceblue;
+    border-color: black;
+    border-radius: 8px;
+
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.taxSelectorCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    margin-left: 2rem;
+    width: 20rem;
+    height:fit-content;
+    background-color: aliceblue;
+    border-color: black;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+
+}
+
+.taxInputBox {
+    margin: 1rem;
+    max-height: 2rem;
+}
+
+.taxRateSelectorButton {
+    margin: 1rem;
+    margin-top: .1rem;
+    max-height: 2rem;
+}
+
+.bussinessProfileDiv {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width:95%;
+    height:30rem;
+
+    background-color: aliceblue;
+    border-color: black;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
 }
