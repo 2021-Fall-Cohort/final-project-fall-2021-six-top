@@ -48,6 +48,18 @@ public class Populator implements CommandLineRunner {
         alcoholicDrinkRepo.save(modelo);
 
         /////////////////////////////////
+        ////    NonAlcoholic Drink Section   ////
+        NonAlcoholicDrink coke = new NonAlcoholicDrink("Coke", 2.99F, false, true);
+        nonAlcoholicDrinkRepo.save(coke);
+
+        NonAlcoholicDrink sprite = new NonAlcoholicDrink("Sprite", 2.99f, false, true);
+        nonAlcoholicDrinkRepo.save(sprite);
+
+        NonAlcoholicDrink canadaDry = new NonAlcoholicDrink("Canada Dry", 3.99f, false,true);
+        nonAlcoholicDrinkRepo.save(canadaDry);
+        /////////////////////////////////
+
+
         ////    Appetizer Section   ////
         Appetizer cheeseSticks = new Appetizer("Mozzarella Sticks", 4.99f, "7 breaded and fried mozzarella cheese sticks, served with ranch or marinara sauce", true);
         appetizerRepo.save(cheeseSticks);

@@ -23,10 +23,6 @@ GET http://localhost:8080/Tickets/OpenTickets
 POST http://localhost:8080/Tickets/newTicket
 Content-Type: application/json
 
-{
-    
-}
-
 ###
 GET http://localhost:8080/Management/retrieveAllEmployees
 

@@ -35,8 +35,6 @@ function openOrderWindow() {
     orderDiv.appendChild(kitchenButtonContainer);
     kitchenButtonContainer.appendChild(splitTabButton);
 
-  
-
 }
 
 export {openOrderWindow}
