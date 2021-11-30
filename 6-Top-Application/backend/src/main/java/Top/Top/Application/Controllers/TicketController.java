@@ -1,6 +1,9 @@
 package Top.Top.Application.Controllers;
+import Top.Top.Application.Models.Entree;
+import Top.Top.Application.Models.Item;
 import Top.Top.Application.Models.Ticket;
 import Top.Top.Application.Repositories.ClosedTicketRepository;
+import Top.Top.Application.Repositories.EntreeRepository;
 import Top.Top.Application.Repositories.TicketRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +16,12 @@ public class TicketController {
     private TicketRepository ticketRepo;
     private ClosedTicketRepository closedTicketRepo;
 
-    public TicketController(TicketRepository ticketRepo, ClosedTicketRepository closedTicketRepo) {
+    private EntreeRepository entreeRepo;
+
+    public TicketController(TicketRepository ticketRepo, ClosedTicketRepository closedTicketRepo, EntreeRepository entreeRepo) {
         this.ticketRepo = ticketRepo;
         this.closedTicketRepo = closedTicketRepo;
+        this.entreeRepo = entreeRepo;
     }
 
     @GetMapping("/OpenTickets")
@@ -42,6 +48,11 @@ public class TicketController {
         return "redirect:/html/Floor.html";                                     /// get redirect working ///
     }
 
-
-
+    @PatchMapping("/{id}/addItem/{itemId}")
+    public void addItemToTicket(@PathVariable Long id, @PathVariable long itemId) {
+        Entree tempEntree = entreeRepo.findById(itemId).get();
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        tempTicket.addToTicket(tempEntree);
+        ticketRepo.save(tempTicket);
+    }
 }

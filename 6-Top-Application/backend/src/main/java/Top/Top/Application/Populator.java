@@ -15,8 +15,9 @@ public class Populator implements CommandLineRunner {
     private NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo;
     private SideRepository sideRepo;
     private TicketRepository ticketRepo;
+    private CompanyProfileRepository companyProfileRepo;
 
-    public Populator(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, TicketRepository ticketRepo ) {
+    public Populator(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, TicketRepository ticketRepo, CompanyProfileRepository companyProfileRepo) {
         this.alcoholicDrinkRepo = alcoholicDrinkRepo;
         this.appetizerRepo = appetizerRepo;
         this.dessertRepo = dessertRepo;
@@ -25,10 +26,15 @@ public class Populator implements CommandLineRunner {
         this.nonAlcoholicDrinkRepo = nonAlcoholicDrinkRepo;
         this.sideRepo = sideRepo;
         this.ticketRepo = ticketRepo;
+        this.companyProfileRepo = companyProfileRepo;
     }
 
     @Override
     public void run(String... args)throws Exception {
+
+        ////    initial co. profile     ////
+        CompanyProfile administrator = new CompanyProfile("Brew’d Awakening", "1609 Bad Route rd, Beach front city, fl 37099", 0.06f);
+        companyProfileRepo.save(administrator);
 
         /////////////////////////////////////
         ////    Alcoholic Drink Section ////
@@ -100,7 +106,7 @@ public class Populator implements CommandLineRunner {
         employeeRepo.save(moNerong);
 
 
-        Ticket testTicket = new Ticket(phillyCheeseSteak);  ///
+        Ticket testTicket = new Ticket(phillyCheeseSteak, mashedPotatoes, modelo);  ///
         ticketRepo.save(testTicket);
 
 

@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="1"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=500px, initial-scale=1.0"/>
+    <meta http-equiv="refresh" content="1" />
 
-    <link rel="stylesheet" href="/css/login/loginLayout.css">
-    <link rel="stylesheet" href="/css/login/loginStyle.css">
+    <link rel="stylesheet" href="/css/login/loginLayout.css" />
+    <link rel="stylesheet" href="/css/login/loginStyle.css" />
     <title>Login</title>
-</head>
-<body>
-    <div class="mainLoginPage">
-
-        <div class="tempDiv">
-            <a href="/html/floor.html" class="serverLink" >Servers</a>
-            <a href="/html/kitchen.html" class="kitchenLink">Kitchen</a>
-            <a href="/html/management.html" class="managerLink">Managers</a>
+  </head>
+  <body>    
+      
+    <!-- <div class="mainLoginPage">
+    <div class="tempDiv"> -->
+    <nav role="navigation">
+        <div id="openMenu">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <a href="#"><li>Login</li></a>
+            <a href="/html/floor.html" class="serverLink"><li>Server</li></a>
+            <a href="/html/kitchen.html" class="kitchenLink"><li>Transaction</li></a>
+            <a href="/html/management.html"  class="managerLink"><li>Manager Settings</li></a>
+          </ul>
         </div>
+    </nav>
+      </div>
     </div>
 
     <div class="employeeLoginDiv">
-        <form class="employeeLoginForm">
-            <input type="text" name="pin" pattern="[0-9]{4}" maxlength="4" class="pinInput" placeholder="Enter Employee Pin">
-            <input type="submit" value="Clock In">
-        </form>
+      <form class="employeeLoginForm">
+        <input
+          type="text"
+          name="pin"
+          pattern="[0-9]{4}"
+          maxlength="4"
+          class="pinInput"
+          placeholder="Enter Employee Pin"
+        />
+        <input type="submit" value="Clock In" />
+      </form>
     </div>
 
-    <script src="/js/app.js"></script>
-</body>
+    <!-- Use any element to open the sidenav -->
+
+    <script src="/js/app.js" type="module"></script>
+  </body>
 </html>
+
+<!-- This html should only consist of the the POS Company name, the hamburger navigation bar
+, and the login terminal in the center of the screen.-->  
