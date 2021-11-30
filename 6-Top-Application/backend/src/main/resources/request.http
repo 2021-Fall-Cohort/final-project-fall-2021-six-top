@@ -45,8 +45,16 @@ GET http://localhost:8080/Management/retrieveCompanyProfile/1
 PATCH http://localhost:8080/Management/changeTaxRate/1 
 Content-Type: application/json
 
-{
-    "companyName": "Brew’d Awakening",
-    "companyAddress": "1609 Bad Route rd, Beach front city, fl 37099",
-    "taxRate": "0.08"
-}
+0.07
+
+###
+PATCH http://localhost:8080/Tickets/22/addItem/
+Content-Type: application/json
+
+  {
+    "name": "Cheese Burger",
+    "price": 8.99,
+    "description": "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries",
+    "available": true
+  }
+

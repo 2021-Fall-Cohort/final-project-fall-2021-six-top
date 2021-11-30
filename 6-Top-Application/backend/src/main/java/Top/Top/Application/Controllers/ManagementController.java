@@ -28,12 +28,10 @@ public class ManagementController {
     }
 
     @PatchMapping("/changeTaxRate/{id}")
-    public CompanyProfile changeTaxRate(@PathVariable Long id, @RequestBody CompanyProfile profileToEdit, String newTaxRateString) {
-        if(newTaxRateString != null) {
-            CompanyProfile currentProfile = companyProfileRepo.findById(id).get();
-            currentProfile.changeTaxRate(newTaxRateString);
-            companyProfileRepo.save(currentProfile);
-        }
+    public CompanyProfile changeTaxRate(@PathVariable Long id,  @RequestBody String newTaxRateString) {
+        CompanyProfile companyProfile = companyProfileRepo.findById(id).get();
+        companyProfile.changeTaxRate(newTaxRateString);
+        companyProfileRepo.save(companyProfile);
         return companyProfileRepo.findById(id).get();
     }
 
