@@ -15,6 +15,7 @@ function openOrderWindow() {
 
     const orderWindowHeaderText = document.createElement("h1")
     orderWindowCard.innerText = "New Order Window, needs orders";
+    // Generated ID in top left corner to specify order number
 
     const kitchenButtonContainer = document.createElement("div")
     kitchenButtonContainer.className = "kitchenButtonHolder"
@@ -25,14 +26,16 @@ function openOrderWindow() {
     orderDiv.appendChild(kitchenButtonContainer);
     kitchenButtonContainer.appendChild(sendToKitchenButon);
 
-    const splitTabButtonContainer = document.createElement("div");
-    splitTabButtonContainer.className = "splitTabButtonHolder"
-
     const splitTabButton = document.createElement("button");
     splitTabButton.className = "splitTabButton";
     splitTabButton.innerText = "Split Tab";
-    orderDiv.appendChild(splitTabButtonContainer);
-    splitTabButtonContainer.appendChild(splitTabButton);
+    // split tab should go per order card per table
+
+
+    orderDiv.appendChild(kitchenButtonContainer);
+    kitchenButtonContainer.appendChild(splitTabButton);
+
+  
 
 }
 

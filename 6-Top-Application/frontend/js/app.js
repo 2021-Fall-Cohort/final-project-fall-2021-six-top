@@ -1,7 +1,10 @@
 import { openOrderWindow } from "./orderWindow.js"
 import { openTabsWindow } from "./openTickets.js"
+import { buildNav } from "./nav.js"
 
 const mainFloorPage = document.querySelector(".mainFloorPage")
+
+// buildNav();
 
 const newTicketButton = document.querySelector(".newTicketButton")
 mainFloorPage.appendChild(newTicketButton);
@@ -14,12 +17,12 @@ newTicketButton.addEventListener("click", () => {
 const openTicketButton = document.querySelector(".openTicketButton")
 openTicketButton.addEventListener("click", () => {
     callOpenTicketButton();
+    openOrderWindow();
 })
 
 
 
 function startNewTicket() {
-    console.log("log: started new ticket");
     const newTicketJson = {    
         // has ID only.
     }
@@ -142,7 +145,7 @@ function callOpenTicketButton() {
             orderCard.addEventListener("click", () => {                         //// functionality for expanding a single ticket
 
                 var totalPrice = 0;
-                 
+                // tax calcs go here??
 
                 CurrentOpenTicket.ticketItems.forEach(item => {
                     const itemLabel = document.createElement("h3");
