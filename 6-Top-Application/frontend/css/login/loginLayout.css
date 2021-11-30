@@ -6,7 +6,6 @@ body {
 .mainLoginPage {
     display: flex;
     justify-content: center;
-  
 }
 
 .tempDiv {
@@ -26,17 +25,27 @@ body {
 a:hover {
     text-shadow: 2px 2px darkslategrey;
 }
-
-.employeeLoginDiv {
+.companyName {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: #f6a970;
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: rgba(128, 153, 194, 0.972);
     border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.employeeLoginDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .serverLink {
-    background-color: #f6a970;
+    /* background-color: #f6a970; */
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -45,7 +54,6 @@ a:hover {
 }
 
 .kitchenLink {
-    background-color: #f6a970;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -54,7 +62,6 @@ a:hover {
 }
 
 .managerLink {
-    background-color: #f6a970;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;

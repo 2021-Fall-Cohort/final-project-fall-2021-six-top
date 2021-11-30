@@ -5,21 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/floor/floorLayout.css">
+    <link rel="stylesheet" href="/css/login/loginStyle.css" />
+
     <title>Servers</title>
 </head>
 <body>
+    <div class="terminalView">
+    <nav role="navigation">
+        <div id="openMenu">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <a href="/html/index.html"><li>Login</li></a>
+            <a href="/html/floor.html" class="serverLink"><li>Server</li></a>
+            <a href="/html/kitchen.html" class="kitchenLink"><li>Transaction</li></a>
+            <a href="/html/management.html"  class="managerLink"><li>Manager Settings</li></a>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="companyName">
+        <ul>
+          <h1>Sixtop Loaded POS</h1>
+        </ul>
+    </div>
+
     <div class="mainFloorPage">
-        <div class="ticketButtonDiv">
+        <!-- <div class="ticketButtonDiv">
             <button class="newTicketButton">Start New Order</button>
-        </div>  
+        </div>   -->
         <div class="openTicketsDiv"></div>
             <div class="openTicketsDiv">
             <button class="openTicketButton">All Tickets</button>
         </div>
         <div class="orderDiv"></div>
-            
+    </div>
+
+    <div class="terminal">
+
+    </div>
+    <div class="iconicItems">
+        <div class="classicStarters"></div>
+        <button class="classicStartersButton">Starters</button>
+
+        <div class="classicEntrees"></div>
+        <button class="classicEntreesButton">Entrees</button>
+
+        <div class="classicDessert"></div>
+        <button class="classicDessertButton">Dessert</button>
+
+        <div class="classicNonAlcoholic"></div>
+        <button class="classicNonAlcoholicButton">Non-Alcoholic</button>
+
+        <div class="classicAlcoholic"></div>
+        <button class="classicAlcoholicButton">Alcoholic</button>
+    </div>
+
+    <div class="menuItems">
+        <div class="individualItems">
+            <button class="individualItemButton">Item</button>
         </div>
-    </div> 
+    </div>
     </div>
     <script src="/js/app.js" type="module"></script>
 </body>

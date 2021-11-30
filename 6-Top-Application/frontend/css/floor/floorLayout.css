@@ -5,21 +5,59 @@ body {
     background: rgb(240,218,192);
     background: linear-gradient(90deg, rgba(240,218,192,1) 0%, rgba(238,120,64,1) 50%, rgba(246,169,112,1) 100%);
 }
+.terminalView {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin-top: 5%;
+    flex-direction: column;
+    /* margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%; */
+}
 
-.mainFloorPage {
+.terminal {
+    width: 350px;
+    height: 350px;
+    border-style: solid;
+    border-color: red;
+    background-color: #fff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+.iconicItems {
+    display: flex;
+    width: 350px;
+    height: 2.5rem;
+    align-content: center;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.individualItems {
+    width: 350px;
+    height: 350px;
+    border-style: solid;
+    border-color: red;
+    background-color: #fff;
+    margin-top: 5%;
+}
+
+/* .mainFloorPage {
+    display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-}
+} */
 
 .ticketButtonDiv {
     display: flex;
     width: 100%;
     justify-content: center;
 }
-
 
 .newTicketButton {
     background-color: #f6a970;
@@ -160,7 +198,6 @@ body {
  background-color: #5C5F30;
  color: #f0dac0;
 }
-
 
 .splitTabButton {
     background-color: #ee7840;

@@ -53,7 +53,7 @@ public class FloorController {
 
     /////   Ticket Controls     /////
 
-@GetMapping("/Tickets")
+    @GetMapping("/Tickets")
     public Iterable<Ticket> retrieveAllTickets() { return ticketRepo.findAll(); }
 
 }
