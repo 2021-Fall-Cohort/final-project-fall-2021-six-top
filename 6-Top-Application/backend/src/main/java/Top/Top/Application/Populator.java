@@ -16,8 +16,10 @@ public class Populator implements CommandLineRunner {
     private SideRepository sideRepo;
     private TicketRepository ticketRepo;
     private CompanyProfileRepository companyProfileRepo;
+    private ModifierCategoryRepository modifierCategoryRepo;
+    private ModifiersRepository modifiersRepo;
 
-    public Populator(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, TicketRepository ticketRepo, CompanyProfileRepository companyProfileRepo) {
+    public Populator(AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, EmployeeRepository employeeRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, TicketRepository ticketRepo, CompanyProfileRepository companyProfileRepo, ModifierCategoryRepository modifierCategoryRepo, ModifiersRepository modifiersRepo) {
         this.alcoholicDrinkRepo = alcoholicDrinkRepo;
         this.appetizerRepo = appetizerRepo;
         this.dessertRepo = dessertRepo;
@@ -27,6 +29,8 @@ public class Populator implements CommandLineRunner {
         this.sideRepo = sideRepo;
         this.ticketRepo = ticketRepo;
         this.companyProfileRepo = companyProfileRepo;
+        this.modifierCategoryRepo = modifierCategoryRepo;
+        this.modifiersRepo = modifiersRepo;
     }
 
     @Override
@@ -35,6 +39,19 @@ public class Populator implements CommandLineRunner {
         ////    initial co. profile     ////
         CompanyProfile administrator = new CompanyProfile("Brew’d Awakening", "1609 Bad Route rd, Beach front city, fl 37099", 0.06f);
         companyProfileRepo.save(administrator);
+
+        ModifierItem mayo = new ModifierItem ("mayo", false);
+        ModifierItem ketchup =  new ModifierItem("Ketchup", true);
+        modifiersRepo.save(mayo);
+        modifiersRepo.save(ketchup);
+
+        ModifierCategory burgerMods = new ModifierCategory("Burgers", mayo, ketchup);
+        modifierCategoryRepo.save(burgerMods);
+        mayo.setModifier(burgerMods);
+        modifiersRepo.save(mayo);
+        ketchup.setModifier(burgerMods);
+        modifiersRepo.save(ketchup);
+
 
         /////////////////////////////////////
         ////    Alcoholic Drink Section ////
@@ -65,10 +82,10 @@ public class Populator implements CommandLineRunner {
 
         /////////////////////////////
         ////    Entree Section  ////
-        Entree cheeseBurger = new Entree("Cheese Burger", 08.99F, "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries", true);
+        Entree cheeseBurger = new Entree("Cheese Burger", 08.99F, "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries", true, burgerMods);
         entreeRepo.save(cheeseBurger);
 
-        Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.50f, "Steak, onions, and bell peppers grilled and tooped with cheese. served on a hoagie roll", true);
+        Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.50f, "Steak, onions, and bell peppers grilled and topped with cheese. served on a hoagie roll", true, burgerMods);
         entreeRepo.save(phillyCheeseSteak);
 
         /////////////////////////////

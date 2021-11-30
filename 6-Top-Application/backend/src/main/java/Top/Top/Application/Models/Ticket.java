@@ -16,7 +16,7 @@ public class Ticket {
     private int month;
     private int day;
 
-    @ElementCollection
+    @OneToMany(mappedBy = "ticket")
     private Collection<Item> ticketItems;
 
     public Ticket(Item... ticketItems) {

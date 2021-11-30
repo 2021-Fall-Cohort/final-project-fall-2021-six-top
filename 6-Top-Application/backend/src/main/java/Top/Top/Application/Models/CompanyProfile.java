@@ -46,4 +46,5 @@ public class CompanyProfile {
         this.taxRate = Float.parseFloat(newTaxRateString);
     }
 
+
 }

@@ -3,6 +3,8 @@ package Top.Top.Application.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import java.util.Collection;
 
 @Entity
 public class Entree extends Item{
@@ -14,11 +16,14 @@ public class Entree extends Item{
     private String description;
     private Boolean available;
 
-    public Entree(String name, Float price, String description, Boolean available) {
-        super(name, price);
+    @OneToOne
+    private ModifierCategory modifiers;
 
+    public Entree(String name, Float price, String description, Boolean available, ModifierCategory modifiers) {
+        super(name, price);
         this.description = description;
         this.available = available;
+        this.modifiers = modifiers;
     }
 
     public Entree() {
@@ -35,5 +40,9 @@ public class Entree extends Item{
 
     public Boolean getAvailable() {
         return available;
+    }
+
+    public ModifierCategory getModifiers() {
+        return modifiers;
     }
 }

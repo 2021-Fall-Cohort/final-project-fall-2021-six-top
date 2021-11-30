@@ -1,8 +1,9 @@
 import { openOrderWindow } from "./orderWindow.js"
 import { openTabsWindow } from "./openTickets.js"
-import { buildNav } from "./nav.js"
+// import { buildNav } from "./nav.js"
 
 const mainFloorPage = document.querySelector(".mainFloorPage")
+let currentTicketId;
 
 // buildNav();
 
@@ -36,7 +37,7 @@ function startNewTicket() {
     .then((res) => res.json())
     .then((newTicketJson) => {
         console.log("ID: " + newTicketJson.id);
-
+        currentTicketId = newTicketJson.id;
     })
 
     
@@ -70,7 +71,7 @@ function startNewTicket() {
                 entreeCard.addEventListener("click", () => {            //// functionality for adding entree to ticket here
 
                     console.log(entree.id);
-                    fetch(`http://localhost:8080/Tickets/${newVar}/addItem/${entree.id}`)       /// stuck here
+                    fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/${entree.id}`)       /// stuck here
                     
                 })                                                
 

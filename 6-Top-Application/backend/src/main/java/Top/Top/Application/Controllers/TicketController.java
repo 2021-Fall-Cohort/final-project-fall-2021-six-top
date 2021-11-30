@@ -48,11 +48,11 @@ public class TicketController {
         return "redirect:/html/Floor.html";                                     /// get redirect working ///
     }
 
-    @PatchMapping("/{id}/addItem/{itemId}")
-    public void addItemToTicket(@PathVariable Long id, @PathVariable long itemId) {
-        Entree tempEntree = entreeRepo.findById(itemId).get();
+    @PatchMapping("/{id}/addItem")
+    public void addItemToTicket(@PathVariable Long id, @RequestBody Entree inEntree) {
         Ticket tempTicket = ticketRepo.findById(id).get();
-        tempTicket.addToTicket(tempEntree);
+        inEntree.addTicket(tempTicket);
+        entreeRepo.save(inEntree);
         ticketRepo.save(tempTicket);
     }
 }
