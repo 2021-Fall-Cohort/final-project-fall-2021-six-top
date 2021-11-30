@@ -1,12 +1,17 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: #ee7840
+    /* background-color: #ee7840; */
+    background: rgb(240,218,192);
+    background: linear-gradient(90deg, rgba(240,218,192,1) 0%, rgba(238,120,64,1) 50%, rgba(246,169,112,1) 100%);
 }
 
 .mainFloorPage {
     width: 100%;
     justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .ticketButtonDiv {
@@ -24,6 +29,7 @@ body {
     /* border-width: 4px; */
     font-size: x-large;
     border-color: #5c5f30;
+    justify-content: center;
 }
 
 .openTicketButton {
@@ -41,14 +47,15 @@ body {
     width: 100%;
     height:fit-content;
     justify-content: center;
+    align-items: center;
 }
 
 .courseDiv {
     display: flex;
     justify-content: center;
-    width: 90rem;
+    width: auto;
     height: fit-content;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -57,8 +64,8 @@ body {
 .cards {
     display: flex;
     flex-direction: column; 
-    margin-top: 4rem;
-    width: 8rem;
+    margin-top: 4px;
+    width: 12rem;
     height: fit-content;
     border-style: solid;
     border-radius: 20px;
@@ -84,8 +91,6 @@ body {
     height: 30rem;
     width: 100%;
     margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
     margin-bottom: 10px;
     border-style: solid;
     justify-content: center;
@@ -131,7 +136,6 @@ body {
     width: 10rem;
     height: 2rem;
     border-radius: 30px;
-    /* border-width: 4px; */
     font-size: x-large;
     border-color: #5c5f30;
     position: relative;
@@ -140,17 +144,16 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .kitchenButtonHolder {
-    display: flex;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
     background-color: #f0dac0;
-    justify-content: center;  display: flex;
-    justify-content: flex-end;
+    justify-content: center;  
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .foodItemList {
@@ -158,16 +161,6 @@ body {
  color: #f0dac0;
 }
 
-.splitTabButtonHolder {
-    display: flex;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background-color: #f0dac0;
-    justify-content: center;  display: flex;
-    justify-content: flex-end;
-}
 
 .splitTabButton {
     background-color: #ee7840;
@@ -183,4 +176,5 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
