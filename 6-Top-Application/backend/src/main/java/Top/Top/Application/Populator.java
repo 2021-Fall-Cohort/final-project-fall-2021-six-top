@@ -42,6 +42,9 @@ public class Populator implements CommandLineRunner {
 
         ModifierItem mayo = new ModifierItem ("mayo", false);
         ModifierItem ketchup =  new ModifierItem("Ketchup", true);
+        ModifierItem mustard =  new ModifierItem("Mustard", true);
+        ModifierItem lettuce =  new ModifierItem("Lettuce", true);
+
         modifiersRepo.save(mayo);
         modifiersRepo.save(ketchup);
 
@@ -134,7 +137,7 @@ public class Populator implements CommandLineRunner {
         Employee moNerong = new Employee("Mo", "Nerong", "Manager");
         employeeRepo.save(moNerong);
 
-
+        /// test Ticket
         Ticket testTicket = new Ticket(phillyCheeseSteak, mashedPotatoes, modelo);  ///
         ticketRepo.save(testTicket);
 

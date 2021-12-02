@@ -41,18 +41,19 @@ public class TicketController {
     }
 
     @DeleteMapping("/{id}/CloseTicket")
-    public String closeTicket(@PathVariable Long id) {
+    public void closeTicket(@PathVariable Long id) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         closedTicketRepo.save(tempTicket);
         ticketRepo.delete(tempTicket);
-        return "redirect:/html/Floor.html";                                     /// get redirect working ///
     }
 
     @PatchMapping("/{id}/addItem")
-    public void addItemToTicket(@PathVariable Long id, @RequestBody Entree inEntree) {
+    public Ticket addItemToTicket(@PathVariable Long id, @RequestBody Entree inEntree) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inEntree.addTicket(tempTicket);
-        entreeRepo.save(inEntree);
+//        entreeRepo.save(inEntree);   /// remember that json from front end is NOT saved!!!!!
         ticketRepo.save(tempTicket);
+
+        return tempTicket;
     }
 }

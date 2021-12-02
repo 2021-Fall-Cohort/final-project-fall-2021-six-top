@@ -12,6 +12,7 @@ public class Ticket {
     @GeneratedValue
     private Long id;
 
+    private String name;
     private int year;
     private int month;
     private int day;
@@ -50,4 +51,7 @@ public class Ticket {
         this.day = day;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
