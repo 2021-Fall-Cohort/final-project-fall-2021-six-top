@@ -64,7 +64,7 @@ body
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),;
   background: 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
   opacity 0.55s ease;
 }
@@ -83,7 +83,8 @@ body
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: royalblue;
+  background: rgb(158,177,235);
+  background: radial-gradient(circle, rgba(158,177,235,1) 0%, rgba(65,105,225,1) 50%, rgba(21,59,173,1) 100%);
 }
 
 #openMenu input:checked ~ span:nth-last-child(3)
