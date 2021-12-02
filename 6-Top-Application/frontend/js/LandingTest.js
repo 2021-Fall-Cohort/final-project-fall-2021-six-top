@@ -6,6 +6,7 @@ let currentTicketId; //important for scope
 const entreeButton = document.querySelector(".classicEntreesButton");
 const starterButton = document.querySelector(".classicStartersButton");
 const dessertButton = document.querySelector(".classicDessertButton");
+const sideButton = document.querySelector(".classicSidesButton");
 const nonAlcholicButton = document.querySelector(".classicNonAlcoholicButton");
 const alcoholicButton = document.querySelector(".classicAlcoholicButton");
 
@@ -167,8 +168,47 @@ function startServerProcess() {
   });
 
   ///   SIDES   ////
+  sideButton.addEventListener("click", () => {
+    fetch("http://localhost:8080/Floor/Sides")
+      .then((res) => res.json())
+      .then((sideJson) => {
+        sideJson.forEach((side) => {
+          console.log(side);
 
+          const sideCard = document.createElement("div");
+          sideCard.className = "cards";
+          sideCard.innerText = side.name;
+          individualItems.appendChild(sideCard);
 
+          sideCard.addEventListener("click", () => {
+            const sideJson = {
+              name: side.name,
+              price: side.price,
+              description: side.description,
+              available: side.available,
+            };
+            console.log(side.id);
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(sideJson),
+            })
+              .then((res) => res.json())
+              .then((ticket) => {
+                const ticketSideCard = document.createElement("div");
+                ticketSideCard.className = "cards";
+                ticketSideCard.innerText = side.name;
+                terminal.appendChild(ticketSideCard);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          });
+        });
+      });
+  });
 
   /// NONALCOHOLIC  ////
 
