@@ -1,9 +1,9 @@
+
 body {
     display: flex;
     justify-content: center;
-    /* background-color: #ee7840; */
-    background: rgb(240,218,192);
-    background: linear-gradient(90deg, rgba(240,218,192,1) 0%, rgba(238,120,64,1) 50%, rgba(246,169,112,1) 100%);
+    background: rgb(158,177,235);
+    background: radial-gradient(circle, rgba(158,177,235,1) 0%, rgba(65,105,225,1) 50%, rgba(21,59,173,1) 100%);
 }
 .terminalView {
     display: flex;
@@ -17,8 +17,8 @@ body {
 }
 
 .terminal {
-    width: 350px;
-    height: 350px;
+    width: 40vw;
+    height: 40vw;
     border-style: solid;
     border-color: red;
     background-color: #fff;
@@ -28,16 +28,28 @@ body {
 }
 .iconicItems {
     display: flex;
-    width: 350px;
+    width: 39.5vw;
     height: 2.5rem;
     align-content: center;
-    align-items: stretch;
+    align-items: center;
     justify-content: space-between;
 }
 
+@media only screen  and (max-width: 850px) {
+    .classicNonAlcoholicButton {
+    font-size: 0.5rem
+    }
+}
+
+/* @media only screen and (max-width: 850px) {
+    .classicStartersButton {
+        fon
+    }
+} */
+
 .individualItems {
-    width: 350px;
-    height: 350px;
+    width: 40vw;
+    height: 40vw;
     border-style: solid;
     border-color: red;
     background-color: #fff;
@@ -71,13 +83,13 @@ body {
 }
 
 .openTicketButton {
-    background-color: #f6a970;
-    width: 15rem;
-    height: 4rem;
+    background-color: rgb(165, 181, 230);
+    width: 20vw;
+    height: 8vh;
     border-radius: 30px;
     /* border-width: 4px; */
     font-size: x-large;
-    border-color: #5c5f30;;
+    border-color: rgb(165, 181, 230);
 }
 
 .openTicketsDiv {
@@ -100,21 +112,22 @@ body {
 }
 
 .cards {
+    color: black;
     display: flex;
     flex-direction: column; 
-    margin-top: 4px;
+    margin-top: 1rem;
     width: 12rem;
     height: fit-content;
-    border-style: solid;
+    /* border-style: solid; */
     border-radius: 20px;
     border-color: #5c5f30;;
     margin-right: 5px;
     margin-left: 5px;
     justify-content: center;
     align-items: center;
-    background-color: #f0dac0;
+    background-color: white;
     border-color: #5c5f30;
-    font-size: x-small;
+    font-size: small;
 }
 
 .orderDiv {
@@ -215,3 +228,4 @@ body {
     justify-content: center;
     margin-bottom: 10px;
 }
+
