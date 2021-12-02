@@ -19,6 +19,8 @@ body {
 .terminal {
     width: 40vw;
     height: 40vw;
+    overflow-y: scroll;
+    min-height: 20vw;
     border-style: solid;
     border-color: red;
     background-color: #fff;

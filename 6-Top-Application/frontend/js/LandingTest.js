@@ -38,6 +38,7 @@ function startServerProcess() {
 
     ////  ENTREES ////  
     entreeButton.addEventListener("click", () => {
+    clearChildren(individualItems);   
     fetch("http://localhost:8080/Floor/Entrees")
       .then((res) => res.json())
       .then((entreeJson) => {
@@ -82,6 +83,7 @@ function startServerProcess() {
   ////  STARTERS    ////
 
     starterButton.addEventListener("click", () => {
+    clearChildren(individualItems);   
     fetch("http://localhost:8080/Floor/Appetizers")
       .then((res) => res.json())
       .then((appetizersJson) => {
@@ -126,6 +128,7 @@ function startServerProcess() {
   ////  DESSERTS    ////
 
     dessertButton.addEventListener("click", () => {
+      clearChildren(individualItems);   
     fetch("http://localhost:8080/Floor/Desserts")
       .then((res) => res.json())
       .then((dessertJson) => {
@@ -169,6 +172,7 @@ function startServerProcess() {
 
   ///   SIDES   ////
   sideButton.addEventListener("click", () => {
+    clearChildren(individualItems);   
     fetch("http://localhost:8080/Floor/Sides")
       .then((res) => res.json())
       .then((sideJson) => {
@@ -213,6 +217,7 @@ function startServerProcess() {
   /// NONALCOHOLIC  ////
 
   nonAlcholicButton.addEventListener("click", () => {
+    clearChildren(individualItems);   
     fetch("http://localhost:8080/Floor/NonAlcoholicDrinks")
       .then((res) => res.json())
       .then((nonAlcholicJson) => {
@@ -257,6 +262,7 @@ function startServerProcess() {
   ////  ALCOHOLIC   ////
 
   alcoholicButton.addEventListener("click", () => {
+    clearChildren(individualItems);   
     fetch("http://localhost:8080/Floor/AlcoholicDrinks")
       .then((res) => res.json())
       .then((alcholicJson) => {
@@ -296,6 +302,10 @@ function startServerProcess() {
         });
       });
   });
-
-
 }
+
+function clearChildren(element) {
+  while (element.firstChild) {
+    element.removeChild(element.lastChild);
+  }
+} 
