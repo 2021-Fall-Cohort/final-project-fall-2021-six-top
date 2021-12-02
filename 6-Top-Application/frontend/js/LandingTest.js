@@ -47,7 +47,7 @@ function startServerProcess() {
 
           const entreeCard = document.createElement("div");
           entreeCard.className = "cards";
-          entreeCard.innerText = entree.name;
+          entreeCard.innerText = entree.name + " " + entree.price;
           individualItems.appendChild(entreeCard);
 
           entreeCard.addEventListener("click", () => {
@@ -69,7 +69,7 @@ function startServerProcess() {
               .then((ticket) => {
                 const ticketEntreeCard = document.createElement("div");
                 ticketEntreeCard.className = "cards";
-                ticketEntreeCard.innerText = entree.name;
+                ticketEntreeCard.innerText = entree.name + " " + entree.price;
                 terminal.appendChild(ticketEntreeCard);
               })
               .catch((err) => {
@@ -92,7 +92,7 @@ function startServerProcess() {
 
           const appetizerCard = document.createElement("div");
           appetizerCard.className = "cards";
-          appetizerCard.innerText = appetizer.name;
+          appetizerCard.innerText = appetizer.name + " " + appetizer.price;
           individualItems.appendChild(appetizerCard);
 
           appetizerCard.addEventListener("click", () => {
@@ -114,7 +114,7 @@ function startServerProcess() {
               .then((ticket) => {
                 const ticketAppetizerCard = document.createElement("div");
                 ticketAppetizerCard.className = "cards";
-                ticketAppetizerCard.innerText = appetizer.name;
+                ticketAppetizerCard.innerText = appetizer.name + " " + appetizer.price;
                 terminal.appendChild(ticketAppetizerCard);
               })
               .catch((err) => {
@@ -137,7 +137,7 @@ function startServerProcess() {
 
           const dessertCard = document.createElement("div");
           dessertCard.className = "cards";
-          dessertCard.innerText = dessert.name;
+          dessertCard.innerText = dessert.name + " " + dessert.price;
           individualItems.appendChild(dessertCard);
 
           dessertCard.addEventListener("click", () => {
@@ -159,7 +159,7 @@ function startServerProcess() {
               .then((ticket) => {
                 const ticketDessertCard = document.createElement("div");
                 ticketDessertCard.className = "cards";
-                ticketDessertCard.innerText = dessert.name;
+                ticketDessertCard.innerText = dessert.name + " " + dessert.price;
                 terminal.appendChild(ticketDessertCard);
               })
               .catch((err) => {
@@ -181,7 +181,7 @@ function startServerProcess() {
 
           const sideCard = document.createElement("div");
           sideCard.className = "cards";
-          sideCard.innerText = side.name;
+          sideCard.innerText = side.name + " " + side.price;
           individualItems.appendChild(sideCard);
 
           sideCard.addEventListener("click", () => {
@@ -203,7 +203,7 @@ function startServerProcess() {
               .then((ticket) => {
                 const ticketSideCard = document.createElement("div");
                 ticketSideCard.className = "cards";
-                ticketSideCard.innerText = side.name;
+                ticketSideCard.innerText = side.name + " " + side.price;
                 terminal.appendChild(ticketSideCard);
               })
               .catch((err) => {
@@ -226,7 +226,7 @@ function startServerProcess() {
 
           const nonAlcholicCard = document.createElement("div");
           nonAlcholicCard.className = "cards";
-          nonAlcholicCard.innerText = nonAlcholic.name;
+          nonAlcholicCard.innerText = nonAlcholic.name + " " + nonAlcholic.price;
           individualItems.appendChild(nonAlcholicCard);
 
           nonAlcholicCard.addEventListener("click", () => {
@@ -247,7 +247,7 @@ function startServerProcess() {
               .then((ticket) => {
                 const ticketNonAlcoholicCard = document.createElement("div");
                 ticketNonAlcoholicCard.className = "cards";
-                ticketNonAlcoholicCard.innerText = nonAlcholic.name;
+                ticketNonAlcoholicCard.innerText = nonAlcholic.name + " " + nonAlcholic.price;
                 terminal.appendChild(ticketNonAlcoholicCard);
               })
               .catch((err) => {
@@ -271,7 +271,7 @@ function startServerProcess() {
 
           const alcholicCard = document.createElement("div");
           alcholicCard.className = "cards";
-          alcholicCard.innerText = alcholic.name;
+          alcholicCard.innerText = alcholic.name + " " + alcholic.price;
           individualItems.appendChild(alcholicCard);
 
           alcholicCard.addEventListener("click", () => {
@@ -292,7 +292,7 @@ function startServerProcess() {
               .then((ticket) => {
                 const ticketAlcoholicCard = document.createElement("div");
                 ticketAlcoholicCard.className = "cards";
-                ticketAlcoholicCard.innerText = alcholic.name;
+                ticketAlcoholicCard.innerText = alcholic.name + " " + alcholic.price;
                 terminal.appendChild(ticketAlcoholicCard);
               })
               .catch((err) => {
