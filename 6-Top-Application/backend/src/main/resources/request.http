@@ -23,6 +23,10 @@ GET http://localhost:8080/Tickets/OpenTickets
 POST http://localhost:8080/Tickets/newTicket
 Content-Type: application/json
 
+{
+    "ticketItems": []
+}
+
 ###
 GET http://localhost:8080/Management/retrieveAllEmployees
 
@@ -59,5 +63,16 @@ Content-Type: application/json
 
   }
 
+###
+PATCH http://localhost:8080/Tickets/saveTicket/28
+Content-Type: application/json
 
-
+  {
+    "ticketItems": [
+      {
+      "name": "Budweiser",
+      "price": 2.99,
+      "isAlcoholic": true
+      }
+    ]
+  }

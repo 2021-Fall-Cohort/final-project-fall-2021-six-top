@@ -1,6 +1,7 @@
 import { openOrderWindow } from "./orderWindow.js";
 import { openTabsWindow } from "./openTickets.js";
 let currentTicketId; //important for scope
+let currentTaxRate; //important for tax rate
 
 ////  QUERY SELECTED BUTTONS   ////
 const entreeButton = document.querySelector(".classicEntreesButton");
@@ -17,7 +18,14 @@ const ticketBox = document.querySelector("terminal");
 
 startServerProcess();
 function startServerProcess() {
-  
+  ////  FETCH FOR COMPANY PROFILE, DONT REPEAT  ////
+  fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
+  .then((res) => res.json())
+  .then((companyProfileJson) => {
+    currentTaxRate = companyProfileJson.taxRate;
+    console.log("Tax Multiplyer: " + currentTaxRate);
+  })
+
   ////  NEW TICKET FOR SCOPE, DONT REPEAT   ////  
   console.log("log: started new ticket");
   const newTicketJson = {
@@ -309,3 +317,21 @@ function clearChildren(element) {
     element.removeChild(element.lastChild);
   }
 } 
+
+  //// Send Ticket To Kitchen ////
+function sendTicket() {
+  clearChildren(terminal);
+  fetch(`http://localhost:8080/Tickets/saveTicket/${currentTicketId}`)
+  .then((res) => res.json())
+}
+
+  ///// Tab Name Modifier ////
+function tabNameMod() {
+
+}
+
+  //// Split Tab ////
+function splitTicketBill() {
+
+}
+

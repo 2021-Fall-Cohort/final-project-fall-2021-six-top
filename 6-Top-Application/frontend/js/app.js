@@ -10,7 +10,6 @@ openTicketButton.addEventListener("click", () => {
 });
 
 
-
 function startNewTicket() {
   console.log("log: started new ticket");
   const newTicketJson = {

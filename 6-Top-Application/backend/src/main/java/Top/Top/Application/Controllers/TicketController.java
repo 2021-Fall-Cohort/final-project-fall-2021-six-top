@@ -1,6 +1,5 @@
 package Top.Top.Application.Controllers;
 import Top.Top.Application.Models.Entree;
-import Top.Top.Application.Models.Item;
 import Top.Top.Application.Models.Ticket;
 import Top.Top.Application.Repositories.ClosedTicketRepository;
 import Top.Top.Application.Repositories.EntreeRepository;
@@ -38,6 +37,12 @@ public class TicketController {
         ticketRepo.save(newTicket);
         Long tempId = newTicket.getId();
         return ticketRepo.findById(tempId);
+    }
+
+    @PatchMapping("/saveTicket/{id}")
+    public Ticket saveTicket(@PathVariable Long id) {
+        ticketRepo.save(ticketRepo.findById(id).get());
+        return ticketRepo.findById(id).get();
     }
 
     @DeleteMapping("/{id}/CloseTicket")

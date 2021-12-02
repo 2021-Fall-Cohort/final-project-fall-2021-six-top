@@ -213,8 +213,44 @@ body {
  background-color: #5C5F30;
  color: #f0dac0;
 }
+.features {
+    display: flex;
+}
+.modifyFeatureButton {
+    background-color: #ee7840;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 
-.splitTabButton {
+.sendFeatureButton {
+    background-color: #ee7840;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.splitFeatureButton {
     background-color: #ee7840;
     width: 10rem;
     height: 2rem;
