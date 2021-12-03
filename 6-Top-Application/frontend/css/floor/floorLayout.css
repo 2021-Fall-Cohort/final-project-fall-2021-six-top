@@ -2,8 +2,7 @@
 body {
     display: flex;
     justify-content: center;
-    background: rgb(158,177,235);
-    background: radial-gradient(circle, rgba(158,177,235,1) 0%, rgba(65,105,225,1) 50%, rgba(21,59,173,1) 100%);
+    background-color: palegoldenrod;
 }
 .terminalView {
     display: flex;
@@ -22,7 +21,7 @@ body {
     overflow-y: scroll;
     min-height: 20vw;
     border-style: solid;
-    border-color: red;
+    border-color: grey;
     background-color: #fff;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -53,8 +52,8 @@ body {
     width: 40vw;
     height: 40vw;
     border-style: solid;
-    border-color: red;
-    background-color: #fff;
+    border-color: grey;
+    background-color:#dad8d6;
     margin-top: 5%;
 }
 
@@ -217,7 +216,7 @@ body {
     display: flex;
 }
 .modifyFeatureButton {
-    background-color: #ee7840;
+    background-color: rgb(72, 143, 248);
     width: 10rem;
     height: 2rem;
     border-radius: 30px;
@@ -234,7 +233,7 @@ body {
 }
 
 .sendFeatureButton {
-    background-color: #ee7840;
+    background-color: rgb(72, 143, 248);
     width: 10rem;
     height: 2rem;
     border-radius: 30px;
@@ -251,7 +250,7 @@ body {
 }
 
 .splitFeatureButton {
-    background-color: #ee7840;
+    background-color: rgb(72, 143, 248);
     width: 10rem;
     height: 2rem;
     border-radius: 30px;
