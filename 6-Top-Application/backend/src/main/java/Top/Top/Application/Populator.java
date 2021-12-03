@@ -58,57 +58,57 @@ public class Populator implements CommandLineRunner {
 
         /////////////////////////////////////
         ////    Alcoholic Drink Section ////
-        AlcoholicDrink budweiser = new AlcoholicDrink("Budweiser", 2.99F, true, true);
+        AlcoholicDrink budweiser = new AlcoholicDrink("Budweiser", 2.99F, true, true, true);
         alcoholicDrinkRepo.save(budweiser);
 
-        AlcoholicDrink budLight = new AlcoholicDrink("Bud Light", 2.99f, true, true);
+        AlcoholicDrink budLight = new AlcoholicDrink("Bud Light", 2.99f, true, true,true);
         alcoholicDrinkRepo.save(budLight);
 
-        AlcoholicDrink modelo = new AlcoholicDrink("Modelo", 3.99f, true,true);
+        AlcoholicDrink modelo = new AlcoholicDrink("Modelo", 3.99f, true,true,true);
         alcoholicDrinkRepo.save(modelo);
 
         /////////////////////////////////
         ////    NonAlcoholic Drink Section   ////
-        NonAlcoholicDrink coke = new NonAlcoholicDrink("Coke", 2.99F, false, true);
+        NonAlcoholicDrink coke = new NonAlcoholicDrink("Coke", 2.99F, false, true,true);
         nonAlcoholicDrinkRepo.save(coke);
 
-        NonAlcoholicDrink sprite = new NonAlcoholicDrink("Sprite", 2.99f, false, true);
+        NonAlcoholicDrink sprite = new NonAlcoholicDrink("Sprite", 2.99f, false, true,true);
         nonAlcoholicDrinkRepo.save(sprite);
 
-        NonAlcoholicDrink canadaDry = new NonAlcoholicDrink("Canada Dry", 3.99f, false,true);
+        NonAlcoholicDrink canadaDry = new NonAlcoholicDrink("Canada Dry", 3.99f, false,true,true);
         nonAlcoholicDrinkRepo.save(canadaDry);
         /////////////////////////////////
 
 
         ////    Appetizer Section   ////
-        Appetizer cheeseSticks = new Appetizer("Mozzarella Sticks", 4.99f, "7 breaded and fried mozzarella cheese sticks, served with ranch or marinara sauce", true);
+        Appetizer cheeseSticks = new Appetizer("Mozzarella Sticks", 4.99f, "7 breaded and fried mozzarella cheese sticks, served with ranch or marinara sauce", true,true);
         appetizerRepo.save(cheeseSticks);
 
-        Appetizer bonelessWings = new Appetizer("Boneless Wings", 5.99f, "boneless Buffalo Wings", true);
+        Appetizer bonelessWings = new Appetizer("Boneless Wings", 5.99f, "boneless Buffalo Wings", true,true);
         appetizerRepo.save(bonelessWings);
 
         /////////////////////////////
         ////    Dessert Section ////
-        Dessert vanillaIceCream = new Dessert("Vanilla IceCream", 3.00f, "Two Scoops Of Vanilla Bean", true);
+        Dessert vanillaIceCream = new Dessert("Vanilla IceCream", 3.00f, "Two Scoops Of Vanilla Bean", true, true);
         dessertRepo.save(vanillaIceCream);
 
-        Dessert applePie = new Dessert("Apple Pie", 6.00f, "One piece of made in house Apple pie", true);
+        Dessert applePie = new Dessert("Apple Pie", 6.00f, "One piece of made in house Apple pie", true, true);
         dessertRepo.save(applePie);
 
         /////////////////////////////
         ////    Entree Section  ////
-        Entree cheeseBurger = new Entree("Cheese Burger", 08.99F, "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries", true, burgerMods);
+        Entree cheeseBurger = new Entree("Cheese Burger", 08.99F, "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries", true, burgerMods,true);
         entreeRepo.save(cheeseBurger);
 
-        Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.50f, "Steak, onions, and bell peppers grilled and topped with cheese. served on a hoagie roll", true, burgerMods);
+        Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.50f, "Steak, onions, and bell peppers grilled and topped with cheese. served on a hoagie roll", true, burgerMods, true);
         entreeRepo.save(phillyCheeseSteak);
 
         /////////////////////////////
         ////    Sides Section   ////
-        Side fries = new Side("French Fries", 2.50f, "Fried potatoes", true);
+        Side fries = new Side("French Fries", 2.50f, "Fried potatoes", true, true);
         sideRepo.save(fries);
 
-        Side mashedPotatoes = new Side("Mashed Potatoes", 3.00f, "Made from scratch mashed potatoes with cream and butter", true);
+        Side mashedPotatoes = new Side("Mashed Potatoes", 3.00f, "Made from scratch mashed potatoes with cream and butter", true, true);
         sideRepo.save(mashedPotatoes);
 
         /////////////////////////////////

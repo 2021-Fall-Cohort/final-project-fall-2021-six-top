@@ -13,13 +13,15 @@ public abstract class Item {
 
     private String name;
     private Float price;
+    private boolean showOnMenu;
 
     @ManyToOne
     private Ticket ticket;
 
-    public Item(String name, Float price) {
+    public Item(String name, Float price, boolean showOnMenu) {
         this.name = name;
         this.price = price;
+        this.showOnMenu =showOnMenu;
     }
 
     protected Item() {
@@ -27,6 +29,10 @@ public abstract class Item {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isShowOnMenu() {
+        return showOnMenu;
     }
 
     public Float getPrice() {

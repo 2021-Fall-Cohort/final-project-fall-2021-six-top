@@ -1,8 +1,10 @@
 package Top.Top.Application.Models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -16,15 +18,16 @@ public class Ticket {
     private int year;
     private int month;
     private int day;
-
     @OneToMany(mappedBy = "ticket")
     private Collection<Item> ticketItems;
 
     public Ticket(Item... ticketItems) {
         this.ticketItems =  Arrays.asList(ticketItems);
+
     }
 
     public Ticket() {
+
     }
 
     public Long getId() {

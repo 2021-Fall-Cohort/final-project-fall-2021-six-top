@@ -14,10 +14,11 @@ public class AlcoholicDrink extends Item{
     private Boolean isAlcoholic;
     private Boolean available;
 
-    public AlcoholicDrink(String name, Float price, Boolean isAlcoholic, Boolean available) {
-        super(name, price);
+    public AlcoholicDrink(String name, Float price, Boolean isAlcoholic, Boolean available, boolean showOnMenu) {
+        super(name, price, showOnMenu);
         this.isAlcoholic = true;
         this.available = available;
+
     }
 
     public AlcoholicDrink() {

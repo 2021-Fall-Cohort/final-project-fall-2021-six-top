@@ -19,11 +19,12 @@ public class Entree extends Item{
     @OneToOne
     private ModifierCategory modifiers;
 
-    public Entree(String name, Float price, String description, Boolean available, ModifierCategory modifiers) {
-        super(name, price);
+    public Entree(String name, Float price, String description, Boolean available, ModifierCategory modifiers, boolean showOnMenu) {
+        super(name, price, showOnMenu);
         this.description = description;
         this.available = available;
         this.modifiers = modifiers;
+
     }
 
     public Entree() {

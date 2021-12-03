@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/Floor")
 
@@ -33,7 +35,15 @@ public class FloorController {
     }
 
     @GetMapping("/AlcoholicDrinks")
-    public Iterable<AlcoholicDrink> retrieveAllAlcoholicDrinks() { return alcoholicDrinkRepo.findAll(); }
+    public Iterable<AlcoholicDrink> retrieveAllAlcoholicDrinks() {
+        ArrayList<AlcoholicDrink> shownDrinks = new ArrayList<AlcoholicDrink>();
+        for(AlcoholicDrink current: alcoholicDrinkRepo.findAll()) {
+            if(current.isShowOnMenu()) {
+                shownDrinks.add(current);
+            }
+        }
+        return shownDrinks;
+    }
 
     @GetMapping("/Appetizers")
     public Iterable<Appetizer> retrieveAllAppetizers() { return appetizerRepo.findAll(); }
@@ -44,7 +54,15 @@ public class FloorController {
     ////    EMPLOYEE ACCESS WOULD GO HERE   ////
 
     @GetMapping("/Entrees")
-    public Iterable<Entree> retrieveAllEntrees() { return entreeRepo.findAll(); }
+    public Iterable<Entree> retrieveAllEntrees() {
+        ArrayList<Entree> shownEntree = new ArrayList<Entree>();
+        for(Entree current: entreeRepo.findAll()) {
+            if(current.isShowOnMenu()) {
+                shownEntree.add(current);
+            }
+        }
+        return shownEntree;
+    }
 
     @GetMapping("/NonAlcoholicDrinks")
     public Iterable<NonAlcoholicDrink> retrieveAllNonAlcoholicDrinks() { return nonAlcoholicDrinkRepo.findAll(); }

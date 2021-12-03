@@ -2,6 +2,8 @@ import { openOrderWindow } from "./orderWindow.js";
 import { openTabsWindow } from "./openTickets.js";
 let currentTicketId; //important for scope
 let currentTaxRate; //important for tax rate
+let currentTotal;
+
 
 ////  QUERY SELECTED BUTTONS   ////
 const entreeButton = document.querySelector(".classicEntreesButton");
@@ -42,6 +44,8 @@ function startServerProcess() {
     .then((newTicketJson) => {
       console.log("ID: " + newTicketJson.id);
       currentTicketId = newTicketJson.id;
+      currentTotal = newTicketJson.itemsTotal;
+      console.log("CT: " + currentTotal);
     });
 
     ////  ENTREES ////  
@@ -66,7 +70,7 @@ function startServerProcess() {
               available: entree.available,
             };
             console.log(entree.id);
-            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/entree`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -111,7 +115,7 @@ function startServerProcess() {
               available: appetizer.available,
             };
             console.log(appetizer.id);
-            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/appetizer`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -152,11 +156,12 @@ function startServerProcess() {
             const dessertJson = {
               name: dessert.name,
               price: dessert.price,
+              showOnMenu: false,
               description: dessert.description,
               available: dessert.available,
             };
             console.log(dessert.id);
-            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/dessert`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -200,7 +205,7 @@ function startServerProcess() {
               available: side.available,
             };
             console.log(side.id);
-            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/side`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -244,7 +249,7 @@ function startServerProcess() {
               isAlcoholic: nonAlcholic.isAlcoholic,
             };
             console.log(nonAlcholic.id);
-            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/nonAlcoholicDrink`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -275,7 +280,6 @@ function startServerProcess() {
       .then((res) => res.json())
       .then((alcholicJson) => {
         alcholicJson.forEach((alcholic) => {
-          console.log(alcholicJson);
 
           const alcholicCard = document.createElement("div");
           alcholicCard.className = "cards";
@@ -289,7 +293,7 @@ function startServerProcess() {
               isAlcoholic: alcholic.isAlcoholic,
             };
             console.log(alcholic.id);
-            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/alcoholicDrink`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -305,7 +309,8 @@ function startServerProcess() {
               })
               .catch((err) => {
                 console.log(err);
-              });
+              }); 
+            showTotal();  
           });
         });
       });
@@ -334,4 +339,53 @@ function tabNameMod() {
 function splitTicketBill() {
 
 }
+
+function showTotal() {
+  /// clear
+  var subTotal = 0;
+  var totalTax = 0;
+  var ticketTotal = 0;
+
+
+  const totalsBox = document.createElement("div");
+  totalsBox.className = "totalsBox";
+  terminal.appendChild(totalsBox);
+
+  fetch(`http://localhost:8080/Tickets/${currentTicketId}`)
+  .then((res) => res.json())
+  .then((thisTicketJson) => {
+    console.log("look here: " + thisTicketJson);
+    thisTicketJson.ticketItems.forEach((item) => {
+      console.log("item list: " + item);
+      subTotal += item.price;
+
+    })
+  })
+
+  totalTax = subTotal  * currentTaxRate ;
+  ticketTotal = subTotal + totalTax;
+
+
+
+  const subtotalText = document.createElement("h3");
+  /// class name?
+  subtotalText.innerText = "subTotal: " + subTotal;
+  totalsBox.appendChild(subtotalText);
+
+  const totalTaxText = document.createElement("h3");
+  /// class name?
+  totalTaxText.innerText = "Tax: " + totalTax;
+  totalsBox.appendChild(totalTaxText);
+
+  const ticketTotalText = document.createElement("h3");
+  /// class name?
+  ticketTotalText.innerText = "Total: " + ticketTotal;
+  totalsBox.appendChild(ticketTotalText);
+
+  console.log("subTotal: " + subTotal);
+  console.log("totalTax: " + totalTax);
+  console.log("ticketTotal: " + ticketTotal);
+}
+
+/// deal with show totals
 

@@ -13,8 +13,8 @@ public class Side extends Item{
     private String description;
     private Boolean available;
 
-    public Side(String name, Float price, String description, Boolean available) {
-        super(name, price);
+    public Side(String name, Float price, String description, Boolean available, boolean showOnMenu) {
+        super(name, price, showOnMenu);
         this.description = description;
         this.available = available;
     }
