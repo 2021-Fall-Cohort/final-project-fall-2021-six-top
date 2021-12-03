@@ -1,0 +1,268 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: palegoldenrod;
+}
+.terminalView {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin-top: 5%;
+    flex-direction: column;
+    /* margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%; */
+}
+
+.terminal {
+    width: 40vw;
+    height: 40vw;
+    overflow-y: scroll;
+    min-height: 20vw;
+    border-style: solid;
+    border-color: grey;
+    background-color: #fff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+.iconicItems {
+    display: flex;
+    width: 39.5vw;
+    height: 2.5rem;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media only screen  and (max-width: 850px) {
+    .classicNonAlcoholicButton {
+    font-size: 0.5rem
+    }
+}
+
+/* @media only screen and (max-width: 850px) {
+    .classicStartersButton {
+        fon
+    }
+} */
+
+.individualItems {
+    width: 40vw;
+    height: 40vw;
+    border-style: solid;
+    border-color: grey;
+    background-color:#dad8d6;
+    margin-top: 5%;
+}
+
+/* .mainFloorPage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+} */
+
+.ticketButtonDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.newTicketButton {
+    background-color: #f6a970;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    justify-content: center;
+}
+
+.openTicketButton {
+    background-color: rgb(165, 181, 230);
+    width: 20vw;
+    height: 8vh;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: rgb(165, 181, 230);
+}
+
+.openTicketsDiv {
+    display: flex;
+    width: 100%;
+    height:fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
+.courseDiv {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: fit-content;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    color: black;
+    display: flex;
+    flex-direction: column; 
+    margin-top: 1rem;
+    width: 12rem;
+    height: fit-content;
+    /* border-style: solid; */
+    border-radius: 20px;
+    border-color: #5c5f30;;
+    margin-right: 5px;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-color: #5c5f30;
+    font-size: small;
+}
+
+.orderDiv {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.orderWindow {
+    display: flex;
+    background-color: #f0dac0;
+    height: 30rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    justify-content: center;
+    align-items: center;
+    border-color: #5c5f30;
+    
+}
+
+.openTabs {
+    display: flex;
+    background-color: #f0dac0;
+    height: 30rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-color: #5c5f30;
+    justify-content: center;
+    align-items: center;
+}
+
+.employeeLoginForm {
+    background-color: #f6a970;
+    padding-top: 20px;
+}
+
+.pinInput {
+    height: 30px;
+}
+
+.foodListItem {
+    list-style-type: none;
+}
+
+.drinkListItem {
+    list-style-type: none;
+}
+
+.sendToKitchenButton {
+    background-color: #ee7840;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.kitchenButtonHolder {
+    background-color: #f0dac0;
+    justify-content: center;  
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foodItemList {
+ background-color: #5C5F30;
+ color: #f0dac0;
+}
+.features {
+    display: flex;
+}
+.modifyFeatureButton {
+    background-color: rgb(72, 143, 248);
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.sendFeatureButton {
+    background-color: rgb(72, 143, 248);
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.splitFeatureButton {
+    background-color: rgb(72, 143, 248);
+    width: 10rem;
+    height: 2rem;
+    border-radius: 30px;
+    /* border-width: 4px; */
+    font-size: x-large;
+    border-color: #5c5f30;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+

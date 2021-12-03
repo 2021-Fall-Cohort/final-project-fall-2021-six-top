@@ -1,0 +1,78 @@
+###
+GET http://localhost:8080/Floor/AlcoholicDrinks
+
+###
+GET http://localhost:8080/Floor/Appetizers
+
+###
+GET http://localhost:8080/Floor/Desserts
+
+###
+GET http://localhost:8080/Floor/Entrees
+
+###
+GET http://localhost:8080/Floor/NonAlcoholicDrinks
+
+###
+GET http://localhost:8080/Floor/Sides
+
+###
+GET http://localhost:8080/Tickets/OpenTickets
+
+###
+POST http://localhost:8080/Tickets/newTicket
+Content-Type: application/json
+
+{
+    "ticketItems": []
+}
+
+###
+GET http://localhost:8080/Management/retrieveAllEmployees
+
+###
+POST http://localhost:8080/Management/addNewEmployee
+Content-Type: application/json
+
+{
+    "firstName": "Jerry",
+    "lastName": "Wilder",
+    "jobTitle": "Manager"
+}
+
+### 
+GET http://localhost:8080/Management/retrieveCompanyProfile/1
+
+
+/// broken ///
+###
+PATCH http://localhost:8080/Management/changeTaxRate/1 
+Content-Type: application/json
+
+0.07
+
+###
+PATCH http://localhost:8080/Tickets/28/addItem/
+Content-Type: application/json
+
+  {
+    "name": "Cheese Burger",
+    "price": 8.99,
+    "description": "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries",
+    "available": true
+
+  }
+
+###
+PATCH http://localhost:8080/Tickets/saveTicket/28
+Content-Type: application/json
+
+  {
+    "ticketItems": [
+      {
+      "name": "Budweiser",
+      "price": 2.99,
+      "isAlcoholic": true
+      }
+    ]
+  }

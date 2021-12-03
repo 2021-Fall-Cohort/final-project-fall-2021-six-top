@@ -1,0 +1,70 @@
+body {
+    background-color: #ee7840;
+    width:100vw;
+}
+
+.mainLoginPage {
+    display: flex;
+    justify-content: center;
+}
+
+.tempDiv {
+    display: flex;
+    position: fixed;
+    margin-top: 10rem;
+    justify-content: space-around;
+    width: 30rem;
+}
+
+.tempDiv a {
+    text-decoration: none;
+    font-size: xx-large;
+    color: #f0dac0;   
+}
+
+a:hover {
+    text-shadow: 2px 2px darkslategrey;
+}
+.companyName {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: rgba(128, 153, 194, 0.972);
+    border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.employeeLoginDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.serverLink {
+    /* background-color: #f6a970; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.kitchenLink {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.managerLink {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
