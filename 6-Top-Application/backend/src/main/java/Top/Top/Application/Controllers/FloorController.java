@@ -46,10 +46,26 @@ public class FloorController {
     }
 
     @GetMapping("/Appetizers")
-    public Iterable<Appetizer> retrieveAllAppetizers() { return appetizerRepo.findAll(); }
+    public Iterable<Appetizer> retrieveAllAppetizers() {
+        ArrayList<Appetizer> shownAppetizer = new ArrayList<>();
+        for(Appetizer current: appetizerRepo.findAll()) {
+            if(current.isShowOnMenu()) {
+                shownAppetizer.add(current);
+            }
+        }
+        return shownAppetizer;
+    }
 
     @GetMapping("/Desserts")
-    public Iterable<Dessert> retrieveAllDesserts() { return dessertRepo.findAll(); }
+    public Iterable<Dessert> retrieveAllDesserts() {
+        ArrayList<Dessert> shownDessert = new ArrayList<>();
+        for(Dessert current: dessertRepo.findAll()) {
+            if(current.isShowOnMenu()) {
+                shownDessert.add(current);
+            }
+        }
+        return shownDessert;
+    }
 
     ////    EMPLOYEE ACCESS WOULD GO HERE   ////
 
@@ -65,10 +81,27 @@ public class FloorController {
     }
 
     @GetMapping("/NonAlcoholicDrinks")
-    public Iterable<NonAlcoholicDrink> retrieveAllNonAlcoholicDrinks() { return nonAlcoholicDrinkRepo.findAll(); }
+    public Iterable<NonAlcoholicDrink> retrieveAllNonAlcoholicDrinks() {
+        ArrayList<NonAlcoholicDrink> shownNonAlcoholicDrink = new ArrayList<>();
+        for(NonAlcoholicDrink current: nonAlcoholicDrinkRepo.findAll()) {
+            if(current.isShowOnMenu()) {
+                shownNonAlcoholicDrink.add(current);
+            }
+        }
+
+        return shownNonAlcoholicDrink;
+    }
 
     @GetMapping("/Sides")
-    public Iterable<Side> retrieveAllSides() { return sideRepo.findAll(); }
+    public Iterable<Side> retrieveAllSides() {
+        ArrayList<Side> shownSide = new ArrayList<>();
+        for(Side current: sideRepo.findAll()) {
+            if(current.isShowOnMenu()) {
+                shownSide.add(current);
+            }
+        }
+        return shownSide;
+    }
 
     /////   Ticket Controls     /////
 

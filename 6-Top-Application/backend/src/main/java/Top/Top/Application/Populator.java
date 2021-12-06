@@ -138,8 +138,8 @@ public class Populator implements CommandLineRunner {
         employeeRepo.save(moNerong);
 
         /// test Ticket
-        Ticket testTicket = new Ticket(phillyCheeseSteak, mashedPotatoes, modelo);  ///
-        ticketRepo.save(testTicket);
+//        Ticket testTicket = new Ticket(phillyCheeseSteak, mashedPotatoes, modelo);  ///
+//        ticketRepo.save(testTicket);
 
 
     }
