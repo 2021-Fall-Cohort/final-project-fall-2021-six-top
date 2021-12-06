@@ -26,7 +26,7 @@ terminal.appendChild(totalsBox);
 startServerProcess();
 function startServerProcess() {
   ////  FETCH FOR COMPANY PROFILE, DONT REPEAT  ////
-  fetch("/Management/retrieveCompanyProfile/1")
+  fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
   .then((res) => res.json())
   .then((companyProfileJson) => {
     currentTaxRate = companyProfileJson.taxRate;
@@ -38,7 +38,7 @@ function startServerProcess() {
   const newTicketJson = {
    
   };
-  fetch(`/Tickets/newTicket`, {
+  fetch(`http://localhost:8080/Tickets/newTicket`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +57,7 @@ function startServerProcess() {
     ////  ENTREES ////  
     entreeButton.addEventListener("click", () => {
     clearChildren(individualItems);   
-    fetch("/Floor/Entrees")
+    fetch("http://localhost:8080/Floor/Entrees")
       .then((res) => res.json())
       .then((entreeJson) => {
         entreeJson.forEach((entree) => {
@@ -76,7 +76,7 @@ function startServerProcess() {
               available: entree.available,
             };
             console.log(entree.id);
-            fetch(`/Tickets/${currentTicketId}/addItem/entree`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/entree`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -110,7 +110,7 @@ function startServerProcess() {
 
     starterButton.addEventListener("click", () => {
     clearChildren(individualItems);   
-    fetch("/Floor/Appetizers")
+    fetch("http://localhost:8080/Floor/Appetizers")
       .then((res) => res.json())
       .then((appetizersJson) => {
         appetizersJson.forEach((appetizer) => {
@@ -130,7 +130,7 @@ function startServerProcess() {
               available: appetizer.available,
             };
             console.log(appetizer.id);
-            fetch(`/Tickets/${currentTicketId}/addItem/appetizer`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/appetizer`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -156,7 +156,7 @@ function startServerProcess() {
 
     dessertButton.addEventListener("click", () => {
       clearChildren(individualItems);   
-    fetch("/Floor/Desserts")
+    fetch("http://localhost:8080/Floor/Desserts")
       .then((res) => res.json())
       .then((dessertJson) => {
         dessertJson.forEach((dessert) => {
@@ -176,7 +176,7 @@ function startServerProcess() {
               available: true
             };
             console.log(dessert.id);
-            fetch(`/Tickets/${currentTicketId}/addItem/dessert`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/dessert`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -201,7 +201,7 @@ function startServerProcess() {
   ///   SIDES   ////
   sideButton.addEventListener("click", () => {
     clearChildren(individualItems);   
-    fetch("/Floor/Sides")
+    fetch("http://localhost:8080/Floor/Sides")
       .then((res) => res.json())
       .then((sideJson) => {
         sideJson.forEach((side) => {
@@ -220,7 +220,7 @@ function startServerProcess() {
               available: side.available,
             };
             console.log(side.id);
-            fetch(`/Tickets/${currentTicketId}/addItem/side`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/side`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -246,7 +246,7 @@ function startServerProcess() {
 
   nonAlcholicButton.addEventListener("click", () => {
     clearChildren(individualItems);   
-    fetch("/Floor/NonAlcoholicDrinks")
+    fetch("http://localhost:8080/Floor/NonAlcoholicDrinks")
       .then((res) => res.json())
       .then((nonAlcholicJson) => {
         nonAlcholicJson.forEach((nonAlcholic) => {
@@ -264,7 +264,7 @@ function startServerProcess() {
               isAlcoholic: nonAlcholic.isAlcoholic,
             };
             console.log(nonAlcholic.id);
-            fetch(`/Tickets/${currentTicketId}/addItem/nonAlcoholicDrink`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/nonAlcoholicDrink`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -291,7 +291,7 @@ function startServerProcess() {
 
   alcoholicButton.addEventListener("click", () => {
     clearChildren(individualItems);   
-    fetch("/Floor/AlcoholicDrinks")
+    fetch("http://localhost:8080/Floor/AlcoholicDrinks")
       .then((res) => res.json())
       .then((alcholicJson) => {
         alcholicJson.forEach((alcholic) => {
@@ -308,7 +308,7 @@ function startServerProcess() {
               isAlcoholic: alcholic.isAlcoholic,
             };
             console.log(alcholic.id);
-            fetch(`/Tickets/${currentTicketId}/addItem/alcoholicDrink`, {
+            fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/alcoholicDrink`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -341,7 +341,7 @@ function clearChildren(element) {
   
 /// SEND TICKET BUTTON
 sendFeatureButton.addEventListener("click", () => {
-  fetch(`/Tickets/${currentTicketId}/saveToKitchen`)
+  fetch(`http://localhost:8080/Tickets/${currentTicketId}/saveToKitchen`)
   
   clearChildren(terminal);
   startServerProcess();
@@ -360,7 +360,7 @@ function splitTicketBill() {
 function showTotal() {
   clearChildren(totalsBox);
 
-  fetch(`/Tickets/${currentTicketId}`)
+  fetch(`http://localhost:8080/Tickets/${currentTicketId}`)
   .then((res) => res.json())
   .then((thisTicketJson) => {
     
