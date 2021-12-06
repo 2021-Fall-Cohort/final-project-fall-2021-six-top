@@ -18,7 +18,7 @@ public class Ticket {
     private int year;
     private int month;
     private int day;
-    @OneToMany(mappedBy = "ticket")
+    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Item> ticketItems;
 
     public Ticket(Item... ticketItems) {
@@ -36,6 +36,10 @@ public class Ticket {
 
     public void addToTicket(Item item) {
         ticketItems.add(item);
+    }
+
+    public void removeFromTicket(Item item) {
+        ticketItems.remove(item); /// remove item
     }
 
     public Collection<Item> getTicketItems() {

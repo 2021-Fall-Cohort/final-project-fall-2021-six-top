@@ -6,6 +6,8 @@ let currentTotal;
 
 
 ////  QUERY SELECTED BUTTONS   ////
+const sendFeatureButton = document.querySelector(".sendFeatureButton");
+
 const entreeButton = document.querySelector(".classicEntreesButton");
 const starterButton = document.querySelector(".classicStartersButton");
 const dessertButton = document.querySelector(".classicDessertButton");
@@ -17,6 +19,9 @@ const individualItems = document.querySelector(".individualItems");
 const terminal = document.querySelector(".terminal");
 
 const ticketBox = document.querySelector("terminal");
+const totalsBox = document.createElement("div");
+totalsBox.className = "totalsBox";
+terminal.appendChild(totalsBox);
 
 startServerProcess();
 function startServerProcess() {
@@ -45,8 +50,9 @@ function startServerProcess() {
       console.log("ID: " + newTicketJson.id);
       currentTicketId = newTicketJson.id;
       currentTotal = newTicketJson.itemsTotal;
-      console.log("CT: " + currentTotal);
+
     });
+
 
     ////  ENTREES ////  
     entreeButton.addEventListener("click", () => {
@@ -82,6 +88,14 @@ function startServerProcess() {
                 const ticketEntreeCard = document.createElement("div");
                 ticketEntreeCard.className = "cards";
                 ticketEntreeCard.innerText = entree.name + " " + entree.price;
+                ///
+                const deleteButton = document.createElement("button");
+                deleteButton.innerText = "Remove";
+                deleteButton.addEventListener("click", () => {
+                  fetch(``)
+                })
+                ticketEntreeCard.appendChild(deleteButton);
+                ///
                 terminal.appendChild(ticketEntreeCard);
               })
               .catch((err) => {
@@ -100,6 +114,7 @@ function startServerProcess() {
       .then((res) => res.json())
       .then((appetizersJson) => {
         appetizersJson.forEach((appetizer) => {
+          
           console.log(appetizer);
 
           const appetizerCard = document.createElement("div");
@@ -158,7 +173,7 @@ function startServerProcess() {
               price: dessert.price,
               showOnMenu: false,
               description: dessert.description,
-              available: dessert.available,
+              available: true
             };
             console.log(dessert.id);
             fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/dessert`, {
@@ -323,68 +338,64 @@ function clearChildren(element) {
   }
 } 
 
-  //// Send Ticket To Kitchen ////
-function sendTicket() {
+  
+/// SEND TICKET BUTTON
+sendFeatureButton.addEventListener("click", () => {
+  fetch(`http://localhost:8080/Tickets/${currentTicketId}/saveToKitchen`)
+  
   clearChildren(terminal);
-  fetch(`http://localhost:8080/Tickets/saveTicket/${currentTicketId}`)
-  .then((res) => res.json())
-}
+  startServerProcess();
+})
 
-  ///// Tab Name Modifier ////
+///// Tab Name Modifier ////
 function tabNameMod() {
 
 }
 
-  //// Split Tab ////
+//// Split Tab ////
 function splitTicketBill() {
 
 }
 
 function showTotal() {
-  /// clear
-  var subTotal = 0;
-  var totalTax = 0;
-  var ticketTotal = 0;
-
-
-  const totalsBox = document.createElement("div");
-  totalsBox.className = "totalsBox";
-  terminal.appendChild(totalsBox);
+  clearChildren(totalsBox);
 
   fetch(`http://localhost:8080/Tickets/${currentTicketId}`)
   .then((res) => res.json())
   .then((thisTicketJson) => {
-    console.log("look here: " + thisTicketJson);
+    
+    var totalTax = 0;
+    var ticketTotal = 0;
+    var subTotal = 0;
+
     thisTicketJson.ticketItems.forEach((item) => {
-      console.log("item list: " + item);
+      console.log("name: " + item.name + "price: " + item.price)
+
       subTotal += item.price;
+      totalTax += subTotal  * currentTaxRate ;
 
     })
+
+    ticketTotal += subTotal + totalTax;
+
+    const subtotalText = document.createElement("h3");
+    /// class name?
+    subtotalText.innerText = "subTotal: " + subTotal.toFixed(2);
+    totalsBox.appendChild(subtotalText);
+  
+    const totalTaxText = document.createElement("h3");
+    /// class name?
+    totalTaxText.innerText = "Tax: " + totalTax.toFixed(2);
+    totalsBox.appendChild(totalTaxText);
+  
+    const ticketTotalText = document.createElement("h3");
+    /// class name?
+    ticketTotalText.innerText = "Total: " + ticketTotal.toFixed(2);
+    totalsBox.appendChild(ticketTotalText);
+
   })
 
-  totalTax = subTotal  * currentTaxRate ;
-  ticketTotal = subTotal + totalTax;
 
-
-
-  const subtotalText = document.createElement("h3");
-  /// class name?
-  subtotalText.innerText = "subTotal: " + subTotal;
-  totalsBox.appendChild(subtotalText);
-
-  const totalTaxText = document.createElement("h3");
-  /// class name?
-  totalTaxText.innerText = "Tax: " + totalTax;
-  totalsBox.appendChild(totalTaxText);
-
-  const ticketTotalText = document.createElement("h3");
-  /// class name?
-  ticketTotalText.innerText = "Total: " + ticketTotal;
-  totalsBox.appendChild(ticketTotalText);
-
-  console.log("subTotal: " + subTotal);
-  console.log("totalTax: " + totalTax);
-  console.log("ticketTotal: " + ticketTotal);
 }
 
 /// deal with show totals
