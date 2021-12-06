@@ -22,7 +22,7 @@ function BuildEmployeeCard() {
     const employeeList = document.createElement("h3");
     employeeList.className = "employeeList";
 
-    fetch("http://localhost:8080/Management/retrieveAllEmployees")
+    fetch("/Management/retrieveAllEmployees")
     .then((res) => res.json())
     .then((employeeJson) => {
 
@@ -73,7 +73,7 @@ function BuildEmployeeCard() {
 
         console.log(newEmployeeJson);
 
-        fetch(`http://localhost:8080/Management/addNewEmployee`, {
+        fetch(`/Management/addNewEmployee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -123,7 +123,7 @@ function BuildTaxSelectorCard() {
 
  
         
-        fetch("http://localhost:8080/Management/changeTaxRate/1", {
+        fetch("/Management/changeTaxRate/1", {
             method: "PATCH",
             headers: {
                 'Content-Type': "text/plain"
@@ -143,7 +143,7 @@ function BuildTaxSelectorCard() {
         
 
 
-        // fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
+        // fetch("/Management/retrieveCompanyProfile/1")
         // .then((res) => res.json())
         // .then((companyProfile) => {
             

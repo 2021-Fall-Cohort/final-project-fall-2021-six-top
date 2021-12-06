@@ -15,7 +15,7 @@ function startNewTicket() {
   const newTicketJson = {
     // has ID only.
   };
-  fetch(`http://localhost:8080/Tickets/newTicket`, {
+  fetch(`/Tickets/newTicket`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function startNewTicket() {
 
     test.addEventListener("click", () => {
 
-        fetch("http://localhost:8080/Floor/Entrees")
+        fetch("/Floor/Entrees")
         .then((res) => res.json())
         .then((entreeJson) => {
 
@@ -61,7 +61,7 @@ function startNewTicket() {
                 entreeCard.addEventListener("click", () => {            //// functionality for adding entree to ticket here
 
                   console.log(entree.id);
-                  fetch(`http://localhost:8080/Tickets/${currentTicketId}/addItem/${entree.id}`)       /// stuck here
+                  fetch(`/Tickets/${currentTicketId}/addItem/${entree.id}`)       /// stuck here
                     
                 })                                                
 
@@ -122,7 +122,7 @@ function startNewTicket() {
 function callOpenTicketButton() {
   console.log("log: called open tickets button function");
 
-  fetch("http://localhost:8080/Tickets/OpenTickets")
+  fetch("/Tickets/OpenTickets")
     .then((res) => res.json())
     .then((openTicketJson) => {
       openTicketJson.forEach((CurrentOpenTicket) => {
