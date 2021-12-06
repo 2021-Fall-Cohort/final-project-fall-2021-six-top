@@ -14,8 +14,8 @@ public class Dessert extends Item{
     private String description;
     private Boolean available;
 
-    public Dessert(String name, Float price, String description, Boolean available) {
-        super(name, price);
+    public Dessert(String name, Float price, String description, Boolean available, boolean showOnMenu) {
+        super(name, price, showOnMenu);
         this.description = description;
         this.available = available;
     }

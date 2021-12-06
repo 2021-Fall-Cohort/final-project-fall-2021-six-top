@@ -3,6 +3,7 @@ package Top.Top.Application.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public abstract class Item {
@@ -12,10 +13,15 @@ public abstract class Item {
 
     private String name;
     private Float price;
+    private boolean showOnMenu;
 
-    public Item(String name, Float price) {
+    @ManyToOne
+    private Ticket ticket;
+
+    public Item(String name, Float price, boolean showOnMenu) {
         this.name = name;
         this.price = price;
+        this.showOnMenu =showOnMenu;
     }
 
     protected Item() {
@@ -25,7 +31,15 @@ public abstract class Item {
         return name;
     }
 
+    public boolean isShowOnMenu() {
+        return showOnMenu;
+    }
+
     public Float getPrice() {
         return price;
+    }
+
+    public void addTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

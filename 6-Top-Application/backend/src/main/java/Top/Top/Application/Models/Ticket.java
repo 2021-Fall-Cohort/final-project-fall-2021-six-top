@@ -1,8 +1,10 @@
 package Top.Top.Application.Models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -12,18 +14,20 @@ public class Ticket {
     @GeneratedValue
     private Long id;
 
+    private String name;
     private int year;
     private int month;
     private int day;
-
-    @ElementCollection
+    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Item> ticketItems;
 
     public Ticket(Item... ticketItems) {
         this.ticketItems =  Arrays.asList(ticketItems);
+
     }
 
     public Ticket() {
+
     }
 
     public Long getId() {
@@ -32,6 +36,10 @@ public class Ticket {
 
     public void addToTicket(Item item) {
         ticketItems.add(item);
+    }
+
+    public void removeFromTicket(Item item) {
+        ticketItems.remove(item); /// remove item
     }
 
     public Collection<Item> getTicketItems() {
@@ -50,4 +58,7 @@ public class Ticket {
         this.day = day;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

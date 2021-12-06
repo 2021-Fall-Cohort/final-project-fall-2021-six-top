@@ -121,22 +121,40 @@ function BuildTaxSelectorCard() {
     
     taxRateSelectorButton.addEventListener("click", () => {
 
-        fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
+ 
+        
+        fetch("http://localhost:8080/Management/changeTaxRate/1", {
+            method: "PATCH",
+            headers: {
+                'Content-Type': "text/plain"
+            },
+            body: taxInputBox.value        // remember this...       
+        })
         .then((res) => res.json())
         .then((companyProfile) => {
             
-            console.log("json: " + parseFloat(companyProfile.taxRate));
+            console.log("pre change json: " + parseFloat(companyProfile.taxRate));
+            currentTaxRate = parseFloat(taxInputBox.value);
+            taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
 
-            var newTaxRate = taxInputBox.value;
-            
-
-
+            console.log(companyProfile.taxRate)
         })
- 
+        .catch(err => console.error(err));
         
-        // currentTaxRate = parseFloat(taxInputBox.value);
-        console.log("post-click tax rate: " + parseFloat(companyProfile.taxRate))
-        taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
+
+
+        // fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
+        // .then((res) => res.json())
+        // .then((companyProfile) => {
+            
+        //     console.log("pre change json: " + parseFloat(companyProfile.taxRate));
+        //     currentTaxRate = parseFloat(taxInputBox.value);
+        //     taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
+
+        //     console.log(companyProfile.taxRate)
+        // })
+
+        
 
     })
     

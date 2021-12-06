@@ -31,8 +31,6 @@ function openTabsWindow() {
     drinkListItem.className = "drinkListItem";
     drinkItemsOrderedList.appendChild(drinkListItem);
     drinkListItem.innerText = "stupid bud light";
-
-
 }
 
 export {openTabsWindow}

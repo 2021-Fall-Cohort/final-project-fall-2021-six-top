@@ -1,12 +1,9 @@
 package Top.Top.Application.Controllers;
-import Top.Top.Application.Models.Entree;
-import Top.Top.Application.Models.Item;
-import Top.Top.Application.Models.Ticket;
-import Top.Top.Application.Repositories.ClosedTicketRepository;
-import Top.Top.Application.Repositories.EntreeRepository;
-import Top.Top.Application.Repositories.TicketRepository;
+import Top.Top.Application.Models.*;
+import Top.Top.Application.Repositories.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -15,13 +12,25 @@ public class TicketController {
 
     private TicketRepository ticketRepo;
     private ClosedTicketRepository closedTicketRepo;
-
     private EntreeRepository entreeRepo;
+    private AlcoholicDrinkRepository alcoholicDrinkRepo;
+    private AppetizerRepository appetizerRepo;
+    private DessertRepository dessertRepo;
+    private NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo;
+    private SideRepository sideRepo;
+    private KitchenRepository kitchenRepo;
 
-    public TicketController(TicketRepository ticketRepo, ClosedTicketRepository closedTicketRepo, EntreeRepository entreeRepo) {
+
+    public TicketController(TicketRepository ticketRepo, ClosedTicketRepository closedTicketRepo, EntreeRepository entreeRepo, AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, KitchenRepository kitchenRepo) {
         this.ticketRepo = ticketRepo;
         this.closedTicketRepo = closedTicketRepo;
         this.entreeRepo = entreeRepo;
+        this.alcoholicDrinkRepo = alcoholicDrinkRepo;
+        this.appetizerRepo = appetizerRepo;
+        this.dessertRepo = dessertRepo;
+        this.nonAlcoholicDrinkRepo = nonAlcoholicDrinkRepo;
+        this.sideRepo = sideRepo;
+        this.kitchenRepo = kitchenRepo;
     }
 
     @GetMapping("/OpenTickets")
@@ -32,27 +41,110 @@ public class TicketController {
         return ticketRepo.findById(id).get();
     }
 
-    @PostMapping("/newTicket")                                  ///// Questionable //////
-    public Optional<Ticket> startNewTicket(@RequestBody Ticket ticket) {
+    @PostMapping("/newTicket")
+    public Optional<Ticket> startNewTicket(@RequestBody Ticket ticket){
         Ticket newTicket = new Ticket();
         ticketRepo.save(newTicket);
         Long tempId = newTicket.getId();
         return ticketRepo.findById(tempId);
     }
 
+    @PatchMapping("/saveTicket/{id}")
+    public void saveTicket(@PathVariable Long id) {
+
+        ticketRepo.save(ticketRepo.findById(id).get());
+    }
+
+    @PutMapping("/{id}/removeTicketItem/{itemId}")                                      ///broken
+    public void removeTicketItem(@PathVariable Long id, @PathVariable Long itemtId) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        tempTicket.removeFromTicket(entreeRepo.findById(itemtId).get()); /// entree only in this case testing
+        entreeRepo.deleteById(itemtId);
+        ticketRepo.save(tempTicket);
+    }
+
     @DeleteMapping("/{id}/CloseTicket")
-    public String closeTicket(@PathVariable Long id) {
+    public void closeTicket(@PathVariable Long id) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         closedTicketRepo.save(tempTicket);
         ticketRepo.delete(tempTicket);
-        return "redirect:/html/Floor.html";                                     /// get redirect working ///
     }
 
-    @PatchMapping("/{id}/addItem/{itemId}")
-    public void addItemToTicket(@PathVariable Long id, @PathVariable long itemId) {
-        Entree tempEntree = entreeRepo.findById(itemId).get();
+    @PatchMapping("/{id}/addItem/entree")
+    public Ticket addEntreeToTicket(@PathVariable Long id, @RequestBody Entree inEntree) {
         Ticket tempTicket = ticketRepo.findById(id).get();
-        tempTicket.addToTicket(tempEntree);
+        inEntree.addTicket(tempTicket);
+        entreeRepo.save(inEntree);   /// remember that json from front end is NOT saved!!!!!
         ticketRepo.save(tempTicket);
+        return tempTicket;
+    }
+
+    @PatchMapping("/{id}/addItem/appetizer")
+    public Ticket addAppetizerToTicket(@PathVariable Long id, @RequestBody Appetizer inAppetizer) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        inAppetizer.addTicket(tempTicket);
+        appetizerRepo.save(inAppetizer);   /// remember that json from front end is NOT saved!!!!!
+        ticketRepo.save(tempTicket);
+        return tempTicket;
+    }
+
+    @PatchMapping("/{id}/addItem/dessert")
+    public Ticket addDessertToTicket(@PathVariable Long id, @RequestBody Dessert inDessert) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        inDessert.addTicket(tempTicket);
+        dessertRepo.save(inDessert);                                   /// remember that json from front end is NOT saved!!!!!
+        ticketRepo.save(tempTicket);
+        return tempTicket;
+    }
+
+    @PatchMapping("/{id}/addItem/side")
+    public Ticket addSideToTicket(@PathVariable Long id, @RequestBody Side inSide) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        inSide.addTicket(tempTicket);
+        sideRepo.save(inSide);   /// remember that json from front end is NOT saved!!!!!
+        ticketRepo.save(tempTicket);
+        return tempTicket;
+    }
+
+    @PatchMapping("/{id}/addItem/alcoholicDrink")
+    public Ticket addAlcoholicDrinkToTicket(@PathVariable Long id, @RequestBody AlcoholicDrink inAlcoholicDrink) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        inAlcoholicDrink.addTicket(tempTicket);
+        alcoholicDrinkRepo.save(inAlcoholicDrink);   /// remember that json from front end is NOT saved!!!!!
+        ticketRepo.save(tempTicket);
+        return tempTicket;
+    }
+
+    @PatchMapping("/{id}/addItem/nonAlcoholicDrink")
+    public Ticket addNonAlcoholicDrinkToTicket(@PathVariable Long id, @RequestBody NonAlcoholicDrink inNonAlcoholicDrink) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        inNonAlcoholicDrink.addTicket(tempTicket);
+        nonAlcoholicDrinkRepo.save(inNonAlcoholicDrink);   /// remember that json from front end is NOT saved!!!!!
+        ticketRepo.save(tempTicket);
+        return tempTicket;
+    }
+
+    @GetMapping("/{id}/getTicketItems")
+    public Collection<Item> getTicketItems(@PathVariable Long id) {
+        Ticket tempTicket = ticketRepo.findById(id).get();
+        return tempTicket.getTicketItems();
+    }
+
+    @GetMapping("/{id}/saveToKitchen")
+    public void saveToKitchen(@PathVariable Long id) {
+       Ticket tempTicket = ticketRepo.findById(id).get();
+       kitchenRepo.save(tempTicket);
+    }
+
+    @GetMapping("/retireveAllKitchenTickets")
+    public Iterable<Ticket> retireveAllKitchenTickets() {
+        return kitchenRepo.findAll();
+    }
+
+    @DeleteMapping("/{id}/finishTicket")                          ////broke
+    public void finishTicket(@PathVariable Long id) {
+    Ticket tempTicket = kitchenRepo.findById(id).get();
+    closedTicketRepo.save(tempTicket);
+    kitchenRepo.delete(tempTicket);
     }
 }
