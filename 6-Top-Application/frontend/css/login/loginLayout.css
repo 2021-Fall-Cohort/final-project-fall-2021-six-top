@@ -26,14 +26,11 @@ a:hover {
     text-shadow: 2px 2px darkslategrey;
 }
 .companyName {
+    align-items: center;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
-    background-color: rgba(128, 153, 194, 0.972);
+    background: #000;
     border-radius: 10px;
     font-family: 'Space Grotesk', sans-serif;
 }
@@ -67,4 +64,9 @@ a:hover {
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
+}
+
+.companyHeader {
+    font-family: 'Lobster', cursive;
+    text-shadow: #b8dbd9 1px 0 10px;
 }
