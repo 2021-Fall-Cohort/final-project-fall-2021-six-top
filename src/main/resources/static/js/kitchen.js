@@ -1,16 +1,23 @@
+
 const mainKitchenPage = document.querySelector(".mainKitchenPage")
 
 const mainDiv = document.createElement("div");
 mainDiv.className = "mainDiv";
 let currentTaxRate;
 
+fetch("/Tickets/retireveAllKitchenTickets")
+  .then((res) => res.json())
+  .then((openTicketJson) => {
+    showKitchen(openTicketJson);
+});
 
+function showKitchen(openTicketJson) {
 
-fetch("http://localhost:8080/Tickets/retireveAllKitchenTickets")
-.then((res) => res.json())
-.then((openTicketJson) => {
+fetch("/Tickets/retireveAllKitchenTickets")
+  .then((res) => res.json())
+  .then((openTicketJson) => {
   openTicketJson.forEach((CurrentOpenTicket) => {
-    
+
     console.log("ti: " + CurrentOpenTicket.ticketItems)
     
     if(CurrentOpenTicket.ticketItems.length > 0) {
@@ -54,21 +61,27 @@ fetch("http://localhost:8080/Tickets/retireveAllKitchenTickets")
       const finishButton = document.createElement("button");
       finishButton.innerText = "Finished";
       finishButton.addEventListener("click", () => {
-        fetch(`http://localhost:8080/Tickets/${currentTicketid}/finishTicket`, {
+        fetch(`/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"
         })
-        .then(res => res.json())
-        .then(albums => {                                          
-            clearChildren(mainPage);
-            displayAlbumsView(mainPage, albums);
+        .then((res) => res.json())
+        .then((tickets) => {
+          clearChildren(mainDiv);
+          showKitchen(tickets);
         })
         .catch(err => console.log(err));
-          
-
       })
       orderCard.appendChild(finishButton);
        
     }
 
   });
+
 });
+}
+
+function clearChildren(element) {
+  while (element.firstChild) {
+    element.removeChild(element.lastChild);
+  }
+}

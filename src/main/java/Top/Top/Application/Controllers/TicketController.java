@@ -3,6 +3,7 @@ import Top.Top.Application.Models.*;
 import Top.Top.Application.Repositories.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -34,7 +35,15 @@ public class TicketController {
     }
 
     @GetMapping("/OpenTickets")
-    public Iterable<Ticket> retrieveAllOpenTickets() { return ticketRepo.findAll(); }
+    public Iterable<Ticket> retrieveAllOpenTickets() {
+        ArrayList<Ticket> openTickets = new ArrayList<>();
+        for(Ticket current: ticketRepo.findAll()) {
+            if (!current.isClosed()) {
+                openTickets.add(current);
+            }
+        }
+        return openTickets;
+    }
 
     @GetMapping("/{id}")
     public Ticket retrieveSingleTicket(@PathVariable Long id) {
@@ -51,11 +60,10 @@ public class TicketController {
 
     @PatchMapping("/saveTicket/{id}")
     public void saveTicket(@PathVariable Long id) {
-
         ticketRepo.save(ticketRepo.findById(id).get());
     }
 
-    @PutMapping("/{id}/removeTicketItem/{itemId}")                                      ///broken
+    @DeleteMapping("/{id}/removeTicketItem/{itemId}")                                      ///broken
     public void removeTicketItem(@PathVariable Long id, @PathVariable Long itemtId) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         tempTicket.removeFromTicket(entreeRepo.findById(itemtId).get()); /// entree only in this case testing
@@ -71,57 +79,63 @@ public class TicketController {
     }
 
     @PatchMapping("/{id}/addItem/entree")
-    public Ticket addEntreeToTicket(@PathVariable Long id, @RequestBody Entree inEntree) {
+    public Entree addEntreeToTicket(@PathVariable Long id, @RequestBody Entree inEntree) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inEntree.addTicket(tempTicket);
         entreeRepo.save(inEntree);   /// remember that json from front end is NOT saved!!!!!
+        Long tId = inEntree.getId();
         ticketRepo.save(tempTicket);
-        return tempTicket;
+        return entreeRepo.findById(tId).get();
     }
 
     @PatchMapping("/{id}/addItem/appetizer")
-    public Ticket addAppetizerToTicket(@PathVariable Long id, @RequestBody Appetizer inAppetizer) {
+    public Appetizer addAppetizerToTicket(@PathVariable Long id, @RequestBody Appetizer inAppetizer) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inAppetizer.addTicket(tempTicket);
-        appetizerRepo.save(inAppetizer);   /// remember that json from front end is NOT saved!!!!!
+        appetizerRepo.save(inAppetizer);
+        Long tId = inAppetizer.getId();
         ticketRepo.save(tempTicket);
-        return tempTicket;
+        return appetizerRepo.findById(tId).get();
     }
 
     @PatchMapping("/{id}/addItem/dessert")
-    public Ticket addDessertToTicket(@PathVariable Long id, @RequestBody Dessert inDessert) {
+    public Dessert addDessertToTicket(@PathVariable Long id, @RequestBody Dessert inDessert) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inDessert.addTicket(tempTicket);
         dessertRepo.save(inDessert);                                   /// remember that json from front end is NOT saved!!!!!
+        Long tId = inDessert.getId();
         ticketRepo.save(tempTicket);
-        return tempTicket;
+        return dessertRepo.findById(tId).get();
     }
 
     @PatchMapping("/{id}/addItem/side")
-    public Ticket addSideToTicket(@PathVariable Long id, @RequestBody Side inSide) {
+    public Side addSideToTicket(@PathVariable Long id, @RequestBody Side inSide) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inSide.addTicket(tempTicket);
         sideRepo.save(inSide);   /// remember that json from front end is NOT saved!!!!!
+        Long tId = inSide.getId();
         ticketRepo.save(tempTicket);
-        return tempTicket;
+        return sideRepo.findById(tId).get();
     }
 
     @PatchMapping("/{id}/addItem/alcoholicDrink")
-    public Ticket addAlcoholicDrinkToTicket(@PathVariable Long id, @RequestBody AlcoholicDrink inAlcoholicDrink) {
+    public AlcoholicDrink addAlcoholicDrinkToTicket(@PathVariable Long id, @RequestBody AlcoholicDrink inAlcoholicDrink) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inAlcoholicDrink.addTicket(tempTicket);
         alcoholicDrinkRepo.save(inAlcoholicDrink);   /// remember that json from front end is NOT saved!!!!!
+        Long tId = inAlcoholicDrink.getId();
         ticketRepo.save(tempTicket);
-        return tempTicket;
+        return alcoholicDrinkRepo.findById(tId).get();
     }
 
     @PatchMapping("/{id}/addItem/nonAlcoholicDrink")
-    public Ticket addNonAlcoholicDrinkToTicket(@PathVariable Long id, @RequestBody NonAlcoholicDrink inNonAlcoholicDrink) {
+    public NonAlcoholicDrink addNonAlcoholicDrinkToTicket(@PathVariable Long id, @RequestBody NonAlcoholicDrink inNonAlcoholicDrink) {
         Ticket tempTicket = ticketRepo.findById(id).get();
         inNonAlcoholicDrink.addTicket(tempTicket);
         nonAlcoholicDrinkRepo.save(inNonAlcoholicDrink);   /// remember that json from front end is NOT saved!!!!!
+        Long tId = inNonAlcoholicDrink.getId();
         ticketRepo.save(tempTicket);
-        return tempTicket;
+        return nonAlcoholicDrinkRepo.findById(tId).get();
     }
 
     @GetMapping("/{id}/getTicketItems")
@@ -138,13 +152,18 @@ public class TicketController {
 
     @GetMapping("/retireveAllKitchenTickets")
     public Iterable<Ticket> retireveAllKitchenTickets() {
-        return kitchenRepo.findAll();
+        ArrayList<Ticket> openTickets = new ArrayList<>();
+        for(Ticket current: kitchenRepo.findAll()) {
+            if (!current.isClosed()) {
+                openTickets.add(current);
+            }
+        }
+        return openTickets;
     }
 
-    @DeleteMapping("/{id}/finishTicket")                          ////broke
-    public void finishTicket(@PathVariable Long id) {
-    Ticket tempTicket = kitchenRepo.findById(id).get();
-    closedTicketRepo.save(tempTicket);
-    kitchenRepo.delete(tempTicket);
+    @DeleteMapping("/{id}/finishTicket")
+    public  Iterable<Ticket> finishTicket(@PathVariable Long id) {
+        kitchenRepo.findById(id).get().closeTicket();
+        return retireveAllKitchenTickets();
     }
 }

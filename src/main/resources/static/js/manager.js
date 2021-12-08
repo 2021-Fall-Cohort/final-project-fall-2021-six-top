@@ -92,7 +92,6 @@ function BuildEmployeeCard() {
         .catch(err => console.error(err));
        
     })
-
 }
 
 function buildBussinessProfileDiv() {
@@ -100,7 +99,6 @@ function buildBussinessProfileDiv() {
     const bussinessProfileDiv = document.createElement("div");
     bussinessProfileDiv.className = "bussinessProfileDiv";
     mainManagerPage.appendChild(bussinessProfileDiv);
-
 }
 
 function BuildTaxSelectorCard() {
@@ -148,53 +146,29 @@ function BuildTaxSelectorCard() {
             console.log(companyProfile.taxRate)
         })
         .catch(err => console.error(err));
-        
-
-
-        // fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
-        // .then((res) => res.json())
-        // .then((companyProfile) => {
-            
-        //     console.log("pre change json: " + parseFloat(companyProfile.taxRate));
-        //     currentTaxRate = parseFloat(taxInputBox.value);
-        //     taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
-
-        //     console.log(companyProfile.taxRate)
-        // })
-
-        
-
     })
-    
-
 }
+// function buildAddProducts() {
+    
+//     const productsDiv = document.createElement("div");
+//     productsDiv.className = "productsDiv";
+//     mainManagerPage.appendChild(productsDiv);           
 
-{/* <script>
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
+//     const itemCategoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemCategoryBox);
 
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
+//     const itemNameBox = document.createElement("input");
+//     productsDiv.appendChild(itemNameBox);
 
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-</script> */}
+//     const itemPriceBox = document.createElement("input");
+//     productsDiv.appendChild(itemPriceBox);
+
+//     const itemModifierCatigoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemModifierCatigoryBox);
+
+//     const addItemButton = document.createElement("button");
+//     productsDiv.appendChild(addItemButton);
+// }
 
 
 
