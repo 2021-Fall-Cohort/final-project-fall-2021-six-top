@@ -140,6 +140,8 @@ function BuildTaxSelectorCard() {
             console.log(companyProfile.taxRate)
         })
         .catch(err => console.error(err));
+
+
         
 
 
@@ -156,9 +158,8 @@ function BuildTaxSelectorCard() {
 
         
 
-    })
-    
 
+    })
 }
 
 <script>
@@ -187,6 +188,28 @@ function BuildTaxSelectorCard() {
     options: {}
   };
 </script>
+
+// function buildAddProducts() {
+    
+//     const productsDiv = document.createElement("div");
+//     productsDiv.className = "productsDiv";
+//     mainManagerPage.appendChild(productsDiv);           
+
+//     const itemCategoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemCategoryBox);
+
+//     const itemNameBox = document.createElement("input");
+//     productsDiv.appendChild(itemNameBox);
+
+//     const itemPriceBox = document.createElement("input");
+//     productsDiv.appendChild(itemPriceBox);
+
+//     const itemModifierCatigoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemModifierCatigoryBox);
+
+//     const addItemButton = document.createElement("button");
+//     productsDiv.appendChild(addItemButton);
+// }
 
 
 
