@@ -1,6 +1,11 @@
 body {
     background-color: #ee7840;
     width:100vw;
+    height: -webkit-fill-available;
+}
+
+.indexBody {
+    height: -webkit-fill-available
 }
 
 .mainLoginPage {
@@ -70,3 +75,33 @@ a:hover {
     font-family: 'Lobster', cursive;
     text-shadow: #b8dbd9 1px 0 10px;
 }
+
+/* @media only screen and (max-width: 850px) {
+    #openMenu input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-4px, -1px);
+    background: #F4F4F9;
+    text-shadow: #b8dbd9 1px 0 10px;
+
+    }
+    
+    #openMenu {
+        width: 14.5px;
+        height: 2px;
+        margin-bottom: 0px;
+    }
+
+    .hamburgerSpan {
+        width: 15px;
+        height: 5px;
+    }
+
+    .checkBox {
+        width: 20px;
+
+    }
+
+    #menu {
+
+    } */
+/* } */
