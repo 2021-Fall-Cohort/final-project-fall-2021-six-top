@@ -2,10 +2,7 @@ package Top.Top.Application.Controllers;
 
 import Top.Top.Application.Models.*;
 import Top.Top.Application.Repositories.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -32,6 +29,36 @@ public class FloorController {
         this.nonAlcoholicDrinkRepo = nonAlcoholicDrinkRepo;
         this.sideRepo = sideRepo;
         this.ticketRepo = ticketRepo;
+    }
+
+    @DeleteMapping("/deleteSingleEntree/{id}")
+    public void deleteSingleEntree(@PathVariable Long id) {
+        entreeRepo.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteSingleAppetizer/{id}")
+    public void deleteSingleAppetizer(@PathVariable Long id) {
+        appetizerRepo.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteSingleAlcoholicDrink/{id}")
+    public void deleteSingleAlcoholicDrink(@PathVariable Long id) {
+        alcoholicDrinkRepo.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteSingleNonAlcoholicDrink/{id}")
+    public void deleteSingleNonAlcoholicDrink(@PathVariable Long id) {
+        nonAlcoholicDrinkRepo.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteSingleSide/{id}")
+    public void deleteSingleSide(@PathVariable Long id) {
+        sideRepo.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteSingleDessert/{id}")
+    public void deleteSingleDessert(@PathVariable Long id) {
+        dessertRepo.deleteById(id);
     }
 
     @GetMapping("/AlcoholicDrinks")

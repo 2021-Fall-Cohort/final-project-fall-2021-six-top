@@ -138,6 +138,8 @@ function BuildTaxSelectorCard() {
             console.log(companyProfile.taxRate)
         })
         .catch(err => console.error(err));
+
+
         
 
 
@@ -154,5 +156,58 @@ function BuildTaxSelectorCard() {
 
         
 
+
     })
 }
+
+<script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+
+// function buildAddProducts() {
+    
+//     const productsDiv = document.createElement("div");
+//     productsDiv.className = "productsDiv";
+//     mainManagerPage.appendChild(productsDiv);           
+
+//     const itemCategoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemCategoryBox);
+
+//     const itemNameBox = document.createElement("input");
+//     productsDiv.appendChild(itemNameBox);
+
+//     const itemPriceBox = document.createElement("input");
+//     productsDiv.appendChild(itemPriceBox);
+
+//     const itemModifierCatigoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemModifierCatigoryBox);
+
+//     const addItemButton = document.createElement("button");
+//     productsDiv.appendChild(addItemButton);
+// }
+
+
+
