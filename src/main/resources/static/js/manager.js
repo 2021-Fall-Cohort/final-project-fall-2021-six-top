@@ -17,10 +17,11 @@ function BuildEmployeeCard() {
     employeeInfoDiv.appendChild(employeesHeader);
 
     const employeeListDiv = document.createElement("div");
+    employeeListDiv.className = "employeeListDiv";
     employeeInfoDiv.appendChild(employeeListDiv);
 
     const employeeList = document.createElement("h3");
-    employeeList.className = "employeeList";
+    employeeList.className = "employeeListDiv";
 
     fetch("http://localhost:8080/Management/retrieveAllEmployees")
     .then((res) => res.json())
@@ -29,27 +30,33 @@ function BuildEmployeeCard() {
         employeeJson.forEach(currentEmployee => {
             
             const employeeList = document.createElement("p");
+            employeeList.className= "employeeList"
             employeeList.innerText = "First name: " + currentEmployee.firstName + "\n" + "Last Name: " + currentEmployee.lastName + "\n" + "Job Title: " + currentEmployee.jobTitle + "\n" +"Employee ID: " + currentEmployee.id;
             employeeListDiv.appendChild(employeeList);
         });
     })
 
+    const newEmployeeBox = document.createElement("div");
+    newEmployeeBox.className = "newEmployeeBox";
+    newEmployeeBox.innerText ="Assign new Employee";
+    employeeInfoDiv.prepend(newEmployeeBox);
+
     const newEmployeeFirstNameBox = document.createElement("input");
     newEmployeeFirstNameBox.className = "newEmployeeFirstNameBox";
     newEmployeeFirstNameBox.placeholder = "First Name";
-    employeeInfoDiv.appendChild(newEmployeeFirstNameBox);
+    newEmployeeBox.appendChild(newEmployeeFirstNameBox);
 
     const newEmployeeLastNameBox = document.createElement("input");
     newEmployeeLastNameBox.className = "newEmployeeLastNameBox";
     newEmployeeLastNameBox.placeholder = "Last Name";
-    employeeInfoDiv.appendChild(newEmployeeLastNameBox);
+    newEmployeeBox.appendChild(newEmployeeLastNameBox);
 
     var jobTitleArray = ["Server", "Cook", "Manager"];
 
     const jobTitleElement = document.createElement("select");
     jobTitleElement.className = "jobTitleElement"
     jobTitleElement.placeholder = "Job Title";
-    employeeInfoDiv.appendChild(jobTitleElement);
+    newEmployeeBox.appendChild(jobTitleElement);
     
     for (let i = 0; i < jobTitleArray.length; i++) {    
         var option = document.createElement("option");
@@ -61,7 +68,8 @@ function BuildEmployeeCard() {
     const newEmployeeSubmitButton = document.createElement("button")
     newEmployeeSubmitButton.className = "newEmployeeSubmitButton";
     newEmployeeSubmitButton.innerText = "Create";
-    employeeInfoDiv.appendChild(newEmployeeSubmitButton);
+    newEmployeeBox.appendChild(newEmployeeSubmitButton);
+    employeeInfoDiv.prepend(newEmployeeBox);
     newEmployeeSubmitButton.addEventListener("click", () => {
 
         const newEmployeeJson = {

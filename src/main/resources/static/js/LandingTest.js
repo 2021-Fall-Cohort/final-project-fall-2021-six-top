@@ -22,7 +22,6 @@ const ticketBox = document.querySelector("terminal");
 const totalsBox = document.createElement("div");
 totalsBox.className = "totalsBox";
 terminal.appendChild(totalsBox);
-
 buildMenuCards();
 startServerProcess();
 function startServerProcess() {
