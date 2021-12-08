@@ -282,7 +282,6 @@ function startServerProcess() {
         });
     });
 
-
     /// NONALCOHOLIC  ////
 
     nonAlcholicButton.addEventListener("click", () => {
