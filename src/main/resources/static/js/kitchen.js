@@ -6,7 +6,7 @@ let currentTaxRate;
 
 
 
-fetch("/Tickets/retireveAllKitchenTickets")
+fetch("http://localhost:8080/Tickets/retireveAllKitchenTickets")
 .then((res) => res.json())
 .then((openTicketJson) => {
   openTicketJson.forEach((CurrentOpenTicket) => {
@@ -54,7 +54,7 @@ fetch("/Tickets/retireveAllKitchenTickets")
       const finishButton = document.createElement("button");
       finishButton.innerText = "Finished";
       finishButton.addEventListener("click", () => {
-        fetch(`/Tickets/${currentTicketid}/finishTicket`, {
+        fetch(`http://localhost:8080/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"
         })
         .then(res => res.json())
