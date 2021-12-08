@@ -22,7 +22,7 @@ const ticketBox = document.querySelector("terminal");
 const totalsBox = document.createElement("div");
 totalsBox.className = "totalsBox";
 terminal.appendChild(totalsBox);
-
+buildMenuCards();
 startServerProcess();
 function startServerProcess() {
   ////  FETCH FOR COMPANY PROFILE, DONT REPEAT  ////
@@ -53,7 +53,8 @@ function startServerProcess() {
 
     });
 
-
+  }
+  function buildMenuCards(){
     ////  ENTREES ////  
     entreeButton.addEventListener("click", () => {
     clearChildren(individualItems);   
@@ -62,13 +63,13 @@ function startServerProcess() {
       .then((entreeJson) => {
         entreeJson.forEach((entree) => {
           console.log(entree);
-
           const entreeCard = document.createElement("div");
           entreeCard.className = "cards";
           entreeCard.innerText = entree.name + " " + entree.price;
           individualItems.appendChild(entreeCard);
 
           entreeCard.addEventListener("click", () => {
+
             const entreeJson = {
               name: entree.name,
               price: entree.price,
@@ -114,7 +115,6 @@ function startServerProcess() {
       .then((res) => res.json())
       .then((appetizersJson) => {
         appetizersJson.forEach((appetizer) => {
-          
           console.log(appetizer);
 
           const appetizerCard = document.createElement("div");
