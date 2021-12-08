@@ -42,7 +42,6 @@ body {
     border-color: black;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
-
 }
 
 .taxInputBox {
@@ -67,4 +66,8 @@ body {
     border-color: black;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+canvas { 
+    background-color : rgb(230, 205, 205);
 }

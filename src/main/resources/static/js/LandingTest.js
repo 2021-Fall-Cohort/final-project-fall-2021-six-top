@@ -74,6 +74,7 @@ function startServerProcess() {
               price: entree.price,
               description: entree.description,
               available: entree.available,
+              // modifiers: entreeJson.modifiers
             };
             console.log(entree.id);
             fetch(`/Tickets/${currentTicketId}/addItem/entree`, {
@@ -88,11 +89,18 @@ function startServerProcess() {
                 const ticketEntreeCard = document.createElement("div");
                 ticketEntreeCard.className = "cards";
                 ticketEntreeCard.innerText = entree.name + " " + entree.price;
+
+                const modifyButton = document.createElement("button");
+                modifyButton.innerText = "Modify";
+                modifyButton.addEventListener("click", () => {
+                  console.log(entreeJson.modifiers);
+                })
+                  ticketEntreeCard.appendChild(modifyButton);   
                 ///
                 const deleteButton = document.createElement("button");
                 deleteButton.innerText = "Remove";
                 deleteButton.addEventListener("click", () => {
-                  fetch(``)
+                  fetch(`/Tickets/${currentTicketId}/removeTicketItem/${entreeJson.Id}`)
                 })
                 ticketEntreeCard.appendChild(deleteButton);
                 ///
