@@ -1,11 +1,11 @@
 body {
     background-color: #ee7840;
     width:100vw;
-    height: -webkit-fill-available;
+    height: 100vh;
 }
 
 .indexBody {
-    height: -webkit-fill-available
+    height: 100vh;
 }
 
 .mainLoginPage {

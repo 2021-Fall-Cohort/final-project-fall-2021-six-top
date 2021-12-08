@@ -3,7 +3,7 @@ body
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgb(88,111,124);
   background: linear-gradient(0deg, rgba(88,111,124,1) 0%, rgba(47,69,80,1) 50%, rgba(0,0,0,1) 100%);
   color: #cdcdcd;

@@ -4,10 +4,10 @@ import { openTabsWindow } from "./openTickets.js"
 const mainFloorPage = document.querySelector(".mainFloorPage")
 let currentTicketId;
 
-const openTicketButton = document.querySelector(".openTicketButton");
-openTicketButton.addEventListener("click", () => {
-  callOpenTicketButton();
-});
+// const openTicketButton = document.querySelector(".openTicketButton");
+// openTicketButton.addEventListener("click", () => {
+//   callOpenTicketButton();
+// });
 
 
 function startNewTicket() {

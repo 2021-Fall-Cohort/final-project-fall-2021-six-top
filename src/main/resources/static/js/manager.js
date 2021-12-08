@@ -138,55 +138,8 @@ function BuildTaxSelectorCard() {
             console.log(companyProfile.taxRate)
         })
         .catch(err => console.error(err));
-
-
-        
-
-
-        // fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
-        // .then((res) => res.json())
-        // .then((companyProfile) => {
-            
-        //     console.log("pre change json: " + parseFloat(companyProfile.taxRate));
-        //     currentTaxRate = parseFloat(taxInputBox.value);
-        //     taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
-
-        //     console.log(companyProfile.taxRate)
-        // })
-
-        
-
-
     })
 }
-
-<script>
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
-
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-</script>
-
 // function buildAddProducts() {
     
 //     const productsDiv = document.createElement("div");

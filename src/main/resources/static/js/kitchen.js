@@ -13,13 +13,11 @@ fetch("/Tickets/retireveAllKitchenTickets")
 
 function showKitchen(openTicketJson) {
 
-
 fetch("/Tickets/retireveAllKitchenTickets")
-.then((res) => res.json())
-.then((openTicketJson) => {
-
+  .then((res) => res.json())
+  .then((openTicketJson) => {
   openTicketJson.forEach((CurrentOpenTicket) => {
-    
+
     console.log("ti: " + CurrentOpenTicket.ticketItems)
     
     if(CurrentOpenTicket.ticketItems.length > 0) {
@@ -63,7 +61,7 @@ fetch("/Tickets/retireveAllKitchenTickets")
       const finishButton = document.createElement("button");
       finishButton.innerText = "Finished";
       finishButton.addEventListener("click", () => {
-        fetch(`http://localhost:8080/Tickets/${currentTicketid}/finishTicket`, {
+        fetch(`/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"
         })
         .then((res) => res.json())
@@ -79,13 +77,11 @@ fetch("/Tickets/retireveAllKitchenTickets")
 
   });
 
-
-
+});
 }
 
 function clearChildren(element) {
   while (element.firstChild) {
     element.removeChild(element.lastChild);
   }
-} 
-
+}
