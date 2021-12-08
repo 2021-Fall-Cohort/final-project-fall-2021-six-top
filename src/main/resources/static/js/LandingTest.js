@@ -27,6 +27,7 @@ buildMenuCards();
 startServerProcess();
 function startServerProcess() {
   ////  FETCH FOR COMPANY PROFILE, DONT REPEAT  ////
+
   fetch("/Management/retrieveCompanyProfile/1")
     .then((res) => res.json())
     .then((companyProfileJson) => {
@@ -36,6 +37,7 @@ function startServerProcess() {
 
   ////  NEW TICKET FOR SCOPE, DONT REPEAT   ////
   console.log("log: started new ticket");
+
   const newTicketJson = {};
   fetch(`/Tickets/newTicket`, {
     method: "POST",
@@ -55,6 +57,7 @@ function startServerProcess() {
   function buildMenuCards() {
     ////  ENTREES ////
     entreeButton.addEventListener("click", () => {
+
       clearChildren(individualItems);
       fetch("/Floor/Entrees")
         .then((res) => res.json())
@@ -82,6 +85,7 @@ function startServerProcess() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(entreeJson),
+
               })
                 .then((res) => res.json())
                 .then((returnedEntree) => {
@@ -112,6 +116,7 @@ function startServerProcess() {
     ////  STARTERS    ////
 
     starterButton.addEventListener("click", () => {
+
       clearChildren(individualItems);
       fetch("/Floor/Appetizers")
         .then((res) => res.json())
@@ -167,6 +172,7 @@ function startServerProcess() {
     ////  DESSERTS    ////
 
     dessertButton.addEventListener("click", () => {
+
       clearChildren(individualItems);
       fetch("/Floor/Desserts")
         .then((res) => res.json())
@@ -194,6 +200,7 @@ function startServerProcess() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(dessertJson),
+
               })
                 .then((res) => res.json())
                 .then((returnedDessert) => {
@@ -219,6 +226,7 @@ function startServerProcess() {
           });
         });
     });
+
 
     ///   SIDES   ////
     sideButton.addEventListener("click", () => {
@@ -248,6 +256,7 @@ function startServerProcess() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(sideJson),
+
               })
                 .then((res) => res.json())
                 .then((returnedSide) => {
@@ -273,6 +282,7 @@ function startServerProcess() {
           });
         });
     });
+
 
     /// NONALCOHOLIC  ////
 
@@ -303,6 +313,7 @@ function startServerProcess() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(nonAlcholicJson),
+
               })
                 .then((res) => res.json())
                 .then((returnedNonAlcoholic) => {
@@ -327,10 +338,10 @@ function startServerProcess() {
             });
           });
         });
+
     });
 
     ////  ALCOHOLIC   ////
-
     alcoholicButton.addEventListener("click", () => {
       clearChildren(individualItems);
       fetch("/Floor/AlcoholicDrinks")
@@ -355,6 +366,7 @@ function startServerProcess() {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(alcholicJson),
+
               })
                 .then((res) => res.json())
                 .then((RetunedAlcoholic) => {
@@ -393,7 +405,9 @@ function clearChildren(element) {
  
 /// SEND TICKET BUTTON
 sendFeatureButton.addEventListener("click", () => {
+
   fetch(`/Tickets/${currentTicketId}/saveToKitchen`);
+
   clearChildren(terminal);
   startServerProcess();  
 })
@@ -406,6 +420,7 @@ function tabNameMod() {
 function showTotal(ticket) {
   clearChildren(totalsBox);
 
+
   var totalTax = 0;
   var ticketTotal = 0;
   var subTotal = 0;
@@ -413,6 +428,7 @@ function showTotal(ticket) {
     console.log("name: " + item.name + "price: " + item.price)
     subTotal += item.price;
     totalTax += subTotal  * currentTaxRate ;
+
   })
   ticketTotal += subTotal + totalTax;
   const subtotalText = document.createElement("h3");

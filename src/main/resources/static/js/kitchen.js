@@ -13,7 +13,11 @@ fetch("/Tickets/retireveAllKitchenTickets")
 
 function showKitchen(openTicketJson) {
 
-  
+
+fetch("/Tickets/retireveAllKitchenTickets")
+.then((res) => res.json())
+.then((openTicketJson) => {
+
   openTicketJson.forEach((CurrentOpenTicket) => {
     
     console.log("ti: " + CurrentOpenTicket.ticketItems)
@@ -59,7 +63,7 @@ function showKitchen(openTicketJson) {
       const finishButton = document.createElement("button");
       finishButton.innerText = "Finished";
       finishButton.addEventListener("click", () => {
-        fetch(`/Tickets/${currentTicketid}/finishTicket`, {
+        fetch(`http://localhost:8080/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"
         })
         .then((res) => res.json())

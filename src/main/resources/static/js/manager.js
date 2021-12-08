@@ -22,7 +22,7 @@ function BuildEmployeeCard() {
     const employeeList = document.createElement("h3");
     employeeList.className = "employeeList";
 
-    fetch("/Management/retrieveAllEmployees")
+    fetch("http://localhost:8080/Management/retrieveAllEmployees")
     .then((res) => res.json())
     .then((employeeJson) => {
 
@@ -73,7 +73,7 @@ function BuildEmployeeCard() {
 
         console.log(newEmployeeJson);
 
-        fetch(`/Management/addNewEmployee`, {
+        fetch(`http://localhost:8080/Management/addNewEmployee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -123,7 +123,7 @@ function BuildTaxSelectorCard() {
 
  
         
-        fetch("/Management/changeTaxRate/1", {
+        fetch("http://localhost:8080/Management/changeTaxRate/1", {
             method: "PATCH",
             headers: {
                 'Content-Type': "text/plain"
@@ -140,6 +140,25 @@ function BuildTaxSelectorCard() {
             console.log(companyProfile.taxRate)
         })
         .catch(err => console.error(err));
+
+
+        
+
+
+        // fetch("http://localhost:8080/Management/retrieveCompanyProfile/1")
+        // .then((res) => res.json())
+        // .then((companyProfile) => {
+            
+        //     console.log("pre change json: " + parseFloat(companyProfile.taxRate));
+        //     currentTaxRate = parseFloat(taxInputBox.value);
+        //     taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
+
+        //     console.log(companyProfile.taxRate)
+        // })
+
+        
+
+
     })
 }
 
