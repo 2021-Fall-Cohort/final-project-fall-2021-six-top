@@ -2,12 +2,6 @@
 
 
 
-body {
-    display: flex;
-    justify-content: center;
-    background: rgb(158,177,235);
-    background: radial-gradient(circle, rgba(158,177,235,1) 0%, rgba(65,105,225,1) 50%, rgba(21,59,173,1) 100%);
-}
 
 .companyHeader {
     font-family: 'Lobster', cursive;
@@ -19,16 +13,14 @@ body {
     height: auto;
     margin-top: 5%;
     flex-direction: column;
-    /* margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 5%; */
 }
 
 .terminal {
-    width: 40vw;
+    width: 85vw;
     height: 40vw;
     overflow-y: scroll;
     min-height: 20vw;
+    align-self: center;
     border-style: solid;
     border-color: #000;
     background-color: #fff;
@@ -39,29 +31,30 @@ body {
 }
 .iconicItems {
     display: flex;
-    width: 39.5vw;
-    height: 2.5rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
     align-items: center;
     font-family: 'Inter', sans-serif;
 }
 
-@media only screen  and (max-width: 850px) {
-    .classicNonAlcoholicButton {
-    font-size: 0.5rem
-    }
-}
 
 .individualItems {
-    width: 40vw;
+    width: 85vw;
     height: 40vw;
-    /* width: fit-content;
-    height: fit-content; */
     border-style: solid;
     border-color: #000;
     background-color: #fff;
     margin-top: 5%;
     font-family: 'Inter', sans-serif;
     margin-bottom: 10px;
+}
+
+.menuItems {
+    align-self: center;
 }
 
 .ticketButtonDiv {
@@ -130,7 +123,7 @@ body {
     align-items: center;
     background-color: white;
     border-color: #000;
-    font-size: small;
+    font-size: xx-large;
 }
 
 .cards { background: #F4F4F9; }
@@ -156,21 +149,6 @@ body {
     
 }
 
-.openTabs {
-    display: flex;
-    background-color: #f0dac0;
-    height: 30rem;
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-style: solid;
-    border-color: #5c5f30;
-    justify-content: center;
-    align-items: center;
-}
-
 .employeeLoginForm {
     background-color: #f6a970;
     padding-top: 20px;
@@ -188,35 +166,11 @@ body {
     list-style-type: none;
 }
 
-.sendToKitchenButton {
-    background-color: #ee7840;
-    width: 10rem;
-    height: 2rem;
-    border-radius: 30px;
-    font-size: x-large;
-    border-color: #5c5f30;
-    position: relative;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.kitchenButtonHolder {
-    background-color: #f0dac0;
-    justify-content: center;  
-    display: flex;
-    border-radius: 10px;
-    flex-direction: column;
-    align-items: center;
-}
-
 .foodItemList {
  background-color: #5C5F30;
  color: #f0dac0;
 }
+
 .features {
     display: flex;
     padding-bottom: 20px;
@@ -252,7 +206,7 @@ body {
     height: 8vh;
     border-radius: 10px;
     align-items: center;
-    font-size: small;
+    font-size: x-large;
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
 }
@@ -267,7 +221,7 @@ body {
     height: 8vh;
     border-radius: 10px;
     align-items: center;
-    font-size: small;
+    font-size: x-large;
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
 }
@@ -281,7 +235,7 @@ body {
     height: 8vh;
     border-radius: 10px;
     align-items: center;
-    font-size: small;
+    font-size: x-large;
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
 }
@@ -296,7 +250,7 @@ body {
     height: 8vh;
     border-radius: 10px;
     align-items: center;
-    font-size: small;
+    font-size: x-large;
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
 }
@@ -311,7 +265,7 @@ body {
     height: 8vh;
     border-radius: 10px;
     align-items: center;
-    font-size: small;
+    font-size: x-large;
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
 }
@@ -325,8 +279,552 @@ body {
     height: 8vh;
     border-radius: 10px;
     align-items: center;
-    font-size: small;
+    font-size: x-large;
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
+
+}
+
+/* IPHONE 8 */
+@media only screen and (max-width: 375px) {
+
+    .body {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .cards {
+        font-size: larger;
+    }
+
+    /* .openTicketsDiv {
+
+    } */
+
+    .openTicketButton {
+        font-size: medium;
+
+    }
+
+    .terminal {
+        width: 85vw;
+        height: 40vw;
+        overflow-y: scroll;
+        min-height: 20vw;
+        border-style: solid;
+        border-color: #000;
+        background-color: #fff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .sendFeatureButton {
+        font-size: medium;
+    }
+
+
+    .classicStartersButton {
+        font-size: medium;
+    }
+
+    .classicEntreesButton {
+        font-size: medium;
+    }
+
+    .classicDessertButton {
+        font-size: medium;
+    }
+    
+    .classicSidesButton {
+        font-size: medium;
+    }
+
+    .classicSidesButton {
+        font-size: medium;
+    }
+
+    .classicNonAlcoholicButton {
+        font-size: medium;
+    }
+
+    .classicAlcoholicButton {
+        font-size: medium;
+    }
+
+    .individualItems {
+        width: 85vw;
+        height: 40vw;
+        border-style: solid;
+        border-color: #000;
+        background-color: #fff;
+        margin-top: 5%;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 10px;
+    }
+
+    .iconicItems {
+        flex-wrap: wrap;
+        flex-direction: row;
+        display: flex;
+        width: 75%;
+        height: 15vw;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    .menuItems {
+        margin-top: 50px;
+    }
+
+}
+
+
+/* IPHONE SE */
+@media only screen and (max-width: 414px) {
+
+}
+
+
+@media only screen and (min-width: 1600px) {
+    .terminal {
+
+        width: 85vw;
+        height: 40vw;
+        overflow-y: scroll;
+        min-height: 20vw;
+        align-self: center;
+        border-style: solid;
+        border-color: #000;
+        background-color: #fff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .iconicItems {
+        display: flex;
+        width: auto;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .menuItems {
+        align-self: center;
+    }
+
+    .classicStartersButton {
+    
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicEntreesButton {
+    
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicDessertButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicSidesButton {
+    
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    /* for losers like me */
+    .classicNonAlcoholicButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicAlcoholicButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    
+    }
+
+    .sendFeatureButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        /* border-color: #586F7C; */
+       
+        /* transform: translateY(4px); */
+    }
+
+    .openTicketButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        /* border-width: 4px; */
+        font-size: xx-large;
+        font-family: 'Inter', sans-serif;
+        border-color: #586F7C;
+        /* transform: translateY(4px); */
+    }
+
+}
+
+/* LARGE SCREENS */
+@media only screen and (min-width: 2000px) {
+
+    .companyHeader {
+        font-family: 'Lobster', cursive;
+    }
+    
+    .terminalView {
+        display: flex;
+        width: auto;
+        height: auto;
+        margin-top: 5%;
+        flex-direction: column;
+    }
+    
+    .terminal {
+        width: 85vw;
+        height: 40vw;
+        overflow-y: scroll;
+        min-height: 20vw;
+        align-self: center;
+        border-style: solid;
+        border-color: #000;
+        background-color: #fff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-family: 'Inter', sans-serif;
+    
+    }
+    .iconicItems {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 50%;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    
+    .individualItems {
+        width: 85vw;
+        height: 40vw;
+        border-style: solid;
+        border-color: #000;
+        background-color: #fff;
+        margin-top: 5%;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 10px;
+    }
+    
+    .menuItems {
+        align-self: center;
+    }
+    
+    .ticketButtonDiv {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .newTicketButton {
+        background-color: #f6a970;
+        width: 15rem;
+        height: 4rem;
+        border-radius: 30px;
+        /* border-width: 4px; */
+        font-size: 60px;
+        border-color: #5c5f30;
+        justify-content: center;
+    }
+    
+    .openTicketButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        /* border-width: 4px; */
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        border-color: #586F7C;
+        /* transform: translateY(4px); */
+    }
+    
+    .openTicketsDiv {
+        display: flex;
+        width: 100%;
+        height:fit-content;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .courseDiv {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        height: fit-content;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cards {
+        color: black;
+        display: flex;
+        flex-direction: column; 
+        margin-top: 1rem;
+        width: 12rem;
+        height: fit-content;
+        width: fit-content;
+        width: 98%;
+        margin-right: 5px;
+        margin-left: 5px;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-color: #000;
+        font-size: 85px;
+    }
+    
+    .cards { background: #F4F4F9; }
+    .cards:nth-child(odd) { background: #B8B8B8; }
+    
+    .orderDiv {
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    
+    .orderWindow {
+        display: flex;
+        background-color: #f0dac0;
+        height: 30rem;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-style: solid;
+        justify-content: center;
+        align-items: center;
+        border-color: #5c5f30;
+        
+    }
+    
+    .employeeLoginForm {
+        background-color: #f6a970;
+        padding-top: 20px;
+    }
+    
+    .pinInput {
+        height: 30px;
+    }
+    
+    .foodListItem {
+        list-style-type: none;
+    }
+    
+    .drinkListItem {
+        list-style-type: none;
+    }
+    
+    .foodItemList {
+     background-color: #5C5F30;
+     color: #f0dac0;
+    }
+    
+    .features {
+        display: flex;
+        padding-bottom: 20px;
+        align-content: center;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+    
+    /* Send button duh */
+    .sendFeatureButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        /* border-color: #586F7C; */
+       
+        /* transform: translateY(4px); */
+    }
+    
+    .classicStartersButton {
+    
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicEntreesButton {
+    
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicDessertButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicSidesButton {
+    
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    /* for losers like me */
+    .classicNonAlcoholicButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    }
+    
+    .classicAlcoholicButton {
+        background-color: #000;
+        color: #F4F4F9;
+        text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+        box-shadow: 0px 5px #b8dbd9;
+        width: 20vw;
+        height: 8vh;
+        border-radius: 10px;
+        align-items: center;
+        font-size: 60px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+    
+    }
 
 }
