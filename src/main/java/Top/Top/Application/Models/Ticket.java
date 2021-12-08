@@ -18,7 +18,8 @@ public class Ticket {
     private int year;
     private int month;
     private int day;
-    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
+    private boolean isClosed = false;
+    @OneToMany(mappedBy = "ticket")
     private Collection<Item> ticketItems;
 
     public Ticket(Item... ticketItems) {
@@ -60,5 +61,13 @@ public class Ticket {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isClosed() {
+        return isClosed;
+    }
+
+    public void closeTicket() {
+        isClosed = true;
     }
 }

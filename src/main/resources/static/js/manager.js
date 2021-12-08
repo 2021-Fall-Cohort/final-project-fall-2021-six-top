@@ -140,25 +140,7 @@ function BuildTaxSelectorCard() {
             console.log(companyProfile.taxRate)
         })
         .catch(err => console.error(err));
-        
-
-
-        // fetch("/Management/retrieveCompanyProfile/1")
-        // .then((res) => res.json())
-        // .then((companyProfile) => {
-            
-        //     console.log("pre change json: " + parseFloat(companyProfile.taxRate));
-        //     currentTaxRate = parseFloat(taxInputBox.value);
-        //     taxRateHeader.innerText = "Current Tax Rate: " + parseFloat(companyProfile.taxRate) + "%";
-
-        //     console.log(companyProfile.taxRate)
-        // })
-
-        
-
     })
-    
-
 }
 
 <script>
@@ -187,6 +169,28 @@ function BuildTaxSelectorCard() {
     options: {}
   };
 </script>
+
+// function buildAddProducts() {
+    
+//     const productsDiv = document.createElement("div");
+//     productsDiv.className = "productsDiv";
+//     mainManagerPage.appendChild(productsDiv);           
+
+//     const itemCategoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemCategoryBox);
+
+//     const itemNameBox = document.createElement("input");
+//     productsDiv.appendChild(itemNameBox);
+
+//     const itemPriceBox = document.createElement("input");
+//     productsDiv.appendChild(itemPriceBox);
+
+//     const itemModifierCatigoryBox = document.createElement("select");
+//     productsDiv.appendChild(itemModifierCatigoryBox);
+
+//     const addItemButton = document.createElement("button");
+//     productsDiv.appendChild(addItemButton);
+// }
 
 
 

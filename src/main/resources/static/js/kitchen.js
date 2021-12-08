@@ -1,14 +1,19 @@
+
 const mainKitchenPage = document.querySelector(".mainKitchenPage")
 
 const mainDiv = document.createElement("div");
 mainDiv.className = "mainDiv";
 let currentTaxRate;
 
-
-
 fetch("/Tickets/retireveAllKitchenTickets")
-.then((res) => res.json())
-.then((openTicketJson) => {
+  .then((res) => res.json())
+  .then((openTicketJson) => {
+    showKitchen(openTicketJson);
+});
+
+function showKitchen(openTicketJson) {
+
+  
   openTicketJson.forEach((CurrentOpenTicket) => {
     
     console.log("ti: " + CurrentOpenTicket.ticketItems)
@@ -57,18 +62,26 @@ fetch("/Tickets/retireveAllKitchenTickets")
         fetch(`/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"
         })
-        .then(res => res.json())
-        .then(albums => {                                          
-            clearChildren(mainPage);
-            displayAlbumsView(mainPage, albums);
+        .then((res) => res.json())
+        .then((tickets) => {
+          clearChildren(mainDiv);
+          showKitchen(tickets);
         })
         .catch(err => console.log(err));
-          
-
       })
       orderCard.appendChild(finishButton);
        
     }
 
   });
-});
+
+
+
+}
+
+function clearChildren(element) {
+  while (element.firstChild) {
+    element.removeChild(element.lastChild);
+  }
+} 
+
