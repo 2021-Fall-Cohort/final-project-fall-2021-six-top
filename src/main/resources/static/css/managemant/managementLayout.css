@@ -92,3 +92,26 @@ body {
 canvas { 
     background-color : rgb(230, 205, 205);
 }
+
+.newProducts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    margin-left: 2rem;
+    width: 20rem;
+    height:10rem;
+    background-color: aliceblue;
+    border-color: black;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.productsDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+#button{
+    width: 1.5rem;
+}

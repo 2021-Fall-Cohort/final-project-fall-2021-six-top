@@ -1,10 +1,12 @@
 const mainManagerPage = document.querySelector(".mainManagementPage");
+const newProducts = document.querySelector(".newProducts");
 
 let currentTaxRate = 3.5;
 
 buildBussinessProfileDiv();
 BuildEmployeeCard();
 BuildTaxSelectorCard();
+buildAddProducts();
 
 function BuildEmployeeCard() {
 
@@ -148,27 +150,83 @@ function BuildTaxSelectorCard() {
         .catch(err => console.error(err));
     })
 }
-// function buildAddProducts() {
+
+function buildAddProducts() {
+    const productsDiv = document.createElement("div");
+    productsDiv.className = "productsDiv";
+    newProducts.appendChild(productsDiv);           
+
+    const itemCategoryBox = document.createElement("select");
+    productsDiv.appendChild(itemCategoryBox);
     
-//     const productsDiv = document.createElement("div");
-//     productsDiv.className = "productsDiv";
-//     mainManagerPage.appendChild(productsDiv);           
+    var newProductsCategoriesArray = ["Starter","Entree","Side","Dessert","NonAlcoholic","Alcoholic"];
 
-//     const itemCategoryBox = document.createElement("select");
-//     productsDiv.appendChild(itemCategoryBox);
+    for(let i=0; i<newProductsCategoriesArray.length; i++) {
+        var option = document.createElement("option");
+        option.value = newProductsCategoriesArray[i];
+        option.text = newProductsCategoriesArray[i];
+        itemCategoryBox.appendChild(option);
+    }
 
-//     const itemNameBox = document.createElement("input");
-//     productsDiv.appendChild(itemNameBox);
+    const itemNameBox = document.createElement("input");
+    productsDiv.appendChild(itemNameBox);
+    itemNameBox.placeholder = "Item Name"
 
-//     const itemPriceBox = document.createElement("input");
-//     productsDiv.appendChild(itemPriceBox);
+    const itemPriceBox = document.createElement("input");
+    productsDiv.appendChild(itemPriceBox);
+    itemPriceBox.placeholder = "Item Price"
 
-//     const itemModifierCatigoryBox = document.createElement("select");
-//     productsDiv.appendChild(itemModifierCatigoryBox);
+    const addItemButton = document.createElement("button");
+    productsDiv.appendChild(addItemButton);
+    addItemButton.innerText = "Add Inventory";
+        console.log(addItemButton)
+    addItemButton.addEventListener("click", () => {
+    const entreeJSON = 
+    {
+        "name": itemNameBox.value,
+        "price":itemPriceBox.value,
+        "showOnMenu":true,
+        "description":"",
+        "available":true,
+        "modifiers":null
+    }
+        fetch("/Management/addCreateNewEntree/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(entreeJSON),
+    })
+    .then(() => {
+        itemNameBox.value = ""
+        itemPriceBox.value = ""
+    })
+    .catch((err) => console.error(err))
+})
 
-//     const addItemButton = document.createElement("button");
-//     productsDiv.appendChild(addItemButton);
-// }
-
-
+// addItemButton.addEventListener("click", () => {
+//     const sideJSON = {
+//         "name": itemNameBox.value,
+//         "price":itemPriceBox.value,
+//         "showOnMenu":true,
+//         "description":"",
+//         "available":true
+//     }
+//     console.log("Json made")
+//         fetch("/Management/addCreateNewSide/", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(sideJSON),
+//     })
+//     .then(() => {
+//         itemNameBox.value = ""
+//         itemPriceBox.value = ""
+//         console.log("Json sent 1");
+//     })
+//     .catch((err) => console.error(err))
+//     console.log("Json sent 2");
+// })
+}
 
