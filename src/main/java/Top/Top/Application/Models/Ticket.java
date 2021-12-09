@@ -18,6 +18,7 @@ public class Ticket {
     private int year;
     private int month;
     private int day;
+    private boolean isFinished = false;
     private boolean isClosed = false;
     @OneToMany(mappedBy = "ticket")
     private Collection<Item> ticketItems;
@@ -69,5 +70,9 @@ public class Ticket {
 
     public void closeTicket() {
         isClosed = true;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
     }
 }
