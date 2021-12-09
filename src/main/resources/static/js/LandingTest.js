@@ -432,7 +432,7 @@ function clearChildren(element) {
 sendFeatureButton.addEventListener("click", () => {
 
   fetch(`/Tickets/${currentTicketId}/saveToKitchen`);
-
+  
   clearChildren(terminal);
   startServerProcess();  
 })
