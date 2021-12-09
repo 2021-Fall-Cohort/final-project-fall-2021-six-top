@@ -50,6 +50,7 @@ function startServerProcess() {
     console.log("ID: " + newTicketJson.id);
     currentTicketId = newTicketJson.id;
     currentTotal = newTicketJson.itemsTotal;
+    setInterval(showTotal, 1500, currentTicketId);
   });
 }
 
@@ -464,6 +465,5 @@ function showTotal(currentTicketId) {
     totalsBox.appendChild(ticketTotalText);
   })
 }
-
 
 
