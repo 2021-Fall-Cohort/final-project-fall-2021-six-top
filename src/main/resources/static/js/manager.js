@@ -104,7 +104,7 @@ function BuildEmployeeCard() {
 function buildBussinessProfileDiv() {
   const bussinessProfileDiv = document.createElement("div");
   bussinessProfileDiv.className = "bussinessProfileDiv";
-  mainManagerPage.appendChild(bussinessProfileDiv);
+  // mainManagerPage.appendChild(bussinessProfileDiv);
 }
 
 function BuildTaxSelectorCard() {
