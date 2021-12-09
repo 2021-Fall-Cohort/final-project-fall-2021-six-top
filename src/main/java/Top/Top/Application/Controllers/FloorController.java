@@ -33,6 +33,10 @@ public class FloorController {
 
     @DeleteMapping("/deleteSingleEntree/{id}")
     public void deleteSingleEntree(@PathVariable Long id) {
+        Entree singleTempEntree = entreeRepo.findById(id).get();
+        Ticket singleTicket = ticketRepo.findById(singleTempEntree.getTicket().getId()).get();
+        singleTicket.removeFromTicket(singleTempEntree);
+        ticketRepo.save(singleTicket);
         entreeRepo.deleteById(id);
     }
 

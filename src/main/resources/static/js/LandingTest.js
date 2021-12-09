@@ -19,9 +19,9 @@ const individualItems = document.querySelector(".individualItems");
 const terminal = document.querySelector(".terminal");
 
 const ticketBox = document.querySelector("terminal");
-const totalsBox = document.createElement("div");
-totalsBox.className = "totalsBox";
-terminal.appendChild(totalsBox);
+const totalsBox = document.querySelector(".totalsBox");
+// totalsBox.className = "totalsBox";
+// terminal.appendChild(totalsBox);
 buildMenuCards();
 startServerProcess();
 function startServerProcess() {
@@ -99,10 +99,12 @@ function startServerProcess() {
                       method: "DELETE"
                     })
                     ticketEntreeCard.remove();
+                    showTotal(currentTicketId);
                   });
                   ticketEntreeCard.appendChild(deleteButton);
                   ///
                   terminal.appendChild(ticketEntreeCard);
+                  showTotal(currentTicketId);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -156,9 +158,11 @@ function startServerProcess() {
                       method: "DELETE"
                     })
                     ticketAppetizerCard.remove();
+                    showTotal(currentTicketId);
                   });
                   ticketAppetizerCard.appendChild(deleteButton);
                   terminal.appendChild(ticketAppetizerCard);
+                  showTotal(currentTicketId);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -214,9 +218,11 @@ function startServerProcess() {
                       method: "DELETE"
                     })
                     ticketDessertCard.remove();
+                    showTotal(currentTicketId);
                   });
                   ticketDessertCard.appendChild(deleteButton);                  
                   terminal.appendChild(ticketDessertCard);
+                  showTotal(currentTicketId);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -270,9 +276,11 @@ function startServerProcess() {
                       method: "DELETE"
                     })
                     ticketSideCard.remove();
+                    showTotal(currentTicketId);
                   });
                   ticketSideCard.appendChild(deleteButton);                  
                   terminal.appendChild(ticketSideCard);
+                  showTotal(currentTicketId);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -326,9 +334,12 @@ function startServerProcess() {
                       method: "DELETE"
                     })
                     ticketNonAlcoholicCard.remove();
+                    showTotal(currentTicketId);
                   });
                   ticketNonAlcoholicCard.appendChild(deleteButton);
                   terminal.appendChild(ticketNonAlcoholicCard);
+                  showTotal(currentTicketId);
+
                 })
                 .catch((err) => {
                   console.log(err);
@@ -336,7 +347,6 @@ function startServerProcess() {
             });
           });
         });
-
     });
 
     ////  ALCOHOLIC   ////
@@ -379,10 +389,11 @@ function startServerProcess() {
                       method: "DELETE"
                     })
                     ticketAlcoholicCard.remove();
+                    showTotal(currentTicketId);
                   });
                   ticketAlcoholicCard.appendChild(deleteButton);            
                   terminal.appendChild(ticketAlcoholicCard);
-                  showTotal(ticket);
+                  showTotal(currentTicketId);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -415,34 +426,43 @@ function tabNameMod() {
 
 }
 
-function showTotal(ticket) {
-  clearChildren(totalsBox);
+///// Print Total Function ////
+function showTotal(currentTicketId) {
+  console.log("updating totals")
+  fetch(`/Tickets/${currentTicketId}`)
+  .then((res) => res.json())
+  .then((ticket) => { 
+    console.log("ticket hold")
+    clearChildren(totalsBox);
 
-
-  var totalTax = 0;
-  var ticketTotal = 0;
-  var subTotal = 0;
-  ticket.ticketItems.forEach((item) => {
-    console.log("name: " + item.name + "price: " + item.price)
-    subTotal += item.price;
-    totalTax += subTotal  * currentTaxRate ;
-
+    var totalTax = 0;
+    var ticketTotal = 0;
+    var subTotal = 0;
+  
+    ticket.ticketItems.forEach((item) => {
+      console.log("name: " + item.name + "price: " + item.price)
+      
+      subTotal += item.price;
+      totalTax += subTotal  * currentTaxRate ;
+    })
+  
+    ticketTotal += subTotal + totalTax;
+  
+    const subtotalText = document.createElement("h3");
+    /// class name?
+    subtotalText.innerText = "subTotal: " + subTotal.toFixed(2);
+    totalsBox.appendChild(subtotalText);
+  
+    const totalTaxText = document.createElement("h3");
+    /// class name?
+    totalTaxText.innerText = "Tax: " + totalTax.toFixed(2);
+    totalsBox.appendChild(totalTaxText);
+  
+    const ticketTotalText = document.createElement("h3");
+    /// class name?
+    ticketTotalText.innerText = "Total: " + ticketTotal.toFixed(2);
+    totalsBox.appendChild(ticketTotalText);
   })
-  ticketTotal += subTotal + totalTax;
-  const subtotalText = document.createElement("h3");
-  /// class name?
-  subtotalText.innerText = "subTotal: " + subTotal.toFixed(2);
-  totalsBox.appendChild(subtotalText);
-
-  const totalTaxText = document.createElement("h3");
-  /// class name?
-  totalTaxText.innerText = "Tax: " + totalTax.toFixed(2);
-  totalsBox.appendChild(totalTaxText);
-
-  const ticketTotalText = document.createElement("h3");
-  /// class name?
-  ticketTotalText.innerText = "Total: " + ticketTotal.toFixed(2);
-  totalsBox.appendChild(ticketTotalText);
 }
 
 

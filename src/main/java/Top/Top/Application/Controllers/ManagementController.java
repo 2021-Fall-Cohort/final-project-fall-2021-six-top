@@ -1,9 +1,7 @@
 package Top.Top.Application.Controllers;
 
-import Top.Top.Application.Models.CompanyProfile;
-import Top.Top.Application.Models.Employee;
-import Top.Top.Application.Repositories.CompanyProfileRepository;
-import Top.Top.Application.Repositories.EmployeeRepository;
+import Top.Top.Application.Models.*;
+import Top.Top.Application.Repositories.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,11 +10,22 @@ public class ManagementController {
 
     private EmployeeRepository employeeRepo;
     private CompanyProfileRepository companyProfileRepo;
+    private EntreeRepository entreeRepo;
+    private AlcoholicDrinkRepository alcoholicDrinkRepo;
+    private AppetizerRepository appetizerRepo;
+    private DessertRepository dessertRepo;
+    private NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo;
+    private SideRepository sideRepo;
 
-    public ManagementController(EmployeeRepository employeeRepo, CompanyProfileRepository companyProfileRepo) {
-
+    public ManagementController(EmployeeRepository employeeRepo, CompanyProfileRepository companyProfileRepo, EntreeRepository entreeRepo, NonAlcoholicDrinkRepository nonAlcoholicDrinkRepo, SideRepository sideRepo, AlcoholicDrinkRepository alcoholicDrinkRepo, AppetizerRepository appetizerRepo, DessertRepository dessertRepo) {
         this.employeeRepo = employeeRepo;
         this.companyProfileRepo = companyProfileRepo;
+        this.entreeRepo = entreeRepo;
+        this.alcoholicDrinkRepo = alcoholicDrinkRepo;
+        this.appetizerRepo = appetizerRepo;
+        this.dessertRepo = dessertRepo;
+        this.nonAlcoholicDrinkRepo = nonAlcoholicDrinkRepo;
+        this.sideRepo = sideRepo;
     }
 
     @GetMapping("/retrieveAllEmployees")
@@ -39,5 +48,35 @@ public class ManagementController {
     public Iterable<Employee> addNewEmployee(@RequestBody Employee newEmployee) {
         employeeRepo.save(newEmployee);
         return employeeRepo.findAll();
+    }
+
+    @PostMapping("/addCreateNewEntree")
+    public void addCreateNewEntree(@RequestBody Entree newEntree) {
+        entreeRepo.save(newEntree);
+    }
+
+    @PostMapping("/addCreateNewSide")
+    public void addCreateNewSide(@RequestBody Side newSide) {
+        sideRepo.save(newSide);
+    }
+
+    @PostMapping("/addCreateNewAppetizer")
+    public void addCreateNewAppetizer(@RequestBody Appetizer newAppetizer) {
+        appetizerRepo.save(newAppetizer);
+    }
+
+    @PostMapping("/addCreateNewDessert")
+    public void addCreateNewDessert(@RequestBody Dessert newDessert) {
+        dessertRepo.save(newDessert);
+    }
+
+    @PostMapping("/addCreateNewNonAlcoholicDrink")
+    public void addCreateNewNonAlcoholicDrink(@RequestBody NonAlcoholicDrink newNonAlcoholicDrink) {
+        nonAlcoholicDrinkRepo.save(newNonAlcoholicDrink);
+    }
+
+    @PostMapping("/addCreateNewAlcoholicDrink")
+    public void addCreateNewAlcoholicDrink(@RequestBody AlcoholicDrink newAlcoholicDrink) {
+        alcoholicDrinkRepo.save(newAlcoholicDrink);
     }
 }

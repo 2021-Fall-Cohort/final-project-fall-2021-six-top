@@ -1,5 +1,7 @@
 package Top.Top.Application.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,12 +18,17 @@ public abstract class Item {
     private boolean showOnMenu;
 
     @ManyToOne
+    @JsonIgnore
     private Ticket ticket;
 
     public Item(String name, Float price, boolean showOnMenu) {
         this.name = name;
         this.price = price;
         this.showOnMenu =showOnMenu;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
     }
 
     protected Item() {
