@@ -33,28 +33,26 @@ fetch("/Tickets/retireveAllKitchenTickets")
       CurrentOpenTicket.ticketItems.forEach((item) => {
       
         const itemLabel = document.createElement("h3");
-        itemLabel.innerText = item.name + " " + item.price;
-        totalPrice += item.price;
-        alltax += item.price * currentTaxRate;
+        itemLabel.innerText = item.name;
         orderCard.appendChild(itemLabel);
-        console.log("log: total price: " + totalPrice.toFixed(2));
+        console.log("items in order...");
       });
   
-      const priceLable = document.createElement("h2");
-      priceLable.innerText = "Price: " + totalPrice.toFixed(2);
-      orderCard.appendChild(priceLable); // appending totals
-      const taxLable = document.createElement("h2"); // total tax
-      taxLable.innerText = "Tax: ";
-      orderCard.appendChild(taxLable);
-      const totalPriceLable = document.createElement("h2"); // total price + tax
-      totalPriceLable.innerText = "Total: " + totalPrice.toFixed(2);
-      orderCard.appendChild(totalPriceLable);
+      // const priceLable = document.createElement("h2");
+      // priceLable.innerText = "Price: " + totalPrice.toFixed(2);
+      // orderCard.appendChild(priceLable); // appending totals
+      // const taxLable = document.createElement("h2"); // total tax
+      // taxLable.innerText = "Tax: ";
+      // orderCard.appendChild(taxLable);
+      // const totalPriceLable = document.createElement("h2"); // total price + tax
+      // totalPriceLable.innerText = "Total: " + totalPrice.toFixed(2);
+      // orderCard.appendChild(totalPriceLable);
   
   
       mainDiv.appendChild(orderCard);
       const cardLabel1 = document.createElement("h1");
       cardLabel1.className = "cardLabels";
-      cardLabel1.innerText = CurrentOpenTicket.id;
+      cardLabel1.innerText = "Order # " + CurrentOpenTicket.id;
       orderCard.appendChild(cardLabel1);
       mainKitchenPage.appendChild(mainDiv)
 
