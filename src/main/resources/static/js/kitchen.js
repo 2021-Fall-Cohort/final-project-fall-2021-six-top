@@ -20,7 +20,7 @@ fetch("/Tickets/retireveAllKitchenTickets")
 
     console.log("ti: " + CurrentOpenTicket.ticketItems)
     
-    if(CurrentOpenTicket.ticketItems.length > 0) {
+    if(CurrentOpenTicket.ticketItems.length > 0 && !CurrentOpenTicket.isFinished) {
 
       let currentTicketid = CurrentOpenTicket.id;
 

@@ -166,4 +166,12 @@ public class TicketController {
         kitchenRepo.findById(id).get().closeTicket();
         return retireveAllKitchenTickets();
     }
+
+    @PatchMapping("/{id}/changeTicketName")
+    public void changeTicketName(@PathVariable Long id, @RequestParam String name) {
+        Ticket temp = ticketRepo.findById(id).get();
+        temp.setName(name);
+        ticketRepo.save(temp);
+
+    }
 }

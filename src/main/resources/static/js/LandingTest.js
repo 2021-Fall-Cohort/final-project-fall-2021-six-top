@@ -20,6 +20,9 @@ const terminal = document.querySelector(".terminal");
 
 const ticketBox = document.querySelector("terminal");
 const totalsBox = document.querySelector(".totalsBox");
+
+const ticketNameInput = document.querySelector(".ticketNameInput");
+const nameTabButton = document.querySelector(".nameTabButton");
 // totalsBox.className = "totalsBox";
 // terminal.appendChild(totalsBox);
 buildMenuCards();
@@ -395,6 +398,7 @@ function startServerProcess() {
                   ticketAlcoholicCard.appendChild(deleteButton);            
                   terminal.appendChild(ticketAlcoholicCard);
                   showTotal(currentTicketId);
+                  console.log
                 })
                 .catch((err) => {
                   console.log(err);
@@ -403,6 +407,17 @@ function startServerProcess() {
           });
         });
     });
+
+    nameTabButton.addEventListener("click", () => {
+      fetch(`/Tickets/${currentTicketId}`)
+      .then((res) => res.json())
+      .then((currentTicket) => {
+       fetch(`/Tickets/${currentTicketId}/changeTicketName/?name=${ticketNameInput.value}`, {
+          method: "PATCH"
+        })
+      }) 
+    })
+
   }
 
     
@@ -463,7 +478,10 @@ function showTotal(currentTicketId) {
     /// class name?
     ticketTotalText.innerText = "Total: " + ticketTotal.toFixed(2);
     totalsBox.appendChild(ticketTotalText);
+
   })
 }
+
+
 
 
