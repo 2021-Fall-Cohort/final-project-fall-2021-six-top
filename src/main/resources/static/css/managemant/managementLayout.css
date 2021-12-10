@@ -24,17 +24,18 @@ body {
 
 .employeeListDiv {
     display: flex;
-    height: 15rem;
+    height: fit-content;
     flex-direction: column;
-    background-color: aqua;
+    background-color:aliceblue;
     overflow: scroll;
 }
 
 .employeeList {
     display: flex;
     flex-direction: column;
+    height: fit-content;
     /* thomas was here */
-    overflow: scroll;
+   
 }
 
 .employeeInfoDiv {
@@ -43,7 +44,7 @@ body {
     justify-content: center;
     padding: 2rem;
     width: 18rem;
-    height: 20rem;
+    height: fit-content;
     background-color: aliceblue;
     border-color: black;
     border-radius: 8px;
