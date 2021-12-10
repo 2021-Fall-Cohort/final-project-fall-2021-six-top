@@ -69,8 +69,8 @@ function startServerProcess() {
             console.log(entree);
 
             const entreeCard = document.createElement("div");
-            entreeCard.className = "cards";
-            entreeCard.innerText = entree.name + " " + entree.price;
+            entreeCard.className = "itemCards";
+            entreeCard.innerText = entree.name;
             individualItems.appendChild(entreeCard);
 
             entreeCard.addEventListener("click", () => {
@@ -94,7 +94,7 @@ function startServerProcess() {
                 .then((returnedEntree) => {
                   const ticketEntreeCard = document.createElement("div");
                   ticketEntreeCard.className = "cards";
-                  ticketEntreeCard.innerText = entree.name + " " + entree.price;
+                  ticketEntreeCard.innerText = entree.name + " " + " " + " $" + entree.price;
                   ///
                   const deleteButton = document.createElement("button");
                   deleteButton.innerText = "Remove";
@@ -130,8 +130,8 @@ function startServerProcess() {
             console.log(appetizer);
 
             const appetizerCard = document.createElement("div");
-            appetizerCard.className = "cards";
-            appetizerCard.innerText = appetizer.name + " " + appetizer.price;
+            appetizerCard.className = "itemCards";
+            appetizerCard.innerText = appetizer.name;
             individualItems.appendChild(appetizerCard);
 
             appetizerCard.addEventListener("click", () => {
@@ -153,7 +153,7 @@ function startServerProcess() {
                 .then((returnedAppetizer) => {
                   const ticketAppetizerCard = document.createElement("div");
                   ticketAppetizerCard.className = "cards";
-                  ticketAppetizerCard.innerText = appetizer.name + " " + appetizer.price;
+                  ticketAppetizerCard.innerText = appetizer.name + " " + " " + " $" + appetizer.price;
                   ///
                   const deleteButton = document.createElement("button");
                   deleteButton.innerText = "Remove";
@@ -188,8 +188,8 @@ function startServerProcess() {
             console.log(dessert);
 
             const dessertCard = document.createElement("div");
-            dessertCard.className = "cards";
-            dessertCard.innerText = dessert.name + " " + dessert.price;
+            dessertCard.className = "itemCards";
+            dessertCard.innerText = dessert.name;
             individualItems.appendChild(dessertCard);
 
             dessertCard.addEventListener("click", () => {
@@ -213,7 +213,7 @@ function startServerProcess() {
                 .then((returnedDessert) => {
                   const ticketDessertCard = document.createElement("div");
                   ticketDessertCard.className = "cards";
-                  ticketDessertCard.innerText = dessert.name + " " + dessert.price;
+                  ticketDessertCard.innerText = dessert.name + " " + " " + " $" + dessert.price;
                   ///
                   const deleteButton = document.createElement("button");
                   deleteButton.innerText = "Remove";
@@ -247,8 +247,8 @@ function startServerProcess() {
             console.log(side);
 
             const sideCard = document.createElement("div");
-            sideCard.className = "cards";
-            sideCard.innerText = side.name + " " + side.price;
+            sideCard.className = "itemCards";
+            sideCard.innerText = side.name;
             individualItems.appendChild(sideCard);
 
             sideCard.addEventListener("click", () => {
@@ -271,7 +271,7 @@ function startServerProcess() {
                 .then((returnedSide) => {
                   const ticketSideCard = document.createElement("div");
                   ticketSideCard.className = "cards";
-                  ticketSideCard.innerText = side.name + " " + side.price;
+                  ticketSideCard.innerText = side.name + " " + " " + " $" + side.price;
                   ///
                   const deleteButton = document.createElement("button");
                   deleteButton.innerText = "Remove";
@@ -305,9 +305,9 @@ function startServerProcess() {
             console.log(nonAlcholicJson);
 
             const nonAlcholicCard = document.createElement("div");
-            nonAlcholicCard.className = "cards";
+            nonAlcholicCard.className = "itemCards";
             nonAlcholicCard.innerText =
-              nonAlcholic.name + " " + nonAlcholic.price;
+              nonAlcholic.name;
             individualItems.appendChild(nonAlcholicCard);
 
             nonAlcholicCard.addEventListener("click", () => {
@@ -329,7 +329,7 @@ function startServerProcess() {
                 .then((returnedNonAlcoholic) => {
                   const ticketNonAlcoholicCard = document.createElement("div");
                   ticketNonAlcoholicCard.className = "cards";
-                  ticketNonAlcoholicCard.innerText = nonAlcholic.name + " " + nonAlcholic.price;
+                  ticketNonAlcoholicCard.innerText = nonAlcholic.name + " " + " " + " $" + nonAlcholic.price;
                   ///
                   const deleteButton = document.createElement("button");
                   deleteButton.innerText = "Remove";
@@ -361,8 +361,8 @@ function startServerProcess() {
         .then((alcholicJson) => {
           alcholicJson.forEach((alcholic) => {
             const alcholicCard = document.createElement("div");
-            alcholicCard.className = "cards";
-            alcholicCard.innerText = alcholic.name + " " + alcholic.price;
+            alcholicCard.className = "itemCards";
+            alcholicCard.innerText = alcholic.name;
             individualItems.appendChild(alcholicCard);
 
             alcholicCard.addEventListener("click", () => {
@@ -384,7 +384,7 @@ function startServerProcess() {
                 .then((RetunedAlcoholic) => {
                   const ticketAlcoholicCard = document.createElement("div");
                   ticketAlcoholicCard.className = "cards";
-                  ticketAlcoholicCard.innerText = alcholic.name + " " + alcholic.price;
+                  ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
                   ///
                   const deleteButton = document.createElement("button");
                   deleteButton.innerText = "Remove";
@@ -464,19 +464,19 @@ function showTotal(currentTicketId) {
   
     ticketTotal += subTotal + totalTax;
   
-    const subtotalText = document.createElement("h3");
-    /// class name?
-    subtotalText.innerText = "subTotal: " + subTotal.toFixed(2);
-    totalsBox.appendChild(subtotalText);
+    const subTotalText = document.createElement("h3");
+    subTotalText.className = "subTotalText";
+    subTotalText.innerText = "Sub Total: " + " $" + subTotal.toFixed(2);
+    totalsBox.appendChild(subTotalText);
   
     const totalTaxText = document.createElement("h3");
-    /// class name?
-    totalTaxText.innerText = "Tax: " + totalTax.toFixed(2);
+    totalTaxText.className = "totalTaxText";
+    totalTaxText.innerText = "Tax: " + " $" + totalTax.toFixed(2);
     totalsBox.appendChild(totalTaxText);
   
     const ticketTotalText = document.createElement("h3");
-    /// class name?
-    ticketTotalText.innerText = "Total: " + ticketTotal.toFixed(2);
+    ticketTotalText.className = "ticketTotalText";
+    ticketTotalText.innerText = "Total: " + " $" + ticketTotal.toFixed(2);
     totalsBox.appendChild(ticketTotalText);
 
   })
