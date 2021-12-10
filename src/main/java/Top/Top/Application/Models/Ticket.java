@@ -77,4 +77,6 @@ public class Ticket {
     }
 
     public void finishTicket() { isFinished = true; }
+
+    public String getName() { return name; }
 }
