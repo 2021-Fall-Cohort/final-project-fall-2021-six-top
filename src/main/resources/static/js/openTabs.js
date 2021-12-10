@@ -46,10 +46,17 @@ function showKitchen(openTicketJson) {
         //   taxLable.innerText = "Tax: ";
         //   orderCard.appendChild(taxLable);
           mainDiv.appendChild(orderCard);
+          
           const cardLabel1 = document.createElement("h1");
           cardLabel1.className = "cardLabels";
           cardLabel1.innerText = "Order # " + CurrentOpenTicket.id;
+
+          const cardlabel2 = document.createElement("h2");
+          cardlabel2.className = "cardLabels";
+          cardlabel2.innerText = "Name: " + CurrentOpenTicket.name;
+
           orderCard.appendChild(cardLabel1);
+          orderCard.appendChild(cardlabel2);
           openTabsPage.appendChild(mainDiv)
 
           const totalPriceLable = document.createElement("h2"); // total price + tax
