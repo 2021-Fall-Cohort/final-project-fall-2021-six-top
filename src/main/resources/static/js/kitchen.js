@@ -60,6 +60,7 @@ fetch("/Tickets/retireveAllKitchenTickets")
 
       const finishButton = document.createElement("button");
       finishButton.innerText = "Finished";
+      finishButton.className = "finishButton";
       finishButton.addEventListener("click", () => {
         fetch(`/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"
