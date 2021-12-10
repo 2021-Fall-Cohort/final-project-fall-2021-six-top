@@ -154,7 +154,7 @@ public class TicketController {
     public Iterable<Ticket> retireveAllKitchenTickets() {
         ArrayList<Ticket> openTickets = new ArrayList<>();
         for(Ticket current: kitchenRepo.findAll()) {
-            if (!current.isClosed()) {
+            if (!current.isFinished()) {
                 openTickets.add(current);
             }
         }
@@ -163,7 +163,8 @@ public class TicketController {
 
     @DeleteMapping("/{id}/finishTicket")
     public  Iterable<Ticket> finishTicket(@PathVariable Long id) {
-        kitchenRepo.findById(id).get().closeTicket();
+        kitchenRepo.findById(id).get().finishTicket();
+        kitchenRepo.save(kitchenRepo.findById(id).get());
         return retireveAllKitchenTickets();
     }
 
@@ -172,6 +173,5 @@ public class TicketController {
         Ticket temp = ticketRepo.findById(id).get();
         temp.setName(name);
         ticketRepo.save(temp);
-
     }
 }

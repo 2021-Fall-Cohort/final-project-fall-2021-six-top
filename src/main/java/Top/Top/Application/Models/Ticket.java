@@ -75,4 +75,6 @@ public class Ticket {
     public boolean isFinished() {
         return isFinished;
     }
+
+    public void finishTicket() { isFinished = true; }
 }
