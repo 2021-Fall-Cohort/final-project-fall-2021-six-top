@@ -23,12 +23,14 @@ fetch("/Tickets/retireveAllKitchenTickets")
     if(CurrentOpenTicket.ticketItems.length > 0 && !CurrentOpenTicket.isFinished) {
 
       let currentTicketid = CurrentOpenTicket.id;
-
+      
       const orderCard = document.createElement("div");
       orderCard.className = "cards";
       
       var totalPrice = 0;
       var alltax = 0;
+
+      console.log("isFinished: " + CurrentOpenTicket.isFinished)
       
       CurrentOpenTicket.ticketItems.forEach((item) => {
       
@@ -66,16 +68,13 @@ fetch("/Tickets/retireveAllKitchenTickets")
         .then((res) => res.json())
         .then((tickets) => {
           clearChildren(mainDiv);
-          showKitchen(tickets);
+          showKitchen(openTicketJson);
         })
         .catch(err => console.log(err));
       })
-      orderCard.appendChild(finishButton);
-       
+      orderCard.appendChild(finishButton);       
     }
-
   });
-
 });
 }
 
@@ -84,3 +83,5 @@ function clearChildren(element) {
     element.removeChild(element.lastChild);
   }
 }
+
+// showKitchen(tickets);

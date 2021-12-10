@@ -76,7 +76,12 @@ public class Ticket {
         return isFinished;
     }
 
+
+    public void finishTicket() { isFinished = true; }
+
+
     public String getName() {
         return name;
     }
+
 }
