@@ -46,7 +46,7 @@ function startServerProcess() {
     console.log("ID: " + newTicketJson.id);
     currentTicketId = newTicketJson.id;
     currentTotal = newTicketJson.itemsTotal;
-    setInterval(showTotal, 1500, currentTicketId);
+    setInterval(showTotal, 3500, currentTicketId);
   });
 }
 
