@@ -143,3 +143,33 @@ body
     font-family: 'Inter', sans-serif;
     margin-bottom: 15px;
 } */
+
+.newTicketButton {
+  background-color: #000;
+  color: #F4F4F9;
+  text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
+  box-shadow: 0px 5px #b8dbd9;
+  width: 20vw;
+  height: 8vh;
+  border-radius: 10px;
+  /* border-width: 4px; */
+  font-size: x-large;
+  font-family: 'Inter', sans-serif;
+  border-color: #586F7C;
+  /* transform: translateY(4px); */
+}
+.newTicketButtonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  height: 4rem;
+  width: 100%;
+}
+
+@media only screen and (max-width: 360px) {
+  .newTicketButton {
+    width: 6rem;
+    font-size: medium;
+  }
+}
