@@ -48,6 +48,7 @@ function startServerProcess() {
     },
     body: JSON.stringify(newTicketJson),
   })
+/*
     .then((res) => res.json())
     .then((newTicketJson) => {
       console.log("ID: " + newTicketJson.id);
@@ -55,6 +56,15 @@ function startServerProcess() {
       currentTotal = newTicketJson.itemsTotal;
       setInterval(showTotal, 1500, currentTicketId);
     });
+*/
+  .then((res) => res.json())
+  .then((newTicketJson) => {
+    console.log("ID: " + newTicketJson.id);
+    currentTicketId = newTicketJson.id;
+    currentTotal = newTicketJson.itemsTotal;
+    setInterval(showTotal, 3500, currentTicketId);
+  });
+
 }
 
 function buildMenuCards() {

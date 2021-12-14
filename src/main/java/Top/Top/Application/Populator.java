@@ -47,6 +47,8 @@ public class Populator implements CommandLineRunner {
 
         modifiersRepo.save(mayo);
         modifiersRepo.save(ketchup);
+        modifiersRepo.save(mustard);
+        modifiersRepo.save(lettuce);
 
         ModifierCategory burgerMods = new ModifierCategory("Burgers", mayo, ketchup);
         modifierCategoryRepo.save(burgerMods);
@@ -67,6 +69,9 @@ public class Populator implements CommandLineRunner {
         AlcoholicDrink modelo = new AlcoholicDrink("Modelo", 3.99f, true,true,true);
         alcoholicDrinkRepo.save(modelo);
 
+        AlcoholicDrink blueMoon = new AlcoholicDrink("Blue Moon", 4.99f, true,true,true);
+        alcoholicDrinkRepo.save(blueMoon);
+
         /////////////////////////////////
         ////    NonAlcoholic Drink Section   ////
         NonAlcoholicDrink coke = new NonAlcoholicDrink("Coke", 2.99F, false, true,true);
@@ -77,6 +82,12 @@ public class Populator implements CommandLineRunner {
 
         NonAlcoholicDrink canadaDry = new NonAlcoholicDrink("Canada Dry", 3.99f, false,true,true);
         nonAlcoholicDrinkRepo.save(canadaDry);
+
+        NonAlcoholicDrink drPepper = new NonAlcoholicDrink("Dr. Pepper", 3.99f, false,true,true);
+        nonAlcoholicDrinkRepo.save(drPepper);
+
+        NonAlcoholicDrink water = new NonAlcoholicDrink("Water", 0.99f, false,true,true);
+        nonAlcoholicDrinkRepo.save(water);
         /////////////////////////////////
 
 
@@ -87,29 +98,53 @@ public class Populator implements CommandLineRunner {
         Appetizer bonelessWings = new Appetizer("Boneless Wings", 5.99f, "boneless Buffalo Wings", true,true);
         appetizerRepo.save(bonelessWings);
 
+        Appetizer jalapenoPoppers = new Appetizer("Jalapeno Poppers", 7.99f, "Jalapeno encrusted in a bread crumb enclosure, mixed with a secret herb blend and deep fried to perfection.", true,true);
+        appetizerRepo.save(jalapenoPoppers);
+
+        Appetizer loadedFries = new Appetizer("Loaded Fries", 8.99f, "Loaded fries", true,true);
+        appetizerRepo.save(loadedFries);
+
         /////////////////////////////
         ////    Dessert Section ////
-        Dessert vanillaIceCream = new Dessert("Vanilla IceCream", 3.00f, "Two Scoops Of Vanilla Bean", true, true);
+        Dessert vanillaIceCream = new Dessert("Vanilla IceCream", 3.51f, "Two Scoops Of Vanilla Bean", true, true);
         dessertRepo.save(vanillaIceCream);
 
-        Dessert applePie = new Dessert("Apple Pie", 6.00f, "One piece of made in house Apple pie", true, true);
+        Dessert applePie = new Dessert("Apple Pie", 6.55f, "One piece of made in house Apple pie", true, true);
         dessertRepo.save(applePie);
+
+        Dessert tiramisu = new Dessert("Tiramisu", 10.55f, "One piece of made in house tiramisu", true, true);
+        dessertRepo.save(tiramisu);
 
         /////////////////////////////
         ////    Entree Section  ////
         Entree cheeseBurger = new Entree("Cheese Burger", 08.99F, "Classic american cheese burger served with lettuce, tomato, pickle, onion, mayo, and a side of fries", true, burgerMods,true);
         entreeRepo.save(cheeseBurger);
 
-        Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.50f, "Steak, onions, and bell peppers grilled and topped with cheese. served on a hoagie roll", true, burgerMods, true);
+        Entree phillyCheeseSteak = new Entree("Philly Cheese Steak", 11.55f, "Steak, onions, and bell peppers grilled and topped with cheese. served on a hoagie roll", true, burgerMods, true);
         entreeRepo.save(phillyCheeseSteak);
+
+        Entree filet = new Entree("6oz Filet", 18.99F, "Classic american filet served with and a side of fries or mashed potatoes", true, burgerMods,true);
+        entreeRepo.save(filet);
+
+        Entree salmon = new Entree("9oz Salmon", 12.99F, "9 oz salmon with a herb crust, lemon pepper reduction on a bed of mixed greens, roasted melody of peppers, and a side of mixed vegetables", true, burgerMods,true);
+        entreeRepo.save(salmon);
 
         /////////////////////////////
         ////    Sides Section   ////
-        Side fries = new Side("French Fries", 2.50f, "Fried potatoes", true, true);
+        Side fries = new Side("French Fries", 2.55f, "Fried potatoes", true, true);
         sideRepo.save(fries);
 
-        Side mashedPotatoes = new Side("Mashed Potatoes", 3.00f, "Made from scratch mashed potatoes with cream and butter", true, true);
+        Side mashedPotatoes = new Side("Mashed Potatoes", 3.19f, "Made from scratch mashed potatoes with cream and butter", true, true);
         sideRepo.save(mashedPotatoes);
+
+        Side cesarSalad = new Side("Cesar Salad", 3.21f, "Crisp hearts of romaine, fresh parmesan cheese, and made-from-scratch croutons, tossed with our zesty caesar dressing", true, true);
+        sideRepo.save(cesarSalad);
+
+        Side freshVegetables = new Side("Fresh Vegetables", 3.15f, "Made from scratch mashed potatoes with cream and butter", true, true);
+        sideRepo.save(freshVegetables);
+
+        Side loadedPotatoes = new Side("Loaded Potatoes", 3.05f, "Your choice of a loaded sweet potato or a loaded baked potato", true, true);
+        sideRepo.save(loadedPotatoes);
 
         /////////////////////////////////
         ////    Employee Section    ////
