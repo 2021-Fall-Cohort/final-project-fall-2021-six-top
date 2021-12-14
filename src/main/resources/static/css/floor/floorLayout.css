@@ -460,9 +460,10 @@
     }
     .itemCards{
         display: flex;
-        font-size: smaller;
+        font-size: x-small;
         font-weight: bolder;
-
+        align-items: center;
+        align-content: center;
         
     }
     
