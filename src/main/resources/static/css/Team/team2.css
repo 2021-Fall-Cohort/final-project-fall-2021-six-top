@@ -58,6 +58,7 @@ body {
     border-radius: .5rem;
     justify-self: center;
     align-self: center;
+    background-color: beige;
   }
   
   /* Add some shadows to create a card effect */
