@@ -137,8 +137,8 @@ public class Populator implements CommandLineRunner {
         Side mashedPotatoes = new Side("Mashed Potatoes", 3.19f, "Made from scratch mashed potatoes with cream and butter", true, true);
         sideRepo.save(mashedPotatoes);
 
-        Side cesarSalad = new Side("Cesar Salad", 3.21f, "Crisp hearts of romaine, fresh parmesan cheese, and made-from-scratch croutons, tossed with our zesty caesar dressing", true, true);
-        sideRepo.save(cesarSalad);
+        Side caesarSalad = new Side("Caesar Salad", 3.21f, "Crisp hearts of romaine, fresh parmesan cheese, and made-from-scratch croutons, tossed with our zesty caesar dressing", true, true);
+        sideRepo.save(caesarSalad);
 
         Side freshVegetables = new Side("Fresh Vegetables", 3.15f, "Made from scratch mashed potatoes with cream and butter", true, true);
         sideRepo.save(freshVegetables);

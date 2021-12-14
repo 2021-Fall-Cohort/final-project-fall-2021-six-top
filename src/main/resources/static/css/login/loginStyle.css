@@ -8,6 +8,8 @@ body
   background: linear-gradient(0deg, rgba(88,111,124,1) 0%, rgba(47,69,80,1) 50%, rgba(0,0,0,1) 100%);
   color: #cdcdcd;
   font-family: 'Inter', sans-serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .loginBody {
