@@ -38,6 +38,9 @@
 }
 
 .totalsViewBox{
+    /* display: flex;
+    color: black;
+    justify-content: space-around; */
     width: 85vw;
     overflow-y: scroll;
     align-self: center;
@@ -311,13 +314,21 @@
 }
 
 
+.totalsBox {
+    display: flex;
+    color: black;
+    justify-content: space-around;
+}
+
+
+
 /* IPHONE 8 */
 @media only screen and (max-width: 375px) {
 
     .body {
         display: flex;
         width: fit-content;
-        height: fit-content;
+        height: 100%;
     }
 
     .cards {
@@ -378,37 +389,41 @@
     }
 
     .sendFeatureButton {
-        font-size: medium;
+        font-size: x-small;
     }
     .nameTabButton {
         font-size: smaller;
     }
     .classicStartersButton {
-        font-size: medium;
+        font-size: x-small;
     }
 
     .classicEntreesButton {
-        font-size: medium;
+        font-size: x-small;
     }
 
     .classicDessertButton {
-        font-size: medium;
+        font-size: x-small;
     }
     
     .classicSidesButton {
-        font-size: medium;
+        font-size: x-small;
     }
 
     .classicSidesButton {
-        font-size: medium;
+        font-size: x-small;
     }
 
     .classicNonAlcoholicButton {
-        font-size: small;
+        font-size: x-small;
     }
 
     .classicAlcoholicButton {
-        font-size: medium;
+        font-size: x-small;
+    }
+
+    .nameTabButton {
+        font-size: x-small;
     }
 
     .individualItems {

@@ -4,40 +4,33 @@ let currentTicketId; //important for scope
 let currentTaxRate; //important for tax rate
 let currentTotal;
 
-
 ////  QUERY SELECTED BUTTONS   ////
 const sendFeatureButton = document.querySelector(".sendFeatureButton");
-
 const entreeButton = document.querySelector(".classicEntreesButton");
 const starterButton = document.querySelector(".classicStartersButton");
 const dessertButton = document.querySelector(".classicDessertButton");
 const sideButton = document.querySelector(".classicSidesButton");
 const nonAlcholicButton = document.querySelector(".classicNonAlcoholicButton");
 const alcoholicButton = document.querySelector(".classicAlcoholicButton");
-
 const individualItems = document.querySelector(".individualItems");
 const terminal = document.querySelector(".terminal");
-
 const ticketBox = document.querySelector("terminal");
 const totalsBox = document.querySelector(".totalsBox");
-
 const ticketNameInput = document.querySelector(".ticketNameInput");
 const nameTabButton = document.querySelector(".nameTabButton");
-// totalsBox.className = "totalsBox";
-// terminal.appendChild(totalsBox);
+
 buildMenuCards();
 startServerProcess();
+
 function startServerProcess() {
-  ////  FETCH FOR COMPANY PROFILE, DONT REPEAT  ////
 
   fetch("/Management/retrieveCompanyProfile/1")
-    .then((res) => res.json())
-    .then((companyProfileJson) => {
-      currentTaxRate = companyProfileJson.taxRate;
-      console.log("Tax Multiplyer: " + currentTaxRate);
-    });
+  .then((res) => res.json())
+  .then((companyProfileJson) => {
+    currentTaxRate = companyProfileJson.taxRate;
+    console.log("Tax Multiplyer: " + currentTaxRate);
+  });
 
-  ////  NEW TICKET FOR SCOPE, DONT REPEAT   ////
   console.log("log: started new ticket");
 
   const newTicketJson = {};
@@ -116,9 +109,15 @@ function startServerProcess() {
                   terminal.appendChild(ticketEntreeCard);
                   showTotal(currentTicketId);
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
+                ticketEntreeCard.remove();
+                showTotal(currentTicketId);
+              });
+              ticketEntreeCard.appendChild(deleteButton);
+              terminal.appendChild(ticketEntreeCard);
+              showTotal(currentTicketId);
+            })
+            .catch((err) => {
+              console.log(err);
             });
           });
         });
@@ -181,9 +180,15 @@ function startServerProcess() {
                   terminal.appendChild(ticketAppetizerCard);
                   showTotal(currentTicketId);
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
+                ticketAppetizerCard.remove();
+                showTotal(currentTicketId);
+              });
+              ticketAppetizerCard.appendChild(deleteButton);
+              terminal.appendChild(ticketAppetizerCard);
+              showTotal(currentTicketId);
+            })
+            .catch((err) => {
+              console.log(err);
             });
           });
         });
@@ -248,9 +253,15 @@ function startServerProcess() {
                   terminal.appendChild(ticketDessertCard);
                   showTotal(currentTicketId);
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
+                ticketDessertCard.remove();
+                showTotal(currentTicketId);
+              });
+              ticketDessertCard.appendChild(deleteButton);                  
+              terminal.appendChild(ticketDessertCard);
+              showTotal(currentTicketId);
+            })
+            .catch((err) => {
+              console.log(err);
             });
           });
         });
@@ -313,9 +324,15 @@ function startServerProcess() {
                   terminal.appendChild(ticketSideCard);
                   showTotal(currentTicketId);
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
+                ticketSideCard.remove();
+                showTotal(currentTicketId);
+              });
+              ticketSideCard.appendChild(deleteButton);                  
+              terminal.appendChild(ticketSideCard);
+              showTotal(currentTicketId);
+            })
+            .catch((err) => {
+              console.log(err);
             });
           });
         });
@@ -378,10 +395,57 @@ function startServerProcess() {
                   terminal.appendChild(ticketNonAlcoholicCard);
                   showTotal(currentTicketId);
 
+  /// NONALCOHOLIC  ////
+  nonAlcholicButton.addEventListener("click", () => {
+    clearChildren(individualItems);
+    fetch("/Floor/NonAlcoholicDrinks")
+      .then((res) => res.json())
+      .then((nonAlcholicJson) => {
+        nonAlcholicJson.forEach((nonAlcholic) => {
+          console.log(nonAlcholicJson);
+
+          const nonAlcholicCard = document.createElement("div");
+          nonAlcholicCard.className = "cards";
+          nonAlcholicCard.innerText =
+            nonAlcholic.name + " " + nonAlcholic.price;
+          individualItems.appendChild(nonAlcholicCard);
+
+          nonAlcholicCard.addEventListener("click", () => {
+            const nonAlcholicJson = {
+              name: nonAlcholic.name,
+              price: nonAlcholic.price,
+              isAlcoholic: nonAlcholic.isAlcoholic,
+            };
+            console.log(nonAlcholic.id);
+            fetch(`/Tickets/${currentTicketId}/addItem/nonAlcoholicDrink`, {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(nonAlcholicJson),
+
+            })
+            .then((res) => res.json())
+            .then((returnedNonAlcoholic) => {
+              const ticketNonAlcoholicCard = document.createElement("div");
+              ticketNonAlcoholicCard.className = "cards";
+              ticketNonAlcoholicCard.innerText = nonAlcholic.name + " " + nonAlcholic.price;
+              const deleteButton = document.createElement("button");
+              deleteButton.innerText = "Remove";
+              deleteButton.addEventListener("click", () => {
+                fetch(`/Floor/deleteSingleNonAlcoholicDrink/${returnedNonAlcoholic.id}`, {
+                  method: "DELETE"
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
+                ticketNonAlcoholicCard.remove();
+                showTotal(currentTicketId);
+              });
+              ticketNonAlcoholicCard.appendChild(deleteButton);
+              terminal.appendChild(ticketNonAlcoholicCard);
+              showTotal(currentTicketId);
+
+            })
+            .catch((err) => {
+              console.log(err);
             });
           });
         });
@@ -440,28 +504,33 @@ function startServerProcess() {
                   terminal.appendChild(ticketAlcoholicCard);
                   showTotal(currentTicketId);
                 })
-                .catch((err) => {
-                  console.log(err);
-                });
+                ticketAlcoholicCard.remove();
+                showTotal(currentTicketId);
+              });
+              ticketAlcoholicCard.appendChild(deleteButton);            
+              terminal.appendChild(ticketAlcoholicCard);
+              showTotal(currentTicketId);
+              console.log
+            })
+            .catch((err) => {
+              console.log(err);
             });
           });
         });
-    });
+      });
+  });
 
-    nameTabButton.addEventListener("click", () => {
-      fetch(`/Tickets/${currentTicketId}`)
-      .then((res) => res.json())
-      .then((currentTicket) => {
-       fetch(`/Tickets/${currentTicketId}/changeTicketName/?name=${ticketNameInput.value}`, {
-          method: "PATCH"
-        })
-      }) 
-    })
-
-  }
-
+  nameTabButton.addEventListener("click", () => {
+    fetch(`/Tickets/${currentTicketId}`)
+    .then((res) => res.json())
+    .then((currentTicket) => {
+      fetch(`/Tickets/${currentTicketId}/changeTicketName/?name=${ticketNameInput.value}`, {
+        method: "PATCH"
+      })
+    }) 
+  })
+}
     
-
 function clearChildren(element) {
   while (element.firstChild) {
     element.removeChild(element.lastChild);
@@ -470,17 +539,10 @@ function clearChildren(element) {
  
 /// SEND TICKET BUTTON
 sendFeatureButton.addEventListener("click", () => {
-
   fetch(`/Tickets/${currentTicketId}/saveToKitchen`);
-  
   clearChildren(terminal);
-  startServerProcess();  
+  startServerProcess();
 })
-
-///// Tab Name Modifier ////
-function tabNameMod() {
-
-}
 
 ///// Print Total Function ////
 function showTotal(currentTicketId) {
@@ -497,7 +559,6 @@ function showTotal(currentTicketId) {
   
     ticket.ticketItems.forEach((item) => {
       console.log("name: " + item.name + "price: " + item.price)
-      
       subTotal += item.price;
       totalTax += subTotal  * currentTaxRate ;
     })
@@ -515,6 +576,7 @@ function showTotal(currentTicketId) {
     totalsBox.appendChild(totalTaxText);
   
     const ticketTotalText = document.createElement("h3");
+
     ticketTotalText.className = "ticketTotalText";
     ticketTotalText.innerText = "Total: " + " $" + ticketTotal.toFixed(2);
     totalsBox.appendChild(ticketTotalText);
