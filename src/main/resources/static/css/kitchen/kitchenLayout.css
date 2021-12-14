@@ -9,74 +9,82 @@
 
 .mainDiv {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
     height: fit-content;
-    align-items: center;
+    margin-left: 3rem;
+    align-items: flex-start;
 }
 
 
-.cards {
+.kitchenCards {
     display: flex;
     flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     align-items: center;
-    width: 20rem;
-    height: 30rem;
-    justify-content: center;
-    margin-right: 10px;
-    margin-left: 10px;
-    justify-content: center;
+    width: 11rem;
+    height: fit-content;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    background-color: rgba(47, 79, 79, 0.747);
+    margin-right: 5px;
+    margin-left: 5px;
+    border-color: cadetblue;
+    background-color: rgb(255, 255, 255);
     border-radius: 2px;
-}
+    color: rgb(24, 24, 24);
+    
+    /* background-color: #fff; */
+    /* background-image:
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em; */
 
-.finishButton {
-    background-color: #000;
-    color: #F4F4F9;
-    text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
-    box-shadow: 0px 5px #b8dbd9;
-    width: 15vw;
-    height: 8vh;
-    border-radius: 10px;
+}
+.finishButton{
+    display:flex;
+    background-color:#14f90069;
+    border: none;
+    height: 35px;
     align-items: center;
+}
+.kitchenCardOrders{
+    display: flex;
+    color: #17305e;
+    margin-top: .75rem;
+    margin-left: 3rem;
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+}   
+.kitchenCardItems{
+    display: flex;
+    padding-left: .5rem;
+    margin: 7px;
+    font-weight: 500;
+}
+.mainTabsDiv{
+    display: flex;
+    flex-direction: column;
+}
+.tabCards{
+    display:flex;
+    background-color: white;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding-left: 7px;
+    padding-right: 5px;
+}
+.cardTabLabel{
+    display:flex;
+    font-size: larger;
+    color: rgb(20, 20, 20);
+
+}
+.tabPriceLabel{
+    display: flex;
+    margin-left: 8.5rem;
     font-size: medium;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 15px;
-}
-
-@media only screen and (max-width: 375px) {
-
-    .finishButton {
-    background-color: #000;
-    color: #F4F4F9;
-    text-shadow: 1px 1px 2px black, 0 0 25px #b8dbd9, 0 0 5px #D6EAE9;
-    box-shadow: 0px 5px #b8dbd9;
-    width: 20vw;
-    height: 8vh;
-    border-radius: 10px;
-    align-items: center;
-    font-size: x-small;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 15px;
-    }
-
-    .cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 20rem;
-        height: 30rem;
-        justify-content: center;
-        margin-right: 10px;
-        margin-left: 10px;
-        justify-content: center;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        background-color: rgba(47, 79, 79, 0.747);
-        border-radius: 2px;
-    }
-
+    color: rgb(65, 65, 65);
 }
