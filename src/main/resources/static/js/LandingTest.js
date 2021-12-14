@@ -94,10 +94,17 @@ function startServerProcess() {
                 .then((returnedEntree) => {
                   const ticketEntreeCard = document.createElement("div");
                   ticketEntreeCard.className = "cards";
-                  ticketEntreeCard.innerText = entree.name + " " + " " + " $" + entree.price;
+                  const itemName = document.createElement("pName");
+                  const itemPrice = document.createElement("p");
+                  itemName.innerText = entree.name;
+                  itemPrice.innerText = " $ " + entree.price;
+                  // ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  ticketEntreeCard.appendChild(itemName);
+                  ticketEntreeCard.appendChild(itemPrice);
                   ///
                   const deleteButton = document.createElement("button");
-                  deleteButton.innerText = "Remove";
+                  deleteButton.className = "removeButton"
+                  deleteButton.innerText = "X";
                   deleteButton.addEventListener("click", () => {
                     fetch(`/Floor/deleteSingleEntree/${returnedEntree.id}`, {
                       method: "DELETE"
@@ -105,8 +112,7 @@ function startServerProcess() {
                     ticketEntreeCard.remove();
                     showTotal(currentTicketId);
                   });
-                  ticketEntreeCard.appendChild(deleteButton);
-                  ///
+                  ticketEntreeCard.prepend(deleteButton);
                   terminal.appendChild(ticketEntreeCard);
                   showTotal(currentTicketId);
                 })
@@ -153,10 +159,17 @@ function startServerProcess() {
                 .then((returnedAppetizer) => {
                   const ticketAppetizerCard = document.createElement("div");
                   ticketAppetizerCard.className = "cards";
-                  ticketAppetizerCard.innerText = appetizer.name + " " + " " + " $" + appetizer.price;
+                  const itemName = document.createElement("pName");
+                  const itemPrice = document.createElement("p");
+                  itemName.innerText = appetizer.name;
+                  itemPrice.innerText = " $ " + appetizer.price;
+                  // ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  ticketAppetizerCard.appendChild(itemName);
+                  ticketAppetizerCard.appendChild(itemPrice);
                   ///
                   const deleteButton = document.createElement("button");
-                  deleteButton.innerText = "Remove";
+                  deleteButton.className = "removeButton"
+                  deleteButton.innerText = "X";
                   deleteButton.addEventListener("click", () => {
                     fetch(`/Floor/deleteSingleAppetizer/${returnedAppetizer.id}`, {
                       method: "DELETE"
@@ -164,7 +177,7 @@ function startServerProcess() {
                     ticketAppetizerCard.remove();
                     showTotal(currentTicketId);
                   });
-                  ticketAppetizerCard.appendChild(deleteButton);
+                  ticketAppetizerCard.prepend(deleteButton);
                   terminal.appendChild(ticketAppetizerCard);
                   showTotal(currentTicketId);
                 })
@@ -213,10 +226,17 @@ function startServerProcess() {
                 .then((returnedDessert) => {
                   const ticketDessertCard = document.createElement("div");
                   ticketDessertCard.className = "cards";
-                  ticketDessertCard.innerText = dessert.name + " " + " " + " $" + dessert.price;
+                  const itemName = document.createElement("pName");
+                  const itemPrice = document.createElement("p");
+                  itemName.innerText = dessert.name;
+                  itemPrice.innerText = " $ " + dessert.price;
+                  // ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  ticketDessertCard.appendChild(itemName);
+                  ticketDessertCard.appendChild(itemPrice);
                   ///
                   const deleteButton = document.createElement("button");
-                  deleteButton.innerText = "Remove";
+                  deleteButton.className = "removeButton"
+                  deleteButton.innerText = "X";
                   deleteButton.addEventListener("click", () => {
                     fetch(`/Floor/deleteSingleDessert/${returnedDessert.id}`, {
                       method: "DELETE"
@@ -224,7 +244,7 @@ function startServerProcess() {
                     ticketDessertCard.remove();
                     showTotal(currentTicketId);
                   });
-                  ticketDessertCard.appendChild(deleteButton);                  
+                  ticketDessertCard.prepend(deleteButton);                  
                   terminal.appendChild(ticketDessertCard);
                   showTotal(currentTicketId);
                 })
@@ -271,10 +291,17 @@ function startServerProcess() {
                 .then((returnedSide) => {
                   const ticketSideCard = document.createElement("div");
                   ticketSideCard.className = "cards";
-                  ticketSideCard.innerText = side.name + " " + " " + " $" + side.price;
+                  const itemName = document.createElement("pName");
+                  const itemPrice = document.createElement("p");
+                  itemName.innerText = side.name;
+                  itemPrice.innerText = " $ " + side.price;
+                  // ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  ticketSideCard.appendChild(itemName);
+                  ticketSideCard.appendChild(itemPrice);
                   ///
                   const deleteButton = document.createElement("button");
-                  deleteButton.innerText = "Remove";
+                  deleteButton.className = "removeButton"
+                  deleteButton.innerText = "X";
                   deleteButton.addEventListener("click", () => {
                     fetch(`/Floor/deleteSingleSide/${returnedSide.id}`, {
                       method: "DELETE"
@@ -282,7 +309,7 @@ function startServerProcess() {
                     ticketSideCard.remove();
                     showTotal(currentTicketId);
                   });
-                  ticketSideCard.appendChild(deleteButton);                  
+                  ticketSideCard.prepend(deleteButton);                  
                   terminal.appendChild(ticketSideCard);
                   showTotal(currentTicketId);
                 })
@@ -329,10 +356,17 @@ function startServerProcess() {
                 .then((returnedNonAlcoholic) => {
                   const ticketNonAlcoholicCard = document.createElement("div");
                   ticketNonAlcoholicCard.className = "cards";
-                  ticketNonAlcoholicCard.innerText = nonAlcholic.name + " " + " " + " $" + nonAlcholic.price;
+                  const itemName = document.createElement("pName");
+                  const itemPrice = document.createElement("p");
+                  itemName.innerText = nonAlcholic.name;
+                  itemPrice.innerText = " $ " + nonAlcholic.price;
+                  // ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  ticketNonAlcoholicCard.appendChild(itemName);
+                  ticketNonAlcoholicCard.appendChild(itemPrice);
                   ///
                   const deleteButton = document.createElement("button");
-                  deleteButton.innerText = "Remove";
+                  deleteButton.className = "removeButton"
+                  deleteButton.innerText = "X";
                   deleteButton.addEventListener("click", () => {
                     fetch(`/Floor/deleteSingleNonAlcoholicDrink/${returnedNonAlcoholic.id}`, {
                       method: "DELETE"
@@ -340,7 +374,7 @@ function startServerProcess() {
                     ticketNonAlcoholicCard.remove();
                     showTotal(currentTicketId);
                   });
-                  ticketNonAlcoholicCard.appendChild(deleteButton);
+                  ticketNonAlcoholicCard.prepend(deleteButton);
                   terminal.appendChild(ticketNonAlcoholicCard);
                   showTotal(currentTicketId);
 
@@ -384,10 +418,17 @@ function startServerProcess() {
                 .then((RetunedAlcoholic) => {
                   const ticketAlcoholicCard = document.createElement("div");
                   ticketAlcoholicCard.className = "cards";
-                  ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  const itemName = document.createElement("pName");
+                  const itemPrice = document.createElement("p");
+                  itemName.innerText = alcholic.name;
+                  itemPrice.innerText = " $ " + alcholic.price;
+                  // ticketAlcoholicCard.innerText = alcholic.name + " " + " " + " $" + alcholic.price;
+                  ticketAlcoholicCard.appendChild(itemName);
+                  ticketAlcoholicCard.appendChild(itemPrice);
                   ///
                   const deleteButton = document.createElement("button");
-                  deleteButton.innerText = "Remove";
+                  deleteButton.className = "removeButton"
+                  deleteButton.innerText = "X";
                   deleteButton.addEventListener("click", () => {
                     fetch(`/Floor/deleteSingleAlcoholicDrink/${RetunedAlcoholic.id}`, {
                       method: "DELETE"
@@ -395,10 +436,9 @@ function startServerProcess() {
                     ticketAlcoholicCard.remove();
                     showTotal(currentTicketId);
                   });
-                  ticketAlcoholicCard.appendChild(deleteButton);            
+                  ticketAlcoholicCard.prepend(deleteButton);            
                   terminal.appendChild(ticketAlcoholicCard);
                   showTotal(currentTicketId);
-                  console.log
                 })
                 .catch((err) => {
                   console.log(err);

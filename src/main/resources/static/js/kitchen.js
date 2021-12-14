@@ -25,7 +25,7 @@ fetch("/Tickets/retireveAllKitchenTickets")
       let currentTicketid = CurrentOpenTicket.id;
 
       const orderCard = document.createElement("div");
-      orderCard.className = "cards";
+      orderCard.className = "kitchenCards";
       
       var totalPrice = 0;
       var alltax = 0;
@@ -33,6 +33,7 @@ fetch("/Tickets/retireveAllKitchenTickets")
       CurrentOpenTicket.ticketItems.forEach((item) => {
       
         const itemLabel = document.createElement("h3");
+        itemLabel.className = "kitchenCardItems"
         itemLabel.innerText = item.name;
         orderCard.appendChild(itemLabel);
         console.log("items in order...");
@@ -51,13 +52,14 @@ fetch("/Tickets/retireveAllKitchenTickets")
   
       mainDiv.appendChild(orderCard);
       const cardLabel1 = document.createElement("h1");
-      cardLabel1.className = "cardLabels";
+      cardLabel1.className = "kitchenCardOrders";
       cardLabel1.innerText = "Order # " + CurrentOpenTicket.id;
       orderCard.appendChild(cardLabel1);
       mainKitchenPage.appendChild(mainDiv)
 
       const finishButton = document.createElement("button");
-      finishButton.innerText = "Finished";
+      finishButton.className = "finishButton";
+      finishButton.innerText = "Finished!";
       finishButton.addEventListener("click", () => {
         fetch(`/Tickets/${currentTicketid}/finishTicket`, {
           method: "DELETE"

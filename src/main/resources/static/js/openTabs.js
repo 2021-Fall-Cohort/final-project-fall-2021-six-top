@@ -1,7 +1,7 @@
 const openTabsPage = document.querySelector(".openTabsPage")
 const reopenTabsButton = document.querySelector(".reopenTabButton");
-const mainDiv = document.createElement("div");
-mainDiv.className = "mainDiv";
+const mainTabsDiv = document.createElement("div");
+mainTabsDiv.className = "mainTabsDiv";
 let currentTaxRate;
 
 fetch("/Tickets/retireveAllKitchenTickets")
@@ -24,7 +24,7 @@ function showKitchen(openTicketJson) {
           let currentTicketid = CurrentOpenTicket.id;
     
           const orderCard = document.createElement("div");
-          orderCard.className = "cards";
+          orderCard.className = "tabCards";
           
           var totalPrice = 0;
           var alltax = 0;
@@ -45,15 +45,16 @@ function showKitchen(openTicketJson) {
         //   const taxLable = document.createElement("h2"); // total tax
         //   taxLable.innerText = "Tax: ";
         //   orderCard.appendChild(taxLable);
-          mainDiv.appendChild(orderCard);
+          mainTabsDiv.appendChild(orderCard);
           const cardLabel1 = document.createElement("h1");
-          cardLabel1.className = "cardLabels";
+          cardLabel1.className = "cardTabLabel";
           cardLabel1.innerText = "Order # " + CurrentOpenTicket.id;
           orderCard.appendChild(cardLabel1);
-          openTabsPage.appendChild(mainDiv)
+          openTabsPage.appendChild(mainTabsDiv)
 
           const totalPriceLable = document.createElement("h2"); // total price + tax
-          totalPriceLable.innerText = "Total: " + totalPrice.toFixed(2);
+          totalPriceLable.className = "tabPriceLabel";
+          totalPriceLable.innerText = "Total: $" + totalPrice.toFixed(2);
           orderCard.appendChild(totalPriceLable);
 
         //   reopenTabButton.addEventListener("click", () => {
